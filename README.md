@@ -1,4 +1,4 @@
-# 努莉市场(不谐音怕违规)
+# 模拟人生【 **一个开启你的魔幻人生的插件** 】
 ![动态访问量](https://count.kjchmc.cn/get/@sims-plugin?theme=rule34)  
 为[Yunzai-Bot V3](https://gitee.com/Le-niao/Yunzai-Bot)提供`努莉市场文游`  
 如出现插件报错或功能不适配等情况请及时联系[作者](https://gitee.com/Tloml-Starry)或发起[issues](https://gitee.com/Tloml-Starry/Slave-Market/issues)  
