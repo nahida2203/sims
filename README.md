@@ -14,7 +14,7 @@
 ## 安装&更新
 在Yunzai根目录运行命令
 ```
-git clone https://gitee.com/Tloml-Starry/Slave-Market ./plugins/Slave-Market/
+git clone https://gitee.com/nahida22/sims-plugin.git ./plugins/sims-plugin/
 pnpm i
 ```
 
