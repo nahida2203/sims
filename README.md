@@ -1,8 +1,8 @@
 # 模拟人生【 **一个开启你的魔幻人生的插件** 】
 ![动态访问量](https://count.kjchmc.cn/get/@sims-plugin?theme=rule34)  
-为[Yunzai-Bot V3](https://gitee.com/Le-niao/Yunzai-Bot)提供`努莉市场文游`  
-如出现插件报错或功能不适配等情况请及时联系[作者](https://gitee.com/Tloml-Starry)或发起[issues](https://gitee.com/Tloml-Starry/Slave-Market/issues)  
-参与贡献请Fock本仓库修改代码后发起[Pull Request](https://gitee.com/Tloml-Starry/Slave-Market/pulls)  
+为[Yunzai-Bot V3](https://gitee.com/Le-niao/Yunzai-Bot)提供`模拟人生文游`  
+如出现插件报错或功能不适配等情况请及时联系[作者](https://gitee.com/nahida22)或发起[issues](https://gitee.com/nahida22/sims-plugin/issues)  
+参与贡献请Fock本仓库修改代码后发起[Pull Request](https://gitee.com/nahida22/sims-plugin/pulls)  
 如果你对本仓库表示支持，请点点你手中的Star
 ## 联系我
 点开我的主页私信我
