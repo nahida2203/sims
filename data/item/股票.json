@@ -1,0 +1,23 @@
+{
+    "AAPL": {
+        "name": "苹果公司",
+        "price": 150,
+        "volatility": 0.05
+    },
+    "GOOGL": {
+        "name": "谷歌公司",
+        "price": 2800,
+        "volatility": 0.03
+    },
+    "AMZN": {
+        "name": "亚马逊公司",
+        "price": 3400,
+        "volatility": 0.04
+    },
+    "TSLA": {
+        "name": "特斯拉公司",
+        "price": 700,
+        "volatility": 0.06
+    }
+    
+}

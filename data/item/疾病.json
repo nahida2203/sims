@@ -1,0 +1,82 @@
+[
+    {
+        "name": "流感",
+        "symptoms": "发热、咳嗽、乏力",
+        "deathRate": 0.05
+    },
+    {
+        "name": "感冒",
+        "symptoms": "咳嗽、流鼻涕",
+        "deathRate": 0.01
+    },
+    {
+        "name": "头痛",
+        "symptoms": "剧烈头痛、恶心",
+        "deathRate": 0.02
+    },
+    {
+        "name": "胃病",
+        "symptoms": "腹痛、呕吐",
+        "deathRate": 0.03
+    },
+    {
+        "name": "过敏",
+        "symptoms": "皮疹、瘙痒",
+        "deathRate": 0.01
+    },
+    {
+        "name": "肺炎",
+        "symptoms": "咳嗽、呼吸困难",
+        "deathRate": 0.1
+    },
+    {
+        "name": "肠炎",
+        "symptoms": "腹泻、腹痛",
+        "deathRate": 0.02
+    },
+    {
+        "name": "中暑",
+        "symptoms": "头晕、恶心",
+        "deathRate": 0.03
+    },
+    {
+        "name": "糖尿病",
+        "symptoms": "口渴、频尿",
+        "deathRate": 0.04
+    },
+    {
+        "name": "高血压",
+        "symptoms": "头痛、眩晕",
+        "deathRate": 0.03
+    },
+    {
+        "name": "心脏病",
+        "symptoms": "胸痛、呼吸困难",
+        "deathRate": 0.2
+    },
+    {
+        "name": "肝病",
+        "symptoms": "疲劳、黄疸",
+        "deathRate": 0.1
+    },
+    {
+        "name": "肾病",
+        "symptoms": "水肿、尿少",
+        "deathRate": 0.1
+    },
+    {
+        "name": "抑郁症",
+        "symptoms": "情绪低落、失眠",
+        "deathRate": 0.05
+    },
+    {
+        "name": "焦虑症",
+        "symptoms": "紧张、心慌",
+        "deathRate": 0.02
+    },
+    {
+        "name": "癌症",
+        "symptoms": "体重下降、疲劳",
+        "deathRate": 0.5
+    }
+]

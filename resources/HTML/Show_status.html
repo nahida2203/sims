@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息</title>
+    <style>
+        @font-face {
+    font-family: "miao";
+    src: url(./也字工厂喵喵体.ttf);
+}
+        body {
+            font-size: auto;
+            font-family: "miao";
+            background-color: #fce4ec; /* 背景颜色 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin: 0;
+        }
+        .user-info {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            padding: 30px;
+            position: relative;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .profile-icon {
+            width: 80px; /* 增大头像框尺寸 */
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid #ff69b4; /* 添加边框样式 */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* 确保图片不会溢出 */
+            background-color: #ffe7f0; /* 头像框背景颜色 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .profile-icon img {
+            width: 100%; /* 使图片占满整个头像框 */
+            height: 100%;
+            object-fit: cover; /* 保持图片的纵横比并裁剪以填满整个头像框 */
+            position: relative;
+            z-index: 0; /* 确保图片在头像框下面 */
+        }
+        .profile-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('{{cssFile}}/player/user_state1.png'); /* 头像框图片 */
+            background-size: cover; /* 确保框图覆盖整个区域 */
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+            z-index: 1; /* 确保头像框在图片上面 */
+        }
+        .level {
+            font-family: "miao";
+            font-size: 20px;
+            color: #ff1493; /* 等级颜色 */
+            font-weight: bold;
+        }
+        .stats {
+            background-color: #ffe7f0; /* 状态背景颜色 */
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .category {
+            font-family: "miao";
+            margin: 20px 0;
+        }
+        .category h3 {
+            font-family: "miao";
+            color: #ff1493; /* 类别标题颜色 */
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .category p {
+            font-family: "miao";
+            margin: 5px 0;
+            color: #444;
+            font-size: 16px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #888;
+        }
+        .heart {
+            color: #ff69b4;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-info">
+        <div class="header">
+            <div class="profile-icon">
+                <img src="{{cssFile}}/1.jpg" alt=""> 
+            </div>
+            <div class="level">等级: {{ulv}}</div>
+        </div>
+        <div class="category">
+            <h3>玩家信息 </h3>
+            <p>姓名: {{un}}</p>
+            <p>性别: {{ug}}</p>
+            <p>心情: {{umd}}</p>
+            <p>疾病: {{ud}}</p>
+            <p>魅力值: {{uc}}</p>
+            <p>生命值: {{ul}}</p>
+            <p>饱食度: {{uh}}</p>
+            <p>口渴度: {{ut}}</p>
+            <div class="category">
+                <h3>基本信息 </h3>
+                <p>金钱: {{um}}</p>
+                <p>幸福度: {{uh}}</p>
+                <p>魅力值: {{uc}}</p>
+                <p>体力: {{ust}}</p> 
+                <p>职业: {{uj}}</p>
+                <p>背包容量: {{ubl}}/{{ublc}}</p>
+                <p>恋爱状态: {{urs}}</p> 
+                <p>家庭幸福度: {{ufh}}</p>
+                <p>恋爱对象好感度: {{up}}</p>
+            </div>
+            <div class="category">
+                <h3>世界信息</h3>
+                <p>当前天气: {{uw}}</p>
+                <p>当前温度: {{utt}}</p>
+                <p>超时任务数量: {{uot}}</p>
+            </div>
+        </div>
+        <div class="footer">sims-plugin</div>
+    </div>
+</body>
+</html>

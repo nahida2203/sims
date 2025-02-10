@@ -1,0 +1,562 @@
+[
+    {
+        "id": 1,
+        "name": "红色T恤",
+        "price": 100,
+        "type": "上装",
+        "description": "舒适的红色T恤，适合日常穿着。",
+        "attributes": {
+            "health": 10,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 2,
+        "name": "蓝色牛仔裤",
+        "price": 150,
+        "type": "下装",
+        "description": "经典的蓝色牛仔裤，耐磨且时尚。",
+        "attributes": {
+            "health": 5,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 3,
+        "name": "黑色连衣裙",
+        "price": 200,
+        "type": "连体装",
+        "description": "优雅的黑色连衣裙，适合晚会和聚会。",
+        "attributes": {
+            "health": 15,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 4,
+        "name": "休闲套装",
+        "price": 300,
+        "type": "套装",
+        "description": "时尚的休闲套装，适合户外活动。",
+        "attributes": {
+            "health": 20,
+            "health_percentage": 0,
+            "attack": 5,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 5,
+        "name": "裙摆长裙",
+        "price": 250,
+        "type": "裙装",
+        "description": "飘逸的长裙，适合夏季穿着。",
+        "attributes": {
+            "health": 12,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 6,
+        "name": "灰色卫衣",
+        "price": 120,
+        "type": "上装",
+        "description": "舒适的灰色卫衣，适合休闲时光。",
+        "attributes": {
+            "health": 8,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 7,
+        "name": "运动短裤",
+        "price": 80,
+        "type": "下装",
+        "description": "透气的运动短裤，适合健身穿着。",
+        "attributes": {
+            "health": 5,
+            "health_percentage": 0,
+            "attack": 2,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 8,
+        "name": "白色衬衫",
+        "price": 150,
+        "type": "上装",
+        "description": "经典的白色衬衫，商务和休闲皆宜。",
+        "attributes": {
+            "health": 10,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 9,
+        "name": "粉色连衣裙",
+        "price": 220,
+        "type": "连体装",
+        "description": "可爱的粉色连衣裙，适合约会。",
+        "attributes": {
+            "health": 15,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 10,
+        "name": "运动套装",
+        "price": 250,
+        "type": "套装",
+        "description": "舒适的运动套装，适合运动时穿着。",
+        "attributes": {
+            "health": 20,
+            "health_percentage": 0,
+            "attack": 10,
+            "crit_rate": 0
+        },
+        "gender": "男女"
+    },
+    {
+        "id": 11,
+        "name": "黑色修身裤",
+        "price": 180,
+        "type": "下装",
+        "description": "时尚的黑色修身裤，展现身材曲线。",
+        "attributes": {
+            "health": 5,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 12,
+        "name": "白色短袖",
+        "price": 90,
+        "type": "上装",
+        "description": "清爽的白色短袖，适合夏季穿着。",
+        "attributes": {
+            "health": 6,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 13,
+        "name": "蓝色牛仔外套",
+        "price": 220,
+        "type": "上装",
+        "description": "经典的牛仔外套，永不过时的时尚单品。",
+        "attributes": {
+            "health": 12,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男女"
+    },
+    {
+        "id": 14,
+        "name": "黑色运动鞋",
+        "price": 300,
+        "type": "道具",
+        "description": "舒适的黑色运动鞋，适合各种运动。",
+        "attributes": {
+            "health": 0,
+            "health_percentage": 0,
+            "attack": 5,
+            "crit_rate": 0
+        },
+        "gender": "男女"
+    },
+    {
+        "id": 15,
+        "name": "红色裙子",
+        "price": 150,
+        "type": "裙装",
+        "description": "鲜艳的红色裙子，适合聚会穿着。",
+        "attributes": {
+            "health": 7,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 16,
+        "name": "紫色连衣裙",
+        "price": 210,
+        "type": "连体装",
+        "description": "优雅的紫色连衣裙，适合正式场合。",
+        "attributes": {
+            "health": 15,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 17,
+        "name": "运动背心",
+        "price": 70,
+        "type": "上装",
+        "description": "透气的运动背心，适合健身房使用。",
+        "attributes": {
+            "health": 3,
+            "health_percentage": 0,
+            "attack": 2,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 18,
+        "name": "长款外套",
+        "price": 400,
+        "type": "上装",
+        "description": "时尚的长款外套，适合秋冬季节。",
+        "attributes": {
+            "health": 20,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男女"
+    },
+    {
+        "id": 19,
+        "name": "白色短裙",
+        "price": 130,
+        "type": "裙装",
+        "description": "清新的白色短裙，适合夏季穿着。",
+        "attributes": {
+            "health": 5,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 20,
+        "name": "迷彩裤",
+        "price": 160,
+        "type": "下装",
+        "description": "时尚的迷彩裤，适合户外活动。",
+        "attributes": {
+            "health": 8,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 21,
+        "name": "白色运动鞋",
+        "price": 250,
+        "type": "道具",
+        "description": "经典的白色运动鞋，适合日常穿着。",
+        "attributes": {
+            "health": 0,
+            "health_percentage": 0,
+            "attack": 5,
+            "crit_rate": 0
+        },
+        "gender": "男女"
+    },
+    {
+        "id": 22,
+        "name": "黑色风衣",
+        "price": 350,
+        "type": "上装",
+        "description": "优雅的黑色风衣，适合秋冬季节。",
+        "attributes": {
+            "health": 18,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男女"
+    },
+    {
+        "id": 23,
+        "name": "条纹衬衫",
+        "price": 160,
+        "type": "上装",
+        "description": "时尚的条纹衬衫，适合商务和休闲场合。",
+        "attributes": {
+            "health": 10,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 24,
+        "name": "运动长裤",
+        "price": 120,
+        "type": "下装",
+        "description": "舒适的运动长裤，适合运动时穿着。",
+        "attributes": {
+            "health": 5,
+            "health_percentage": 0,
+            "attack": 2,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 25,
+        "name": "蕾丝裙",
+        "price": 300,
+        "type": "裙装",
+        "description": "精美的蕾丝裙，适合晚宴和派对。",
+        "attributes": {
+            "health": 20,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 26,
+        "name": "运动夹克",
+        "price": 220,
+        "type": "上装",
+        "description": "时尚的运动夹克，适合户外活动。",
+        "attributes": {
+            "health": 15,
+            "health_percentage": 0,
+            "attack": 5,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 27,
+        "name": "黑色高跟鞋",
+        "price": 250,
+        "type": "道具",
+        "description": "优雅的黑色高跟鞋，适合正式场合。",
+        "attributes": {
+            "health": 0,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 5
+        },
+        "gender": "女"
+    },
+    {
+        "id": 28,
+        "name": "红色运动衫",
+        "price": 130,
+        "type": "上装",
+        "description": "舒适的红色运动衫，适合运动时穿着。",
+        "attributes": {
+            "health": 5,
+            "health_percentage": 0,
+            "attack": 3,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 29,
+        "name": "白色长裙",
+        "price": 180,
+        "type": "裙装",
+        "description": "清新的白色长裙，适合夏季穿着。",
+        "attributes": {
+            "health": 10,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 30,
+        "name": "黑色休闲裤",
+        "price": 140,
+        "type": "下装",
+        "description": "舒适的黑色休闲裤，适合日常穿着。",
+        "attributes": {
+            "health": 6,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 31,
+        "name": "蓝色衬衫",
+        "price": 160,
+        "type": "上装",
+        "description": "清新的蓝色衬衫，适合商务场合。",
+        "attributes": {
+            "health": 10,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 32,
+        "name": "紫色短裙",
+        "price": 130,
+        "type": "裙装",
+        "description": "时尚的紫色短裙，适合休闲场合。",
+        "attributes": {
+            "health": 5,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 33,
+        "name": "棕色皮鞋",
+        "price": 300,
+        "type": "道具",
+        "description": "经典的棕色皮鞋，适合正式场合。",
+        "attributes": {
+            "health": 0,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 5
+        },
+        "gender": "男"
+    },
+    {
+        "id": 34,
+        "name": "运动袜",
+        "price": 20,
+        "type": "道具",
+        "description": "舒适的运动袜，适合各种运动。",
+        "attributes": {
+            "health": 0,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男女"
+    },
+    {
+        "id": 35,
+        "name": "黑色休闲鞋",
+        "price": 220,
+        "type": "道具",
+        "description": "时尚的黑色休闲鞋，适合日常穿着。",
+        "attributes": {
+            "health": 0,
+            "health_percentage": 0,
+            "attack": 5,
+            "crit_rate": 0
+        },
+        "gender": "男女"
+    },
+    {
+        "id": 36,
+        "name": "灰色长裤",
+        "price": 150,
+        "type": "下装",
+        "description": "舒适的灰色长裤，适合冬季穿着。",
+        "attributes": {
+            "health": 8,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 37,
+        "name": "粉色外套",
+        "price": 300,
+        "type": "上装",
+        "description": "可爱的粉色外套，适合春秋季节。",
+        "attributes": {
+            "health": 12,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 38,
+        "name": "白色运动裤",
+        "price": 120,
+        "type": "下装",
+        "description": "舒适的白色运动裤，适合运动时穿着。",
+        "attributes": {
+            "health": 5,
+            "health_percentage": 0,
+            "attack": 2,
+            "crit_rate": 0
+        },
+        "gender": "男"
+    },
+    {
+        "id": 39,
+        "name": "黑色高腰裙",
+        "price": 200,
+        "type": "裙装",
+        "description": "时尚的高腰裙，适合各种场合。",
+        "attributes": {
+            "health": 10,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    },
+    {
+        "id": 40,
+        "name": "牛仔短裤",
+        "price": 130,
+        "type": "下装",
+        "description": "时尚的牛仔短裤，适合夏季穿着。",
+        "attributes": {
+            "health": 6,
+            "health_percentage": 0,
+            "attack": 0,
+            "crit_rate": 0
+        },
+        "gender": "女"
+    }
+]

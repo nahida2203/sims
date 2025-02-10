@@ -1,0 +1,477 @@
+[
+  {
+    "id": 1,
+    "name": "武器1",
+    "type": "复古",
+    "attributes": {
+      "lifeBonus": 20,
+      "hitRate": 0.2145827457640419,
+      "penetration": 4,
+      "attack": 24,
+      "critRate": 0.36868704835612887,
+      "explosionDamage": 40
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把近程武器，适合各种战斗场合。",
+    "power": 79,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 2,
+    "name": "武器2",
+    "type": "中程",
+    "attributes": {
+      "lifeBonus": 11,
+      "hitRate": 0.6120772224982227,
+      "penetration": 5,
+      "attack": 13,
+      "critRate": 0.7063151500616021,
+      "explosionDamage": 31
+    },
+    "price": 894,
+    "description": "这是一把中程武器，适合各种战斗场合。",
+    "power": 72,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "蓝色"
+  },
+  {
+    "id": 3,
+    "name": "武器3",
+    "type": "无人",
+    "attributes": {
+      "lifeBonus": 26,
+      "hitRate": 0.3063996211131874,
+      "penetration": 15,
+      "attack": 35,
+      "critRate": 0.11144519450517065,
+      "explosionDamage": 12
+    },
+    "price": 711,
+    "description": "这是一把无人武器，适合各种战斗场合。",
+    "power": 41,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "白色"
+  },
+  {
+    "id": 4,
+    "name": "武器4",
+    "type": "复古",
+    "attributes": {
+      "lifeBonus": 46,
+      "hitRate": 0.3165591166907036,
+      "penetration": 6,
+      "attack": 37,
+      "critRate": 0.4211035746497498,
+      "explosionDamage": 78
+    },
+    "price": 686,
+    "description": "这是一把投掷武器，适合各种战斗场合。",
+    "power": 92,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "蓝色"
+  },
+  {
+    "id": 5,
+    "name": "武器5",
+    "type": "无人",
+    "attributes": {
+      "lifeBonus": 11,
+      "hitRate": 0.5347798109700463,
+      "penetration": 0,
+      "attack": 16,
+      "critRate": 0.5402861467005018,
+      "explosionDamage": 1
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把近程武器，适合各种战斗场合。",
+    "power": 60,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 6,
+    "name": "武器6",
+    "type": "投掷",
+    "attributes": {
+      "lifeBonus": 2,
+      "hitRate": 0.7079979766374649,
+      "penetration": 10,
+      "attack": 22,
+      "critRate": 0.6157117436309414,
+      "explosionDamage": 16
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把近程武器，适合各种战斗场合。",
+    "power": 12,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 7,
+    "name": "武器7",
+    "type": "近程",
+    "attributes": {
+      "lifeBonus": 3,
+      "hitRate": 0.3311434179232384,
+      "penetration": 7,
+      "attack": 13,
+      "critRate": 0.16466478445370436,
+      "explosionDamage": 63
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把近程武器，适合各种战斗场合。",
+    "power": 60,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 8,
+    "name": "武器8",
+    "type": "中程",
+    "attributes": {
+      "lifeBonus": 13,
+      "hitRate": 0.4915390078485835,
+      "penetration": 17,
+      "attack": 39,
+      "critRate": 0.09731400132122614,
+      "explosionDamage": 18
+    },
+    "price": 707,
+    "description": "这是一把无人武器，适合各种战斗场合。",
+    "power": 75,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "蓝色"
+  },
+  {
+    "id": 9,
+    "name": "武器9",
+    "type": "中程",
+    "attributes": {
+      "lifeBonus": 33,
+      "hitRate": 0.46138889368797953,
+      "penetration": 8,
+      "attack": 11,
+      "critRate": 0.6273327768578312,
+      "explosionDamage": 96
+    },
+    "price": 88,
+    "description": "这是一把投掷武器，适合各种战斗场合。",
+    "power": 29,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "白色"
+  },
+  {
+    "id": 10,
+    "name": "武器10",
+    "type": "投掷",
+    "attributes": {
+      "lifeBonus": 47,
+      "hitRate": 0.9159022416248697,
+      "penetration": 18,
+      "attack": 33,
+      "critRate": 0.6291243472141432,
+      "explosionDamage": 98
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把中程武器，适合各种战斗场合。",
+    "power": 56,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 11,
+    "name": "武器11",
+    "type": "复古",
+    "attributes": {
+      "lifeBonus": 29,
+      "hitRate": 0.846041638327981,
+      "penetration": 2,
+      "attack": 28,
+      "critRate": 0.4773825372286531,
+      "explosionDamage": 3
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把中程武器，适合各种战斗场合。",
+    "power": 16,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 12,
+    "name": "武器12",
+    "type": "近程",
+    "attributes": {
+      "lifeBonus": 46,
+      "hitRate": 0.426360207573073,
+      "penetration": 19,
+      "attack": 17,
+      "critRate": 0.3673106309519152,
+      "explosionDamage": 58
+    },
+    "price": 689,
+    "description": "这是一把投掷武器，适合各种战斗场合。",
+    "power": 66,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "蓝色"
+  },
+  {
+    "id": 13,
+    "name": "武器13",
+    "type": "投掷",
+    "attributes": {
+      "lifeBonus": 37,
+      "hitRate": 0.9044219145592158,
+      "penetration": 3,
+      "attack": 14,
+      "critRate": 0.3658564466575591,
+      "explosionDamage": 5
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把近程武器，适合各种战斗场合。",
+    "power": 98,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 14,
+    "name": "武器14",
+    "type": "近程",
+    "attributes": {
+      "lifeBonus": 29,
+      "hitRate": 0.09695656007879472,
+      "penetration": 17,
+      "attack": 22,
+      "critRate": 0.8612829858098028,
+      "explosionDamage": 94
+    },
+    "price": 3038,
+    "description": "这是一把远程武器，适合各种战斗场合。",
+    "power": 37,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "紫色"
+  },
+  {
+    "id": 15,
+    "name": "武器15",
+    "type": "远程",
+    "attributes": {
+      "lifeBonus": 45,
+      "hitRate": 0.765820547357924,
+      "penetration": 0,
+      "attack": 12,
+      "critRate": 0.6389324322303223,
+      "explosionDamage": 94
+    },
+    "price": 701,
+    "description": "这是一把投掷武器，适合各种战斗场合。",
+    "power": 89,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "蓝色"
+  },
+  {
+    "id": 16,
+    "name": "武器16",
+    "type": "近程",
+    "attributes": {
+      "lifeBonus": 12,
+      "hitRate": 0.8573165565369694,
+      "penetration": 13,
+      "attack": 13,
+      "critRate": 0.902884404368512,
+      "explosionDamage": 34
+    },
+    "price": 50171,
+    "description": "这是一把复古武器，适合各种战斗场合。",
+    "power": 23,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "金色"
+  },
+  {
+    "id": 17,
+    "name": "武器17",
+    "type": "中程",
+    "attributes": {
+      "lifeBonus": 17,
+      "hitRate": 0.1454527781816406,
+      "penetration": 16,
+      "attack": 37,
+      "critRate": 0.11945654726365729,
+      "explosionDamage": 14
+    },
+    "price": 910,
+    "description": "这是一把远程武器，适合各种战斗场合。",
+    "power": 26,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "蓝色"
+  },
+  {
+    "id": 18,
+    "name": "武器18",
+    "type": "近程",
+    "attributes": {
+      "lifeBonus": 45,
+      "hitRate": 0.19857106681862224,
+      "penetration": 2,
+      "attack": 33,
+      "critRate": 0.17849717211086613,
+      "explosionDamage": 9
+    },
+    "price": 693,
+    "description": "这是一把复古武器，适合各种战斗场合。",
+    "power": 8,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "蓝色"
+  },
+  {
+    "id": 19,
+    "name": "武器19",
+    "type": "远程",
+    "attributes": {
+      "lifeBonus": 39,
+      "hitRate": 0.7837822883650192,
+      "penetration": 0,
+      "attack": 28,
+      "critRate": 0.7125041701022128,
+      "explosionDamage": 14
+    },
+    "price": 955,
+    "description": "这是一把中程武器，适合各种战斗场合。",
+    "power": 6,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "蓝色"
+  },
+  {
+    "id": 20,
+    "name": "武器20",
+    "type": "近程",
+    "attributes": {
+      "lifeBonus": 8,
+      "hitRate": 0.18383897313394293,
+      "penetration": 0,
+      "attack": 32,
+      "critRate": 0.46780249329364,
+      "explosionDamage": 1
+    },
+    "price": 17136,
+    "description": "这是一把近程武器，适合各种战斗场合。",
+    "power": 4,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "金色"
+  },
+  {
+    "id": 21,
+    "name": "武器21",
+    "type": "近程",
+    "attributes": {
+      "lifeBonus": 45,
+      "hitRate": 0.4769298682682599,
+      "penetration": 11,
+      "attack": 26,
+      "critRate": 0.11181236516228132,
+      "explosionDamage": 81
+    },
+    "price": 982,
+    "description": "这是一把无人武器，适合各种战斗场合。",
+    "power": 85,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "白色"
+  },
+  {
+    "id": 22,
+    "name": "武器22",
+    "type": "中程",
+    "attributes": {
+      "lifeBonus": 5,
+      "hitRate": 0.8070561780526626,
+      "penetration": 19,
+      "attack": 10,
+      "critRate": 0.6770411517855253,
+      "explosionDamage": 17
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把复古武器，适合各种战斗场合。",
+    "power": 12,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 23,
+    "name": "武器23",
+    "type": "无人",
+    "attributes": {
+      "lifeBonus": 26,
+      "hitRate": 0.5542238482535071,
+      "penetration": 1,
+      "attack": 38,
+      "critRate": 0.3535359766392687,
+      "explosionDamage": 25
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把近程武器，适合各种战斗场合。",
+    "power": 29,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 24,
+    "name": "武器24",
+    "type": "复古",
+    "attributes": {
+      "lifeBonus": 21,
+      "hitRate": 0.9993446347385597,
+      "penetration": 1,
+      "attack": 23,
+      "critRate": 0.8330149287792701,
+      "explosionDamage": 20
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把复古武器，适合各种战斗场合。",
+    "power": 17,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  },
+  {
+    "id": 25,
+    "name": "武器25",
+    "type": "投掷",
+    "attributes": {
+      "lifeBonus": 4,
+      "hitRate": 0.20187305903576824,
+      "penetration": 5,
+      "attack": 37,
+      "critRate": 0.18162638171500278,
+      "explosionDamage": 44
+    },
+    "price": "需抽卡获取",
+    "description": "这是一把近程武器，适合各种战斗场合。",
+    "power": 57,
+    "acquisitionMethod": "通过商店购买或任务获得",
+    "level": 1,
+    "quality": "幻彩"
+  }
+]

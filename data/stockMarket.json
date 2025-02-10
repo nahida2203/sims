@@ -1,0 +1,62 @@
+[
+  {
+    "code": "000001",
+    "name": "热门股",
+    "price": 96.43,
+    "type": "投机股",
+    "totalShares": 1000000,
+    "circulatingShares": 800000,
+    "turnoverRate": "1.98%",
+    "totalVolume": 713775,
+    "marketCap": "96430000.00",
+    "circulatingValue": "77144000.00"
+  },
+  {
+    "code": "000002",
+    "name": "冷门股",
+    "price": 50.3,
+    "type": "成长股",
+    "totalShares": 500000,
+    "circulatingShares": 400000,
+    "turnoverRate": "1.86%",
+    "totalVolume": 42075,
+    "marketCap": "25150000.00",
+    "circulatingValue": "20120000.00"
+  },
+  {
+    "code": "000003",
+    "name": "蓝筹股",
+    "price": 198.44,
+    "type": "稳定股",
+    "totalShares": 2000000,
+    "circulatingShares": 1500000,
+    "turnoverRate": "2.76%",
+    "totalVolume": 729429,
+    "marketCap": "396880000.00",
+    "circulatingValue": "297660000.00"
+  },
+  {
+    "code": "000004",
+    "name": "投机股",
+    "price": 29.24,
+    "type": "浮动股",
+    "totalShares": 300000,
+    "circulatingShares": 250000,
+    "turnoverRate": "3.73%",
+    "totalVolume": 606367,
+    "marketCap": "8772000.00",
+    "circulatingValue": "7310000.00"
+  },
+  {
+    "code": "000005",
+    "name": "成长股",
+    "price": 117.04,
+    "type": "高息股",
+    "totalShares": 1200000,
+    "circulatingShares": 1000000,
+    "turnoverRate": "4.23%",
+    "totalVolume": 46091,
+    "marketCap": "140448000.00",
+    "circulatingValue": "117040000.00"
+  }
+]

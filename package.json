@@ -1,0 +1,23 @@
+{
+  "name": "sims-plugin",
+  "version": "1.0.0",
+  "description": "Yunzai-Bot附属插件",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/nahida22/sims-plugin.git"
+  },
+  "keywords": [
+    "Yunzai-Bot",
+    "sims-plugin"
+  ],
+  "author": "nahida22",
+  "license": "MIT",
+  "dependencies": {
+    "ioredis": "^4.27.5"
+  }
+}

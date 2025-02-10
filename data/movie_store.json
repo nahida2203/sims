@@ -1,0 +1,62 @@
+[
+    {
+        "name": "电影 A",
+        "type": "动作",
+        "rating": 4.5,
+        "price": 50
+    },
+    {
+        "name": "电影 B",
+        "type": "喜剧",
+        "rating": 4.0,
+        "price": 45
+    },
+    {
+        "name": "电影 C",
+        "type": "爱情",
+        "rating": 4.8,
+        "price": 55
+    },
+    {
+        "name": "电影 D",
+        "type": "科幻",
+        "rating": 4.7,
+        "price": 60
+    },
+    {
+        "name": "电影 E",
+        "type": "剧情",
+        "rating": 4.1,
+        "price": 40
+    },
+    {
+        "name": "电影 F",
+        "type": "恐怖",
+        "rating": 3.9,
+        "price": 55
+    },
+    {
+        "name": "电影 G",
+        "type": "动画",
+        "rating": 4.9,
+        "price": 30
+    },
+    {
+        "name": "电影 H",
+        "type": "冒险",
+        "rating": 4.3,
+        "price": 52
+    },
+    {
+        "name": "电影 I",
+        "type": "音乐",
+        "rating": 4.2,
+        "price": 48
+    },
+    {
+        "name": "电影 J",
+        "type": "传记",
+        "rating": 4.6,
+        "price": 50
+    }
+]

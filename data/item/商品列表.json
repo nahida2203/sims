@@ -1,0 +1,352 @@
+[
+    {
+        "id": 1,
+        "name": "苹果",
+        "price": 5,
+        "type": "食物类",
+        "description": "新鲜的红色苹果，富含维生素C。"
+    },
+    {
+        "id": 2,
+        "name": "面包",
+        "price": 10,
+        "type": "食物类",
+        "description": "松软的白面包，适合早餐。"
+    },
+    {
+        "id": 3,
+        "name": "矿泉水",
+        "price": 3,
+        "type": "食物类",
+        "description": "清爽的矿泉水，解渴必备。"
+    },
+    {
+        "id": 4,
+        "name": "巧克力",
+        "price": 15,
+        "type": "食物类",
+        "description": "美味的黑巧克力，令人愉悦的甜品。"
+    },
+    {
+        "id": 5,
+        "name": "牛肉干",
+        "price": 20,
+        "type": "食物类",
+        "description": "风味独特的牛肉干，适合零食。"
+    },
+    {
+        "id": 6,
+        "name": "能量饮料",
+        "price": 25,
+        "type": "食物类",
+        "description": "提神醒脑的能量饮料，适合运动后饮用。"
+    },
+    {
+        "id": 7,
+        "name": "急救包",
+        "price": 50,
+        "type": "药品类",
+        "description": "包含基础医疗用品的急救包。"
+    },
+    {
+        "id": 8,
+        "name": "感冒药",
+        "price": 30,
+        "type": "药品类",
+        "description": "缓解感冒症状的药品。"
+    },
+    {
+        "id": 9,
+        "name": "止痛药",
+        "price": 35,
+        "type": "药品类",
+        "description": "缓解疼痛的药物。"
+    },
+    {
+        "id": 10,
+        "name": "绷带",
+        "price": 5,
+        "type": "药品类",
+        "description": "用于包扎伤口的绷带。"
+    },
+    {
+        "id": 11,
+        "name": "木材",
+        "price": 15,
+        "type": "材料类",
+        "description": "制作家具和工具的基本材料。"
+    },
+    {
+        "id": 12,
+        "name": "铁矿石",
+        "price": 25,
+        "type": "材料类",
+        "description": "用于冶炼铁的矿石。"
+    },
+    {
+        "id": 13,
+        "name": "布料",
+        "price": 20,
+        "type": "材料类",
+        "description": "制作衣物和其他物品的布料。"
+    },
+    {
+        "id": 14,
+        "name": "塑料",
+        "price": 10,
+        "type": "材料类",
+        "description": "多用途的塑料材料。"
+    },
+    {
+        "id": 15,
+        "name": "钉子",
+        "price": 5,
+        "type": "材料类",
+        "description": "用于固定物品的钉子。"
+    },
+    {
+        "id": 16,
+        "name": "手电筒",
+        "price": 40,
+        "type": "道具类",
+        "description": "在黑暗中提供光源的手电筒。"
+    },
+    {
+        "id": 17,
+        "name": "登山绳",
+        "price": 60,
+        "type": "道具类",
+        "description": "用于攀岩和登山的安全绳。"
+    },
+    {
+        "id": 18,
+        "name": "地图",
+        "price": 15,
+        "type": "道具类",
+        "description": "帮助导航的详细地图。"
+    },
+    {
+        "id": 19,
+        "name": "指南针",
+        "price": 25,
+        "type": "道具类",
+        "description": "用于确定方向的指南针。"
+    },
+    {
+        "id": 20,
+        "name": "防水袋",
+        "price": 30,
+        "type": "道具类",
+        "description": "保护物品不受水浸的袋子。"
+    },
+    {
+        "id": 21,
+        "name": "火柴",
+        "price": 2,
+        "type": "道具类",
+        "description": "用于点火的火柴。"
+    },
+    {
+        "id": 22,
+        "name": "手套",
+        "price": 20,
+        "type": "道具类",
+        "description": "保护手部的手套。"
+    },
+    {
+        "id": 23,
+        "name": "口罩",
+        "price": 10,
+        "type": "道具类",
+        "description": "防止灰尘和细菌的口罩。"
+    },
+    {
+        "id": 24,
+        "name": "雨伞",
+        "price": 15,
+        "type": "道具类",
+        "description": "防雨的伞。"
+    },
+    {
+        "id": 25,
+        "name": "背包",
+        "price": 50,
+        "type": "道具类",
+        "description": "用于携带物品的背包。"
+    },
+    {
+        "id": 26,
+        "name": "手机",
+        "price": 300,
+        "type": "道具类",
+        "description": "用于通讯和娱乐的手机。"
+    },
+    {
+        "id": 27,
+        "name": "电脑",
+        "price": 500,
+        "type": "道具类",
+        "description": "用于工作和娱乐的电脑。"
+    },
+    {
+        "id": 28,
+        "name": "耳机",
+        "price": 100,
+        "type": "道具类",
+        "description": "用于听音乐的耳机。"
+    },
+    {
+        "id": 29,
+        "name": "游戏机",
+        "price": 400,
+        "type": "道具类",
+        "description": "用于玩游戏的设备。"
+    },
+    {
+        "id": 30,
+        "name": "充电器",
+        "price": 30,
+        "type": "道具类",
+        "description": "为电子设备充电的充电器。"
+    },
+    {
+        "id": 31,
+        "name": "洗发水",
+        "price": 25,
+        "type": "药品类",
+        "description": "用于清洁头发的洗发水。"
+    },
+    {
+        "id": 32,
+        "name": "护肤霜",
+        "price": 40,
+        "type": "药品类",
+        "description": "用于护肤的护肤霜。"
+    },
+    {
+        "id": 33,
+        "name": "牙膏",
+        "price": 10,
+        "type": "药品类",
+        "description": "用于清洁牙齿的牙膏。"
+    },
+    {
+        "id": 34,
+        "name": "香水",
+        "price": 80,
+        "type": "药品类",
+        "description": "用于喷洒在身体上的香水。"
+    },
+    {
+        "id": 35,
+        "name": "维生素",
+        "price": 50,
+        "type": "药品类",
+        "description": "补充身体所需的维生素。"
+    },
+    {
+        "id": 36,
+        "name": "消毒液",
+        "price": 20,
+        "type": "药品类",
+        "description": "用于消毒的液体。"
+    },
+    {
+        "id": 37,
+        "name": "运动鞋",
+        "price": 150,
+        "type": "道具类",
+        "description": "适合运动的鞋子。"
+    },
+    {
+        "id": 38,
+        "name": "牛仔裤",
+        "price": 120,
+        "type": "道具类",
+        "description": "舒适的牛仔裤。"
+    },
+    {
+        "id": 39,
+        "name": "T恤",
+        "price": 80,
+        "type": "道具类",
+        "description": "适合日常穿着的T恤。"
+    },
+    {
+        "id": 40,
+        "name": "外套",
+        "price": 200,
+        "type": "道具类",
+        "description": "适合秋冬季节穿着的外套。"
+    },
+    {
+        "id": 41,
+        "name": "围巾",
+        "price": 30,
+        "type": "道具类",
+        "description": "保暖的围巾。"
+    },
+    {
+        "id": 42,
+        "name": "帽子",
+        "price": 25,
+        "type": "道具类",
+        "description": "用于遮阳的帽子。"
+    },
+    {
+        "id": 43,
+        "name": "手表",
+        "price": 300,
+        "type": "道具类",
+        "description": "用于查看时间的手表。"
+    },
+    {
+        "id": 44,
+        "name": "钱包",
+        "price": 50,
+        "type": "道具类",
+        "description": "用于存放钱财的钱包。"
+    },
+    {
+        "id": 45,
+        "name": "钥匙扣",
+        "price": 15,
+        "type": "道具类",
+        "description": "用于挂钥匙的钥匙扣。"
+    },
+    {
+        "id": 46,
+        "name": "运动饮料",
+        "price": 20,
+        "type": "食物类",
+        "description": "补充体力的运动饮料。"
+    },
+    {
+        "id": 47,
+        "name": "冰淇淋",
+        "price": 10,
+        "type": "食物类",
+        "description": "美味的冰淇淋，适合夏天。"
+    },
+    {
+        "id": 48,
+        "name": "花生",
+        "price": 8,
+        "type": "食物类",
+        "description": "健康的零食，富含营养。"
+    },
+    {
+        "id": 49,
+        "name": "薯片",
+        "price": 12,
+        "type": "食物类",
+        "description": "脆脆的薯片，适合看电影时吃。"
+    },
+    {
+        "id": 50,
+        "name": "坚果",
+        "price": 18,
+        "type": "食物类",
+        "description": "富含蛋白质的健康坚果。"
+    }
+]
