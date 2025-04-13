@@ -149,7 +149,7 @@ export class UserStart extends plugin {
             return;
         }
 
-        const newName = e.msg.replace('#改名', '').trim();
+        const newName = e.msg.replace('#模拟人生改名', '').trim();
         if (newName.length > 12) {
             e.reply("新名字的字符长度不得超过12个字符。");
         } else {
