@@ -1,0 +1,276 @@
+{
+    "ranks": {
+        "实习警员": {
+            "level": 1,
+            "salary": 3000,
+            "requiredExp": 0,
+            "benefits": {
+                "equipmentDiscount": 0,
+                "healthInsurance": 500,
+                "bonusPerCase": 100
+            },
+            "requirements": {
+                "solvedCases": 0,
+                "patrolHours": 0,
+                "skills": {
+                    "investigation": 1,
+                    "combat": 1,
+                    "leadership": 1,
+                    "communication": 1
+                }
+            }
+        },
+        "初级警员": {
+            "level": 2,
+            "salary": 5000,
+            "requiredExp": 1000,
+            "benefits": {
+                "equipmentDiscount": 10,
+                "healthInsurance": 800,
+                "bonusPerCase": 200
+            },
+            "requirements": {
+                "solvedCases": 10,
+                "patrolHours": 50,
+                "skills": {
+                    "investigation": 2,
+                    "combat": 2,
+                    "leadership": 1,
+                    "communication": 2
+                }
+            }
+        },
+        "中级警员": {
+            "level": 3,
+            "salary": 8000,
+            "requiredExp": 3000,
+            "benefits": {
+                "equipmentDiscount": 15,
+                "healthInsurance": 1200,
+                "bonusPerCase": 300
+            },
+            "requirements": {
+                "solvedCases": 30,
+                "patrolHours": 150,
+                "skills": {
+                    "investigation": 3,
+                    "combat": 3,
+                    "leadership": 2,
+                    "communication": 3
+                }
+            }
+        },
+        "高级警员": {
+            "level": 4,
+            "salary": 12000,
+            "requiredExp": 6000,
+            "benefits": {
+                "equipmentDiscount": 20,
+                "healthInsurance": 1500,
+                "bonusPerCase": 400
+            },
+            "requirements": {
+                "solvedCases": 60,
+                "patrolHours": 300,
+                "skills": {
+                    "investigation": 4,
+                    "combat": 4,
+                    "leadership": 3,
+                    "communication": 4
+                }
+            }
+        },
+        "警长": {
+            "level": 5,
+            "salary": 15000,
+            "requiredExp": 10000,
+            "benefits": {
+                "equipmentDiscount": 25,
+                "healthInsurance": 2000,
+                "bonusPerCase": 500,
+                "leadershipBonus": 1000
+            },
+            "requirements": {
+                "solvedCases": 100,
+                "patrolHours": 500,
+                "skills": {
+                    "investigation": 5,
+                    "combat": 5,
+                    "leadership": 4,
+                    "communication": 5
+                }
+            }
+        },
+        "警督": {
+            "level": 6,
+            "salary": 20000,
+            "requiredExp": 15000,
+            "benefits": {
+                "equipmentDiscount": 30,
+                "healthInsurance": 2500,
+                "bonusPerCase": 600,
+                "leadershipBonus": 2000
+            },
+            "requirements": {
+                "solvedCases": 200,
+                "patrolHours": 800,
+                "skills": {
+                    "investigation": 6,
+                    "combat": 6,
+                    "leadership": 5,
+                    "communication": 6
+                }
+            }
+        },
+        "总警监": {
+            "level": 7,
+            "salary": 30000,
+            "requiredExp": 25000,
+            "benefits": {
+                "equipmentDiscount": 40,
+                "healthInsurance": 3000,
+                "bonusPerCase": 800,
+                "leadershipBonus": 3000
+            },
+            "requirements": {
+                "solvedCases": 400,
+                "patrolHours": 1200,
+                "skills": {
+                    "investigation": 8,
+                    "combat": 8,
+                    "leadership": 7,
+                    "communication": 8
+                }
+            }
+        }
+    },
+    "skills": {
+        "investigation": {
+            "name": "调查能力",
+            "maxLevel": 10,
+            "levelUpRequirements": {
+                "expPerLevel": 500,
+                "casesPerLevel": 5
+            },
+            "benefits": {
+                "caseSuccessRate": 5,
+                "evidenceQuality": 10,
+                "rewardBonus": 5
+            },
+            "description": "提高破案成功率和证据收集质量"
+        },
+        "combat": {
+            "name": "战斗能力",
+            "maxLevel": 10,
+            "levelUpRequirements": {
+                "expPerLevel": 500,
+                "trainingHours": 10
+            },
+            "benefits": {
+                "damageBonus": 10,
+                "defenseBonus": 5,
+                "successRate": 5
+            },
+            "description": "提高处理暴力事件的能力"
+        },
+        "leadership": {
+            "name": "领导能力",
+            "maxLevel": 10,
+            "levelUpRequirements": {
+                "expPerLevel": 800,
+                "teamCases": 5
+            },
+            "benefits": {
+                "teamBonus": 10,
+                "commandRange": 2,
+                "reputationGain": 5
+            },
+            "description": "提高团队协作效率"
+        },
+        "communication": {
+            "name": "沟通能力",
+            "maxLevel": 10,
+            "levelUpRequirements": {
+                "expPerLevel": 400,
+                "civilCases": 5
+            },
+            "benefits": {
+                "negotiationSuccess": 10,
+                "informationGain": 5,
+                "publicRelations": 5
+            },
+            "description": "提高与群众沟通和信息获取能力"
+        }
+    },
+    "promotionExams": {
+        "初级警员考核": {
+            "requirements": {
+                "rank": "实习警员",
+                "minExp": 1000,
+                "minSolvedCases": 10
+            },
+            "examContent": {
+                "theoryTest": {
+                    "passScore": 70,
+                    "questions": 50
+                },
+                "physicalTest": {
+                    "requirements": {
+                        "running": "3000米",
+                        "pushUps": 30,
+                        "shooting": "80分"
+                    }
+                },
+                "practicalTest": {
+                    "scenarios": ["基础案件处理", "体能测试", "射击训练"]
+                }
+            }
+        },
+        "中级警员考核": {
+            "requirements": {
+                "rank": "初级警员",
+                "minExp": 3000,
+                "minSolvedCases": 30
+            },
+            "examContent": {
+                "theoryTest": {
+                    "passScore": 75,
+                    "questions": 60
+                },
+                "physicalTest": {
+                    "requirements": {
+                        "running": "5000米",
+                        "pushUps": 40,
+                        "shooting": "85分"
+                    }
+                },
+                "practicalTest": {
+                    "scenarios": ["复杂案件处理", "突发事件处理", "团队协作"]
+                }
+            }
+        },
+        "高级警员考核": {
+            "requirements": {
+                "rank": "中级警员",
+                "minExp": 6000,
+                "minSolvedCases": 60
+            },
+            "examContent": {
+                "theoryTest": {
+                    "passScore": 80,
+                    "questions": 80
+                },
+                "physicalTest": {
+                    "requirements": {
+                        "running": "5000米",
+                        "pushUps": 50,
+                        "shooting": "90分"
+                    }
+                },
+                "practicalTest": {
+                    "scenarios": ["高难度案件", "危机处理", "指挥能力"]
+                }
+            }
+        }
+    }
+}

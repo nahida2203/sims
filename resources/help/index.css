@@ -11,6 +11,16 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+.logo-container {
+  text-align: center;
+  margin: 10px auto 20px;
+}
+.logo-img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .container {
   background: url(../common/theme/main-01.png) top left no-repeat;
   background-size: 100% auto;
@@ -19,13 +29,15 @@ body {
 .head-box {
   margin: 60px 0 0 0;
   padding-bottom: 0;
+  text-align: center;
 }
 .head-box .title {
   font-size: 70px;
+  text-align: center;
 }
 .head-box .label {
-	
   font-size: 20px;
+  text-align: center;
 }
 .cont-box {
   border-radius: 15px;

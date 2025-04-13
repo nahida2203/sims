@@ -1,0 +1,143 @@
+{
+  "defaultDrinks": [
+    {
+      "id": "draft_beer",
+      "name": "普通生啤",
+      "type": "beer",
+      "basePrice": 15,
+      "description": "新鲜的生啤酒，是酒馆的基础饮品",
+      "ingredients": ["beer_basic"],
+      "popularity": 80,
+      "alcoholContent": "4.5%",
+      "preparationTime": "短",
+      "specialEffects": []
+    },
+    {
+      "id": "craft_beer",
+      "name": "精酿啤酒",
+      "type": "beer",
+      "basePrice": 28,
+      "description": "使用优质麦芽和啤酒花酿造的特色啤酒",
+      "ingredients": ["beer_craft"],
+      "popularity": 70,
+      "alcoholContent": "5.8%",
+      "preparationTime": "中",
+      "specialEffects": ["提升心情"]
+    },
+    {
+      "id": "house_wine",
+      "name": "店家特调葡萄酒",
+      "type": "wine",
+      "basePrice": 25,
+      "description": "酒馆自选的优质葡萄酒，口感醇厚",
+      "ingredients": ["wine_table"],
+      "popularity": 65,
+      "alcoholContent": "12%",
+      "preparationTime": "短",
+      "specialEffects": []
+    },
+    {
+      "id": "vintage_wine",
+      "name": "陈年红酒",
+      "type": "wine",
+      "basePrice": 45,
+      "description": "陈年酿造的红葡萄酒，香气浓郁",
+      "ingredients": ["wine_vintage"],
+      "popularity": 60,
+      "alcoholContent": "13.5%",
+      "preparationTime": "中",
+      "specialEffects": ["提升魅力"]
+    },
+    {
+      "id": "classic_vodka",
+      "name": "经典伏特加",
+      "type": "spirits",
+      "basePrice": 30,
+      "description": "纯净顺滑的伏特加，可直饮或调制鸡尾酒",
+      "ingredients": ["spirits_vodka"],
+      "popularity": 55,
+      "alcoholContent": "40%",
+      "preparationTime": "短",
+      "specialEffects": []
+    },
+    {
+      "id": "whiskey_neat",
+      "name": "纯饮威士忌",
+      "type": "spirits",
+      "basePrice": 50,
+      "description": "优质威士忌，不加冰块纯饮，感受原始风味",
+      "ingredients": ["spirits_whiskey"],
+      "popularity": 50,
+      "alcoholContent": "43%",
+      "preparationTime": "短",
+      "specialEffects": ["增加社交技能"]
+    },
+    {
+      "id": "fruit_cocktail",
+      "name": "水果鸡尾酒",
+      "type": "mixed",
+      "basePrice": 35,
+      "description": "使用新鲜水果调制的清爽鸡尾酒",
+      "ingredients": ["spirits_vodka", "special_fruit"],
+      "popularity": 75,
+      "alcoholContent": "12%",
+      "preparationTime": "长",
+      "specialEffects": ["提升魅力", "增加幸福感"]
+    },
+    {
+      "id": "honey_mead",
+      "name": "蜂蜜酒",
+      "type": "special",
+      "basePrice": 40,
+      "description": "使用野生蜂蜜酿造的传统蜂蜜酒",
+      "ingredients": ["wine_table", "special_honey"],
+      "popularity": 45,
+      "alcoholContent": "15%",
+      "preparationTime": "长",
+      "specialEffects": ["提升体力恢复"]
+    },
+    {
+      "id": "herbal_spirit",
+      "name": "草药烈酒",
+      "type": "special",
+      "basePrice": 55,
+      "description": "添加神秘草药的烈酒，口感独特略带药香",
+      "ingredients": ["spirits_premium", "special_herb"],
+      "popularity": 40,
+      "alcoholContent": "38%",
+      "preparationTime": "长",
+      "specialEffects": ["增加运气", "提升体力上限"]
+    },
+    {
+      "id": "tavern_special",
+      "name": "酒馆特饮",
+      "type": "mixed",
+      "basePrice": 60,
+      "description": "酒馆招牌特饮，保密配方，口感层次丰富",
+      "ingredients": ["beer_premium", "wine_premium", "spirits_premium"],
+      "popularity": 90,
+      "alcoholContent": "20%",
+      "preparationTime": "超长",
+      "specialEffects": ["全属性小幅提升", "神秘效果"]
+    }
+  ],
+  "drinkTypes": ["beer", "wine", "spirits", "mixed", "special", "non_alcoholic"],
+  "specialEffects": [
+    "提升魅力",
+    "增加幸福感",
+    "提升心情",
+    "提升体力恢复",
+    "增加社交技能",
+    "增加运气",
+    "提升体力上限",
+    "神秘效果",
+    "临时增加收入",
+    "增加饱食度"
+  ],
+  "ingredientTypes": {
+    "beer": ["beer_basic", "beer_craft", "beer_premium"],
+    "wine": ["wine_table", "wine_vintage", "wine_premium"],
+    "spirits": ["spirits_vodka", "spirits_whiskey", "spirits_premium"],
+    "special": ["special_fruit", "special_honey", "special_herb"]
+  }
+} 

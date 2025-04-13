@@ -18,6 +18,7 @@
   "author": "nahida22",
   "license": "MIT",
   "dependencies": {
-    "ioredis": "^4.27.5"
+    "ioredis": "^4.27.5",
+    "icqq": "^0.6.10"
   }
 }

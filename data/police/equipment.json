@@ -1,0 +1,232 @@
+{
+    "weapons": {
+        "警用手枪": {
+            "type": "武器",
+            "price": 5000,
+            "requirements": {
+                "rank": "初级警员",
+                "level": 2
+            },
+            "stats": {
+                "damage": 50,
+                "accuracy": 85,
+                "range": 30
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 500,
+                "interval": 168
+            },
+            "description": "标准警用配枪，可靠性高。"
+        },
+        "警棍": {
+            "type": "武器",
+            "price": 1000,
+            "requirements": {
+                "rank": "实习警员",
+                "level": 1
+            },
+            "stats": {
+                "damage": 20,
+                "accuracy": 95,
+                "range": 2
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 100,
+                "interval": 336
+            },
+            "description": "基础防卫装备，适合近距离制服。"
+        },
+        "电击枪": {
+            "type": "武器",
+            "price": 3000,
+            "requirements": {
+                "rank": "中级警员",
+                "level": 3
+            },
+            "stats": {
+                "damage": 30,
+                "accuracy": 80,
+                "range": 5
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 300,
+                "interval": 240
+            },
+            "description": "非致命性武器，适合制服暴力分子。"
+        }
+    },
+    "armor": {
+        "防弹衣": {
+            "type": "防具",
+            "price": 8000,
+            "requirements": {
+                "rank": "初级警员",
+                "level": 2
+            },
+            "stats": {
+                "defense": 40,
+                "mobility": -10
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 800,
+                "interval": 720
+            },
+            "description": "标准警用防弹衣，提供可靠防护。"
+        },
+        "警用头盔": {
+            "type": "防具",
+            "price": 3000,
+            "requirements": {
+                "rank": "实习警员",
+                "level": 1
+            },
+            "stats": {
+                "defense": 30,
+                "mobility": -5
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 300,
+                "interval": 720
+            },
+            "description": "基础头部防护装备。"
+        },
+        "战术背心": {
+            "type": "防具",
+            "price": 5000,
+            "requirements": {
+                "rank": "中级警员",
+                "level": 3
+            },
+            "stats": {
+                "defense": 25,
+                "mobility": 0,
+                "storage": 5
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 500,
+                "interval": 720
+            },
+            "description": "多功能战术背心，提供防护并增加携带能力。"
+        }
+    },
+    "tools": {
+        "警用对讲机": {
+            "type": "工具",
+            "price": 2000,
+            "requirements": {
+                "rank": "实习警员",
+                "level": 1
+            },
+            "stats": {
+                "range": 1000,
+                "battery": 100
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 200,
+                "interval": 168
+            },
+            "description": "用于与同事保持联系的通讯设备。"
+        },
+        "警用手铐": {
+            "type": "工具",
+            "price": 1500,
+            "requirements": {
+                "rank": "实习警员",
+                "level": 1
+            },
+            "stats": {
+                "restraint": 90,
+                "weight": 0.5
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 150,
+                "interval": 720
+            },
+            "description": "标准警用约束工具。"
+        },
+        "警用记录仪": {
+            "type": "工具",
+            "price": 3000,
+            "requirements": {
+                "rank": "初级警员",
+                "level": 2
+            },
+            "stats": {
+                "storage": "64GB",
+                "battery": 100,
+                "quality": "1080p"
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 300,
+                "interval": 168
+            },
+            "description": "用于记录执法过程的随身摄像设备。"
+        },
+        "警用平板": {
+            "type": "工具",
+            "price": 4000,
+            "requirements": {
+                "rank": "中级警员",
+                "level": 3
+            },
+            "stats": {
+                "efficiency": 30,
+                "battery": 100
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 400,
+                "interval": 168
+            },
+            "description": "用于现场记录和信息查询的移动设备。"
+        }
+    },
+    "special": {
+        "警犬": {
+            "type": "特殊",
+            "price": 15000,
+            "requirements": {
+                "rank": "高级警员",
+                "level": 5
+            },
+            "stats": {
+                "tracking": 90,
+                "combat": 40,
+                "loyalty": 100
+            },
+            "maintenance": {
+                "cost": 1000,
+                "interval": 168
+            },
+            "description": "训练有素的警犬，协助追踪和制服罪犯。"
+        },
+        "警用摩托": {
+            "type": "特殊",
+            "price": 20000,
+            "requirements": {
+                "rank": "警长",
+                "level": 6
+            },
+            "stats": {
+                "speed": 80,
+                "mobility": 90,
+                "fuel": 100
+            },
+            "durability": 100,
+            "maintenance": {
+                "cost": 2000,
+                "interval": 168
+            },
+            "description": "用于快速巡逻和追击的专业警用摩托车。"
+        }
+    }
+}

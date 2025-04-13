@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <link rel="shortcut icon" href="#"/>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            color: white;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 2em;
+            margin: 0;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .subtitle {
+            color: #bbdefb;
+            margin-top: 5px;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #bbdefb;
+            position: relative;
+        }
+        .tab.active {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .tab.active::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ffd700;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .ranking-list {
+            margin-bottom: 20px;
+        }
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            transition: transform 0.2s ease;
+        }
+        .ranking-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .ranking-position {
+            font-size: 1.2em;
+            font-weight: bold;
+            width: 40px;
+            text-align: center;
+        }
+        .position-1 {
+            color: #ffd700; /* Gold */
+        }
+        .position-2 {
+            color: #c0c0c0; /* Silver */
+        }
+        .position-3 {
+            color: #cd7f32; /* Bronze */
+        }
+        .ranking-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+        .ranking-name {
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+        .ranking-info {
+            color: #bbdefb;
+            font-size: 0.9em;
+        }
+        .ranking-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffd700;
+            margin-left: 10px;
+            min-width: 80px;
+            text-align: right;
+        }
+        .user-ranking {
+            background: rgba(26, 188, 156, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .user-ranking-title {
+            color: #1abc9c;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .user-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .user-stat {
+            margin: 10px;
+            text-align: center;
+        }
+        .user-stat-label {
+            color: #bbdefb;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        .user-stat-value {
+            font-size: 1.3em;
+            color: #1abc9c;
+        }
+        .total-police {
+            text-align: center;
+            margin-top: 20px;
+            color: #bbdefb;
+        }
+        .empty-message {
+            text-align: center;
+            padding: 20px;
+            color: #bbdefb;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">警察职业排行榜</h1>
+            <div class="subtitle">实力与荣耀的见证</div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="showTab(0)">经验排行</div>
+            <div class="tab" onclick="showTab(1)">破案排行</div>
+            <div class="tab" onclick="showTab(2)">声望排行</div>
+        </div>
+
+        <div class="tab-content active" id="expRanking">
+            {{if expRanking.length}}
+            <div class="ranking-list">
+                {{each expRanking index item}}
+                <div class="ranking-item">
+                    <div class="ranking-position {{index == 0 ? 'position-1' : ''}} {{index == 1 ? 'position-2' : ''}} {{index == 2 ? 'position-3' : ''}}">{{index+1}}</div>
+                    <div class="ranking-details">
+                        <div class="ranking-name">{{item.name}}</div>
+                        <div class="ranking-info">警衔: {{item.rank}}</div>
+                    </div>
+                    <div class="ranking-value">{{item.exp}} 经验</div>
+                </div>
+                {{/each}}
+            </div>
+            {{else}}
+            <div class="empty-message">暂无数据</div>
+            {{/if}}
+        </div>
+
+        <div class="tab-content" id="caseRanking">
+            {{if caseRanking.length}}
+            <div class="ranking-list">
+                {{each caseRanking index item}}
+                <div class="ranking-item">
+                    <div class="ranking-position {{index == 0 ? 'position-1' : ''}} {{index == 1 ? 'position-2' : ''}} {{index == 2 ? 'position-3' : ''}}">{{index+1}}</div>
+                    <div class="ranking-details">
+                        <div class="ranking-name">{{item.name}}</div>
+                        <div class="ranking-info">警衔: {{item.rank}}</div>
+                    </div>
+                    <div class="ranking-value">{{item.solvedCases}} 起案件</div>
+                </div>
+                {{/each}}
+            </div>
+            {{else}}
+            <div class="empty-message">暂无数据</div>
+            {{/if}}
+        </div>
+
+        <div class="tab-content" id="reputationRanking">
+            {{if reputationRanking.length}}
+            <div class="ranking-list">
+                {{each reputationRanking index item}}
+                <div class="ranking-item">
+                    <div class="ranking-position {{index == 0 ? 'position-1' : ''}} {{index == 1 ? 'position-2' : ''}} {{index == 2 ? 'position-3' : ''}}">{{index+1}}</div>
+                    <div class="ranking-details">
+                        <div class="ranking-name">{{item.name}}</div>
+                        <div class="ranking-info">警衔: {{item.rank}}</div>
+                    </div>
+                    <div class="ranking-value">{{item.reputation}} 声望</div>
+                </div>
+                {{/each}}
+            </div>
+            {{else}}
+            <div class="empty-message">暂无数据</div>
+            {{/if}}
+        </div>
+
+        <div class="user-ranking">
+            <div class="user-ranking-title">你的排名</div>
+            <div class="user-stats">
+                <div class="user-stat">
+                    <div class="user-stat-label">经验排名</div>
+                    <div class="user-stat-value">{{userRanking.exp}}/{{totalPolice}}</div>
+                </div>
+                <div class="user-stat">
+                    <div class="user-stat-label">破案排名</div>
+                    <div class="user-stat-value">{{userRanking.case}}/{{totalPolice}}</div>
+                </div>
+                <div class="user-stat">
+                    <div class="user-stat-label">声望排名</div>
+                    <div class="user-stat-value">{{userRanking.reputation}}/{{totalPolice}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="total-police">
+            当前共有 {{totalPolice}} 名警察在执勤
+        </div>
+    </div>
+
+    <script>
+        function showTab(index) {
+            // Hide all tabs and remove active class
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Show selected tab
+            tabs[index].classList.add('active');
+            tabContents[index].classList.add('active');
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,502 @@
+[
+    {
+        "id": 1,
+        "name": "急诊抢救",
+        "type": "紧急事件",
+        "description": "一名心脏骤停患者被送入急诊室，需要立即进行抢救",
+        "difficulty": 8,
+        "reward": 5000,
+        "reputation_impact": 10,
+        "time_limit": 10,
+        "success_rate_factors": {
+            "doctor_level": 0.4,
+            "equipment_quality": 0.4,
+            "team_support": 0.2
+        },
+        "required_equipment": [1, 4, 6, 8],
+        "required_medicine": null,
+        "patient_condition": "危重",
+        "outcomes": {
+            "perfect": "患者被成功救回，生命体征稳定，无后遗症",
+            "good": "患者被救回，但需要进一步观察治疗",
+            "average": "患者被救回，但有一定后遗症",
+            "bad": "患者病情恶化",
+            "terrible": "患者死亡"
+        }
+    },
+    {
+        "id": 2,
+        "name": "疑难病例诊断",
+        "type": "诊断挑战",
+        "description": "一位患者出现多种复杂症状，需要进行全面检查和分析",
+        "difficulty": 7,
+        "reward": 3000,
+        "reputation_impact": 8,
+        "time_limit": 30,
+        "success_rate_factors": {
+            "doctor_level": 0.6,
+            "equipment_quality": 0.3,
+            "team_support": 0.1
+        },
+        "required_equipment": [4, 14, 15, 20],
+        "required_medicine": null,
+        "patient_condition": "稳定但不明",
+        "outcomes": {
+            "perfect": "准确诊断出罕见疾病，及时启动治疗",
+            "good": "诊断基本准确，治疗有效",
+            "average": "诊断方向正确，但细节有误",
+            "bad": "误诊，导致治疗延误",
+            "terrible": "严重误诊，造成患者伤害"
+        }
+    },
+    {
+        "id": 3,
+        "name": "突发传染病防控",
+        "type": "公共卫生事件",
+        "description": "社区内出现传染病爆发迹象，需要迅速采取防控措施",
+        "difficulty": 6,
+        "reward": 4000,
+        "reputation_impact": 12,
+        "time_limit": 48,
+        "success_rate_factors": {
+            "doctor_level": 0.3,
+            "equipment_quality": 0.2,
+            "team_support": 0.5
+        },
+        "required_equipment": [10, 14],
+        "required_medicine": [4, 5, 7],
+        "patient_condition": "多人感染",
+        "outcomes": {
+            "perfect": "成功控制疫情，无新增病例",
+            "good": "大部分感染得到控制，少量新增",
+            "average": "疫情蔓延速度减缓",
+            "bad": "疫情继续扩散",
+            "terrible": "疫情失控，大规模爆发"
+        }
+    },
+    {
+        "id": 4,
+        "name": "重大手术",
+        "type": "手术事件",
+        "description": "一名重症患者需要进行高难度手术",
+        "difficulty": 9,
+        "reward": 10000,
+        "reputation_impact": 15,
+        "time_limit": 24,
+        "success_rate_factors": {
+            "doctor_level": 0.5,
+            "equipment_quality": 0.3,
+            "team_support": 0.2
+        },
+        "required_equipment": [3, 4, 6, 13, 19],
+        "required_medicine": [4, 5],
+        "patient_condition": "危重",
+        "outcomes": {
+            "perfect": "手术非常成功，患者康复良好",
+            "good": "手术成功，恢复期略长",
+            "average": "手术基本成功，但有并发症",
+            "bad": "手术出现严重并发症",
+            "terrible": "手术失败，患者死亡"
+        }
+    },
+    {
+        "id": 5,
+        "name": "医疗纠纷调解",
+        "type": "社会事件",
+        "description": "一名患者家属对治疗结果不满，引发纠纷",
+        "difficulty": 5,
+        "reward": 2000,
+        "reputation_impact": -5,
+        "time_limit": 72,
+        "success_rate_factors": {
+            "doctor_level": 0.3,
+            "equipment_quality": 0.1,
+            "team_support": 0.6
+        },
+        "required_equipment": null,
+        "required_medicine": null,
+        "patient_condition": "不适用",
+        "outcomes": {
+            "perfect": "纠纷圆满解决，双方达成共识",
+            "good": "纠纷基本解决，关系略有改善",
+            "average": "纠纷暂时平息",
+            "bad": "纠纷升级，需要法律介入",
+            "terrible": "纠纷恶化，造成严重负面影响"
+        }
+    },
+    {
+        "id": 6,
+        "name": "医学研究突破",
+        "type": "研究事件",
+        "description": "团队有机会参与一项前沿医学研究",
+        "difficulty": 7,
+        "reward": 8000,
+        "reputation_impact": 20,
+        "time_limit": 720,
+        "success_rate_factors": {
+            "doctor_level": 0.7,
+            "equipment_quality": 0.2,
+            "team_support": 0.1
+        },
+        "required_equipment": [14, 15, 20],
+        "required_medicine": null,
+        "patient_condition": "不适用",
+        "outcomes": {
+            "perfect": "研究获得重大突破，发表高水平论文",
+            "good": "研究取得积极进展",
+            "average": "研究有一定成果",
+            "bad": "研究进展缓慢",
+            "terrible": "研究失败，资源浪费"
+        }
+    },
+    {
+        "id": 7,
+        "name": "医疗志愿服务",
+        "type": "社会事件",
+        "description": "组织医疗团队前往贫困地区进行志愿诊疗",
+        "difficulty": 4,
+        "reward": 1000,
+        "reputation_impact": 15,
+        "time_limit": 168,
+        "success_rate_factors": {
+            "doctor_level": 0.4,
+            "equipment_quality": 0.2,
+            "team_support": 0.4
+        },
+        "required_equipment": [5, 7, 10],
+        "required_medicine": [1, 2, 3, 4, 17, 19],
+        "patient_condition": "多样",
+        "outcomes": {
+            "perfect": "服务广受好评，帮助大量患者",
+            "good": "服务效果良好，社区感谢",
+            "average": "提供了基本医疗服务",
+            "bad": "服务组织混乱，效果有限",
+            "terrible": "服务失败，造成负面影响"
+        }
+    },
+    {
+        "id": 8,
+        "name": "多发伤患者救治",
+        "type": "紧急事件",
+        "description": "一场交通事故后，多名伤员同时被送入急诊",
+        "difficulty": 8,
+        "reward": 6000,
+        "reputation_impact": 10,
+        "time_limit": 12,
+        "success_rate_factors": {
+            "doctor_level": 0.3,
+            "equipment_quality": 0.3,
+            "team_support": 0.4
+        },
+        "required_equipment": [1, 4, 8, 11, 12, 14, 15],
+        "required_medicine": [2, 3, 4, 5],
+        "patient_condition": "危重",
+        "outcomes": {
+            "perfect": "所有伤员得到及时救治，预后良好",
+            "good": "大部分伤员救治成功",
+            "average": "救治基本及时，部分患者有后遗症",
+            "bad": "救治不及时，多人病情恶化",
+            "terrible": "救治失败，多人死亡"
+        }
+    },
+    {
+        "id": 9,
+        "name": "医院感染控制",
+        "type": "公共卫生事件",
+        "description": "医院内部出现院内感染迹象，需要迅速干预",
+        "difficulty": 6,
+        "reward": 3500,
+        "reputation_impact": 8,
+        "time_limit": 72,
+        "success_rate_factors": {
+            "doctor_level": 0.2,
+            "equipment_quality": 0.3,
+            "team_support": 0.5
+        },
+        "required_equipment": [10, 12],
+        "required_medicine": [4, 5],
+        "patient_condition": "多人受影响",
+        "outcomes": {
+            "perfect": "迅速控制感染，无新增病例",
+            "good": "感染基本控制",
+            "average": "感染蔓延减缓",
+            "bad": "感染继续蔓延",
+            "terrible": "感染大范围爆发"
+        }
+    },
+    {
+        "id": 10,
+        "name": "器官移植手术",
+        "type": "手术事件",
+        "description": "一名患者需要接受紧急器官移植",
+        "difficulty": 10,
+        "reward": 15000,
+        "reputation_impact": 20,
+        "time_limit": 24,
+        "success_rate_factors": {
+            "doctor_level": 0.5,
+            "equipment_quality": 0.3,
+            "team_support": 0.2
+        },
+        "required_equipment": [3, 4, 6, 13, 16, 19],
+        "required_medicine": [4, 5, 12],
+        "patient_condition": "危重",
+        "outcomes": {
+            "perfect": "移植非常成功，器官功能良好",
+            "good": "移植成功，需要调整免疫抑制方案",
+            "average": "移植基本成功，但有排异反应",
+            "bad": "严重排异反应，器官功能受损",
+            "terrible": "移植失败，器官坏死"
+        }
+    },
+    {
+        "id": 11,
+        "name": "医学讲座",
+        "type": "教育事件",
+        "description": "为社区居民举办健康教育讲座",
+        "difficulty": 3,
+        "reward": 1500,
+        "reputation_impact": 5,
+        "time_limit": 24,
+        "success_rate_factors": {
+            "doctor_level": 0.6,
+            "equipment_quality": 0.1,
+            "team_support": 0.3
+        },
+        "required_equipment": null,
+        "required_medicine": null,
+        "patient_condition": "不适用",
+        "outcomes": {
+            "perfect": "讲座反响热烈，大幅提升健康意识",
+            "good": "讲座效果良好，居民积极参与",
+            "average": "讲座内容基本传达",
+            "bad": "讲座组织混乱，效果有限",
+            "terrible": "讲座失败，传递了错误信息"
+        }
+    },
+    {
+        "id": 12,
+        "name": "罕见病治疗",
+        "type": "诊断挑战",
+        "description": "一名患者被诊断出罕见疾病，需要制定特殊治疗方案",
+        "difficulty": 9,
+        "reward": 7000,
+        "reputation_impact": 15,
+        "time_limit": 168,
+        "success_rate_factors": {
+            "doctor_level": 0.7,
+            "equipment_quality": 0.2,
+            "team_support": 0.1
+        },
+        "required_equipment": [4, 14, 15, 20],
+        "required_medicine": [6, 7, 13, 14],
+        "patient_condition": "危重",
+        "outcomes": {
+            "perfect": "治疗方案非常成功，患者康复良好",
+            "good": "治疗效果明显，症状缓解",
+            "average": "治疗有一定效果",
+            "bad": "治疗效果有限",
+            "terrible": "治疗失败，病情恶化"
+        }
+    },
+    {
+        "id": 13,
+        "name": "医疗质量改进项目",
+        "type": "管理事件",
+        "description": "启动医疗质量改进计划，提升医院服务水平",
+        "difficulty": 5,
+        "reward": 4000,
+        "reputation_impact": 10,
+        "time_limit": 720,
+        "success_rate_factors": {
+            "doctor_level": 0.3,
+            "equipment_quality": 0.2,
+            "team_support": 0.5
+        },
+        "required_equipment": null,
+        "required_medicine": null,
+        "patient_condition": "不适用",
+        "outcomes": {
+            "perfect": "质量显著提升，患者满意度大幅提高",
+            "good": "质量有明显改善",
+            "average": "质量有一定提升",
+            "bad": "改进效果有限",
+            "terrible": "改进失败，浪费资源"
+        }
+    },
+    {
+        "id": 14,
+        "name": "自然灾害医疗救援",
+        "type": "紧急事件",
+        "description": "响应自然灾害后的医疗救援需求",
+        "difficulty": 8,
+        "reward": 5000,
+        "reputation_impact": 18,
+        "time_limit": 168,
+        "success_rate_factors": {
+            "doctor_level": 0.2,
+            "equipment_quality": 0.3,
+            "team_support": 0.5
+        },
+        "required_equipment": [1, 2, 5, 8, 9, 10, 11, 12],
+        "required_medicine": [1, 2, 3, 4, 5, 17, 19],
+        "patient_condition": "多样",
+        "outcomes": {
+            "perfect": "救援行动高效，救治大量受伤人员",
+            "good": "救援行动顺利，大部分伤员得到救治",
+            "average": "提供了基本医疗救援",
+            "bad": "救援混乱，效果有限",
+            "terrible": "救援失败，造成严重后果"
+        }
+    },
+    {
+        "id": 15,
+        "name": "医学伦理挑战",
+        "type": "社会事件",
+        "description": "面临复杂的医疗伦理决策",
+        "difficulty": 7,
+        "reward": 2500,
+        "reputation_impact": 5,
+        "time_limit": 48,
+        "success_rate_factors": {
+            "doctor_level": 0.5,
+            "equipment_quality": 0.1,
+            "team_support": 0.4
+        },
+        "required_equipment": null,
+        "required_medicine": null,
+        "patient_condition": "复杂",
+        "outcomes": {
+            "perfect": "做出最佳决策，平衡各方利益",
+            "good": "决策合理，各方基本接受",
+            "average": "决策可接受，存在一定争议",
+            "bad": "决策引发较大争议",
+            "terrible": "决策严重失误，造成伦理危机"
+        }
+    },
+    {
+        "id": 16,
+        "name": "医生培训计划",
+        "type": "教育事件",
+        "description": "组织新医生培训和继续教育",
+        "difficulty": 4,
+        "reward": 3000,
+        "reputation_impact": 8,
+        "time_limit": 336,
+        "success_rate_factors": {
+            "doctor_level": 0.6,
+            "equipment_quality": 0.1,
+            "team_support": 0.3
+        },
+        "required_equipment": [13, 14, 15],
+        "required_medicine": null,
+        "patient_condition": "不适用",
+        "outcomes": {
+            "perfect": "培训非常成功，医生能力显著提升",
+            "good": "培训效果良好，技能有提高",
+            "average": "培训基本达到目标",
+            "bad": "培训效果有限",
+            "terrible": "培训失败，浪费时间和资源"
+        }
+    },
+    {
+        "id": 17,
+        "name": "医疗设备更新",
+        "type": "管理事件",
+        "description": "评估和引进新的医疗设备",
+        "difficulty": 5,
+        "reward": 6000,
+        "reputation_impact": 10,
+        "time_limit": 336,
+        "success_rate_factors": {
+            "doctor_level": 0.3,
+            "equipment_quality": 0.5,
+            "team_support": 0.2
+        },
+        "required_equipment": null,
+        "required_medicine": null,
+        "patient_condition": "不适用",
+        "outcomes": {
+            "perfect": "引进最适合的设备，极大提升医疗能力",
+            "good": "设备更新合理，能力有提升",
+            "average": "设备更新基本满足需求",
+            "bad": "设备选择不当，使用率低",
+            "terrible": "设备浪费，造成重大财务损失"
+        }
+    },
+    {
+        "id": 18,
+        "name": "心理危机干预",
+        "type": "紧急事件",
+        "description": "处理突发的心理危机或自杀倾向患者",
+        "difficulty": 7,
+        "reward": 3000,
+        "reputation_impact": 8,
+        "time_limit": 24,
+        "success_rate_factors": {
+            "doctor_level": 0.6,
+            "equipment_quality": 0.1,
+            "team_support": 0.3
+        },
+        "required_equipment": null,
+        "required_medicine": [13],
+        "patient_condition": "危重",
+        "outcomes": {
+            "perfect": "成功干预危机，患者情绪稳定",
+            "good": "危机得到控制，需要后续治疗",
+            "average": "暂时缓解危机",
+            "bad": "干预效果有限",
+            "terrible": "干预失败，患者自伤或伤人"
+        }
+    },
+    {
+        "id": 19,
+        "name": "健康筛查活动",
+        "type": "公共卫生事件",
+        "description": "组织社区健康筛查，早期发现疾病",
+        "difficulty": 4,
+        "reward": 2500,
+        "reputation_impact": 10,
+        "time_limit": 72,
+        "success_rate_factors": {
+            "doctor_level": 0.4,
+            "equipment_quality": 0.3,
+            "team_support": 0.3
+        },
+        "required_equipment": [4, 7, 14, 15],
+        "required_medicine": null,
+        "patient_condition": "多样",
+        "outcomes": {
+            "perfect": "筛查组织完美，发现多例早期疾病",
+            "good": "筛查效果良好，及时干预",
+            "average": "筛查基本达到目的",
+            "bad": "筛查组织混乱，效果有限",
+            "terrible": "筛查失败，造成误诊和恐慌"
+        }
+    },
+    {
+        "id": 20,
+        "name": "医患沟通训练",
+        "type": "教育事件",
+        "description": "提升医护人员的沟通技巧，改善医患关系",
+        "difficulty": 3,
+        "reward": 2000,
+        "reputation_impact": 7,
+        "time_limit": 168,
+        "success_rate_factors": {
+            "doctor_level": 0.4,
+            "equipment_quality": 0.1,
+            "team_support": 0.5
+        },
+        "required_equipment": null,
+        "required_medicine": null,
+        "patient_condition": "不适用",
+        "outcomes": {
+            "perfect": "沟通能力显著提升，医患关系大幅改善",
+            "good": "沟通明显改善，投诉减少",
+            "average": "沟通有所改善",
+            "bad": "改善效果有限",
+            "terrible": "训练适得其反，关系恶化"
+        }
+    }
+] 

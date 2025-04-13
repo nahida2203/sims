@@ -1,0 +1,126 @@
+{
+  "基础消防服": {
+    "id": "basic_suit",
+    "name": "基础消防服",
+    "description": "基础防护装备，可以抵抗一般热度和短时间明火",
+    "price": 500,
+    "protection": 20,
+    "durability": 100,
+    "mobility": 80,
+    "rank": "消防员",
+    "attributes": {
+      "fireResistance": 20,
+      "heatInsulation": 30,
+      "comfortLevel": 60
+    }
+  },
+  "防毒面具": {
+    "id": "gas_mask",
+    "name": "防毒面具",
+    "description": "过滤有毒气体，保障呼吸安全的装备",
+    "price": 300,
+    "protection": 15,
+    "durability": 80,
+    "mobility": 90,
+    "rank": "消防员",
+    "attributes": {
+      "toxinFiltering": 70,
+      "visionRange": 60,
+      "breathingComfort": 50
+    }
+  },
+  "消防水带": {
+    "id": "fire_hose",
+    "name": "消防水带",
+    "description": "输送灭火用水的关键装备",
+    "price": 200,
+    "waterFlow": 50,
+    "durability": 120,
+    "length": 30,
+    "rank": "消防员",
+    "attributes": {
+      "pressureResistance": 80,
+      "flexibility": 60,
+      "weightRating": 40
+    }
+  },
+  "空气呼吸器": {
+    "id": "breathing_apparatus",
+    "name": "空气呼吸器",
+    "description": "在烟雾环境中提供清洁空气的设备",
+    "price": 800,
+    "protection": 40,
+    "durability": 90,
+    "airSupply": 30,
+    "rank": "消防班长",
+    "attributes": {
+      "airQuality": 95,
+      "weight": 15,
+      "comfortLevel": 70
+    }
+  },
+  "热成像仪": {
+    "id": "thermal_imager",
+    "name": "热成像仪",
+    "description": "在烟雾中识别热源，帮助搜救和火点定位",
+    "price": 1200,
+    "detectionRange": 50,
+    "batteryLife": 120,
+    "accuracy": 90,
+    "rank": "消防班长",
+    "attributes": {
+      "imageQuality": 85,
+      "responseTime": 0.5,
+      "weight": 1.5
+    }
+  },
+  "消防水炮": {
+    "id": "water_cannon",
+    "name": "消防水炮",
+    "description": "大流量灭火设备，适合大规模火灾",
+    "price": 2000,
+    "waterFlow": 200,
+    "range": 70,
+    "durability": 150,
+    "rank": "消防队长",
+    "attributes": {
+      "pressureControl": 85,
+      "splashRadius": 15,
+      "setupTime": 60
+    }
+  },
+  "高级防化服": {
+    "id": "hazmat_suit",
+    "name": "高级防化服",
+    "description": "抵抗化学物质和高温的特种装备",
+    "price": 3000,
+    "protection": 80,
+    "durability": 100,
+    "mobility": 50,
+    "rank": "消防队长",
+    "attributes": {
+      "chemicalResistance": 90,
+      "heatInsulation": 85,
+      "wearTime": 15
+    }
+  },
+  "消防无人机": {
+    "id": "fire_drone",
+    "name": "消防无人机",
+    "description": "用于侦察和监测火场的高科技设备",
+    "price": 5000,
+    "flightTime": 30,
+    "range": 2000,
+    "sensors": [
+      "热成像",
+      "高清摄像",
+      "气体检测"
+    ],
+    "rank": "消防指挥员",
+    "attributes": {
+      "transmissionQuality": 90,
+      "windResistance": 70,
+      "autonomyLevel": 60
+    }
+  }
+}

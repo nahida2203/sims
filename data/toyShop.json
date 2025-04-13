@@ -1,0 +1,111 @@
+{
+    "toys": [
+        {
+            "id": "plush_01",
+            "name": "可爱小熊玩偶",
+            "category": "毛绒玩具",
+            "basePrice": 39.9,
+            "cost": 15,
+            "popularity": 85,
+            "description": "柔软舒适的小熊玩偶，适合3岁以上儿童",
+            "stock": 100,
+            "image": "bear.png"
+        },
+        {
+            "id": "block_01",
+            "name": "积木套装",
+            "category": "益智玩具",
+            "basePrice": 99.9,
+            "cost": 35,
+            "popularity": 90,
+            "description": "100片彩色积木，培养创造力",
+            "stock": 50,
+            "image": "blocks.png"
+        },
+        {
+            "id": "car_01",
+            "name": "遥控赛车",
+            "category": "遥控玩具",
+            "basePrice": 159.9,
+            "cost": 60,
+            "popularity": 75,
+            "description": "高速遥控赛车，续航30分钟",
+            "stock": 30,
+            "image": "car.png"
+        },
+        {
+            "id": "doll_01",
+            "name": "芭比娃娃",
+            "category": "玩偶",
+            "basePrice": 129.9,
+            "cost": 45,
+            "popularity": 80,
+            "description": "时尚芭比娃娃，含3套衣服",
+            "stock": 40,
+            "image": "doll.png"
+        },
+        {
+            "id": "puzzle_01",
+            "name": "拼图游戏",
+            "category": "益智玩具",
+            "basePrice": 49.9,
+            "cost": 18,
+            "popularity": 70,
+            "description": "1000片风景拼图，附赠收纳盒",
+            "stock": 60,
+            "image": "puzzle.png"
+        }
+    ],
+    "shopLevels": [
+        {
+            "level": 1,
+            "name": "小型玩具店",
+            "maxStock": 300,
+            "unlockPrice": 0,
+            "dailyFee": 50,
+            "maxTypes": 5
+        },
+        {
+            "level": 2,
+            "name": "中型玩具店",
+            "maxStock": 600,
+            "unlockPrice": 5000,
+            "dailyFee": 100,
+            "maxTypes": 8
+        },
+        {
+            "level": 3,
+            "name": "大型玩具店",
+            "maxStock": 1000,
+            "unlockPrice": 20000,
+            "dailyFee": 200,
+            "maxTypes": 12
+        }
+    ],
+    "decorations": [
+        {
+            "id": "shelf_01",
+            "name": "基础展示架",
+            "price": 500,
+            "effect": {
+                "salesBonus": 5
+            }
+        },
+        {
+            "id": "light_01",
+            "name": "彩色照明",
+            "price": 800,
+            "effect": {
+                "salesBonus": 8
+            }
+        },
+        {
+            "id": "theme_01",
+            "name": "卡通主题装饰",
+            "price": 1200,
+            "effect": {
+                "salesBonus": 12
+            }
+        }
+    ]
+}

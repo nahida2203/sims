@@ -1,0 +1,394 @@
+/*
+* 请注意，系统不会读取help_default.js ！！！！
+* 【请勿直接修改此文件，且可能导致后续冲突】
+*
+* 如需自定义可将文件【复制】一份，并重命名为 help.js
+*
+* */
+
+// 帮助配置
+export const helpCfg = {
+  // 帮助标题
+  title: '模拟人生帮助',
+
+  // 帮助副标题
+  subTitle: 'Yunzai-Bot & sims-Plugin',
+
+  // 帮助表格列数，可选：2-5，默认3
+  // 注意：设置列数过多可能导致阅读困难，请参考实际效果进行设置
+  colCount: 3,
+
+  // 单列宽度，默认265
+  // 注意：过窄可能导致文字有较多换行，请根据实际帮助项设定
+  colWidth: 265,
+
+  // 皮肤选择，可多选，或设置为all
+  // 皮肤包放置于 resources/help/theme
+  // 皮肤名为对应文件夹名
+  // theme: 'all', // 设置为全部皮肤
+  // theme: ['default','theme2'], // 设置为指定皮肤
+  theme: 'all',
+
+  // 排除皮肤：在存在其他皮肤时会忽略该项内设置的皮肤
+  // 默认忽略default：即存在其他皮肤时会忽略自带的default皮肤
+  // 如希望default皮肤也加入随机池可删除default项
+  themeExclude: ['default'],
+
+  // 是否启用背景毛玻璃效果，若渲染遇到问题可设置为false关闭
+  bgBlur: true
+}
+
+// 帮助菜单内容
+export const helpList = [{
+  group: '模拟人生核心功能',
+  list: [{
+    icon: 12,
+    title: '#开始模拟人生',
+    desc: '开始你的倒霉人生吧'
+  }, {
+    icon: 40,
+    title: '游戏有反作弊功能',
+    desc: '如果作弊会被封号哦'
+  }, {
+    icon: 22,
+    title: '#模拟人生信息',
+    desc: '查看个人游戏信息'
+  }, {
+    icon: 33,
+    title: '#设置性别xx',
+    desc: '设置角色性别'
+  }, {
+    icon: 31,
+    title: '#改名xxx',
+    desc: '修改角色名称'
+  }, {
+    icon: 25,
+    title: '#模拟人生修改签名',
+    desc: '首次免费,再次需300元'
+  }, {
+    icon: 43,
+    title: '#购买体力药水',
+    desc: '购买不同类型的体力药水'
+  }, {
+    icon: 44,
+    title: '#食用体力药水',
+    desc: '恢复10-60点体力'
+  }]
+}, {
+  group: '农场系统',
+  list: [{
+    icon: 57,
+    title: '#创建农场',
+    desc: '开始你的农场之旅'
+  }, {
+    icon: 58,
+    title: '#我的农场',
+    desc: '查看农场状态'
+  }, {
+    icon: 59,
+    title: '#农场商店',
+    desc: '购买种子和工具'
+  }, {
+    icon: 21,
+    title: '#种植[种子名][地块]',
+    desc: '在指定地块种植作物'
+  }, {
+    icon: 39,
+    title: '#浇水[地块]',
+    desc: '给作物浇水'
+  }, {
+    icon: 55,
+    title: '#施肥[地块]',
+    desc: '给作物施肥'
+  }, {
+    icon: 52,
+    title: '#收获[地块]',
+    desc: '收获成熟的作物'
+  }, {
+    icon: 76,
+    title: '#购买农田',
+    desc: '扩大农场规模'
+  }, {
+    icon: 78,
+    title: '#升级农田',
+    desc: '提升农田品质'
+  }, {
+    icon: 33,
+    title: '#农场日志',
+    desc: '查看农场活动记录'
+  }, {
+    icon: 31,
+    title: '#农场季节',
+    desc: '查看当前季节信息'
+  }, {
+    icon: 34,
+    title: '#农场攻略',
+    desc: '查看农场系统攻略'
+  }]
+}, {
+  group: '酒馆系统',
+  list: [{
+    icon: 60,
+    title: '#开酒馆',
+    desc: '创建你的酒馆'
+  }, {
+    icon: 21,
+    title: '#我的酒馆',
+    desc: '查看酒馆信息'
+  }, {
+    icon: 38,
+    title: '#酒馆商店',
+    desc: '购买酒馆物品和设备'
+  }, {
+    icon: 43,
+    title: '#酿造[酒名]',
+    desc: '酿造特色酒品'
+  }, {
+    icon: 22,
+    title: '#酒馆升级',
+    desc: '提升酒馆等级'
+  }]
+}, {
+  group: '医生模拟',
+  list: [{
+    icon: 57,
+    title: '#医生就职',
+    desc: '开始医生职业生涯'
+  }, {
+    icon: 58,
+    title: '#医生信息',
+    desc: '查看医生详细信息'
+  }, {
+    icon: 59,
+    title: '#医院信息',
+    desc: '查看医院详细信息'
+  }, {
+    icon: 21,
+    title: '#接诊患者',
+    desc: '接待新的患者'
+  }, {
+    icon: 39,
+    title: '#查看患者',
+    desc: '查看当前所有患者'
+  }, {
+    icon: 55,
+    title: '#诊断[患者ID][疾病ID]',
+    desc: '诊断患者的疾病'
+  }, {
+    icon: 52,
+    title: '#开药[患者ID][药品ID]',
+    desc: '为患者开具药物'
+  }, {
+    icon: 76,
+    title: '#进行手术[手术ID][患者ID]',
+    desc: '为患者进行手术'
+  }, {
+    icon: 78,
+    title: '#医生培训[技能]',
+    desc: '提升医生技能'
+  }, {
+    icon: 33,
+    title: '#医学研究 开始[领域]',
+    desc: '开始新的医学研究'
+  }, {
+    icon: 31,
+    title: '#医生帮助',
+    desc: '显示医生模拟系统帮助'
+  }]
+}, {
+  group: '消防员模拟',
+  list: [{
+    icon: 60,
+    title: '#消防员就职',
+    desc: '开始消防员职业生涯'
+  }, {
+    icon: 21,
+    title: '#消防员信息',
+    desc: '查看消防员信息'
+  }, {
+    icon: 38,
+    title: '#消防装备商店',
+    desc: '购买消防装备'
+  }, {
+    icon: 43,
+    title: '#消防技能培训[技能]',
+    desc: '提升消防技能'
+  }, {
+    icon: 22,
+    title: '#参与灭火',
+    desc: '执行消防任务'
+  }, {
+    icon: 54,
+    title: '#消防站升级',
+    desc: '提升消防站等级'
+  }]
+}, {
+  group: '警察模拟',
+  list: [{
+    icon: 57,
+    title: '#警察就职',
+    desc: '开始警察职业生涯'
+  }, {
+    icon: 58,
+    title: '#警察信息',
+    desc: '查看警察信息'
+  }, {
+    icon: 59,
+    title: '#警局信息',
+    desc: '查看警局信息'
+  }, {
+    icon: 21,
+    title: '#执行任务',
+    desc: '执行警察任务'
+  }, {
+    icon: 39,
+    title: '#警察装备商店',
+    desc: '购买警察装备'
+  }, {
+    icon: 55,
+    title: '#警察培训[技能]',
+    desc: '提升警察技能'
+  }]
+}, {
+  group: '电影院系统',
+  list: [{
+    icon: 60,
+    title: '#开影院',
+    desc: '创建你的电影院'
+  }, {
+    icon: 21,
+    title: '#影院信息',
+    desc: '查看影院信息'
+  }, {
+    icon: 38,
+    title: '#影院商店',
+    desc: '购买影院设备和物品'
+  }, {
+    icon: 43,
+    title: '#放映电影[电影ID]',
+    desc: '放映指定电影'
+  }, {
+    icon: 22,
+    title: '#影院升级',
+    desc: '提升电影院等级'
+  }]
+}, {
+  group: '网吧系统',
+  list: [{
+    icon: 57,
+    title: '#开网吧',
+    desc: '创建你的网吧'
+  }, {
+    icon: 58,
+    title: '#网吧信息',
+    desc: '查看网吧信息'
+  }, {
+    icon: 59,
+    title: '#网吧商店',
+    desc: '购买网吧设备和物品'
+  }, {
+    icon: 21,
+    title: '#网吧升级',
+    desc: '提升网吧等级'
+  }, {
+    icon: 39,
+    title: '#网吧VIP系统',
+    desc: '管理网吧会员'
+  }, {
+    icon: 55,
+    title: '#网吧餐饮',
+    desc: '管理网吧餐饮业务'
+  }]
+}, {
+  group: '钓鱼系统',
+  list: [{
+    icon: 60,
+    title: '#开始钓鱼',
+    desc: '开始钓鱼活动'
+  }, {
+    icon: 21,
+    title: '#钓鱼信息',
+    desc: '查看钓鱼数据'
+  }, {
+    icon: 38,
+    title: '#钓鱼装备商店',
+    desc: '购买钓鱼装备'
+  }, {
+    icon: 43,
+    title: '#钓鱼排行榜',
+    desc: '查看钓鱼排名'
+  }]
+}, {
+  group: '房地产系统',
+  list: [{
+    icon: 57,
+    title: '#购买房产',
+    desc: '购买房屋或地产'
+  }, {
+    icon: 58,
+    title: '#我的房产',
+    desc: '查看拥有的房产'
+  }, {
+    icon: 59,
+    title: '#房地产商店',
+    desc: '查看可购买的房产'
+  }, {
+    icon: 21,
+    title: '#房屋装修',
+    desc: '装修你的房产'
+  }, {
+    icon: 39,
+    title: '#出租房屋',
+    desc: '将房产出租获利'
+  }]
+}, {
+  group: '厨师模拟',
+  list: [{
+    icon: 60,
+    title: '#厨师就职',
+    desc: '开始厨师职业生涯'
+  }, {
+    icon: 21,
+    title: '#厨师信息',
+    desc: '查看厨师信息'
+  }, {
+    icon: 38,
+    title: '#厨具商店',
+    desc: '购买厨具'
+  }, {
+    icon: 43,
+    title: '#学习菜谱[菜名]',
+    desc: '学习新的菜谱'
+  }, {
+    icon: 22,
+    title: '#烹饪[菜名]',
+    desc: '烹饪指定的菜品'
+  }]
+}, {
+  group: '股票交易',
+  list: [{
+    icon: 57,
+    title: '#股票行情',
+    desc: '查看股票市场行情'
+  }, {
+    icon: 58,
+    title: '#我的股票',
+    desc: '查看持有的股票'
+  }, {
+    icon: 59,
+    title: '#买入股票[代码][数量]',
+    desc: '购买指定股票'
+  }, {
+    icon: 21,
+    title: '#卖出股票[代码][数量]',
+    desc: '出售持有的股票'
+  }]
+}, {
+  group: '管理命令，仅管理员可用',
+  auth: 'master',
+  list: [{
+    icon: 95,
+    title: '#模拟人生(强制)更新',
+    desc: '更新模拟人生插件'
+  }]
+}]

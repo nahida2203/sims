@@ -1,0 +1,67 @@
+{
+    "ingredients": [
+        {
+            "id": "tomato",
+            "name": "番茄",
+            "category": "蔬菜",
+            "price": 2,
+            "unit": "个",
+            "freshness": 5,
+            "description": "新鲜红润的番茄"
+        },
+        {
+            "id": "egg",
+            "name": "鸡蛋",
+            "category": "主料",
+            "price": 1.5,
+            "unit": "个",
+            "freshness": 7,
+            "description": "农场新鲜鸡蛋"
+        },
+        {
+            "id": "chicken",
+            "name": "鸡肉",
+            "category": "肉类",
+            "price": 15,
+            "unit": "斤",
+            "freshness": 3,
+            "description": "新鲜去骨鸡肉"
+        },
+        {
+            "id": "peanut",
+            "name": "花生",
+            "category": "干货",
+            "price": 8,
+            "unit": "斤",
+            "freshness": 30,
+            "description": "优质花生"
+        },
+        {
+            "id": "strawberry",
+            "name": "草莓",
+            "category": "水果",
+            "price": 15,
+            "unit": "盒",
+            "freshness": 4,
+            "description": "甜美多汁的草莓"
+        },
+        {
+            "id": "cream",
+            "name": "淡奶油",
+            "category": "乳制品",
+            "price": 20,
+            "unit": "盒",
+            "freshness": 7,
+            "description": "优质淡奶油"
+        }
+    ],
+    "categories": [
+        "主料",
+        "肉类",
+        "蔬菜",
+        "水果",
+        "干货",
+        "调味料",
+        "乳制品"
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "recipes": [
+        {
+            "id": "soup_01",
+            "name": "番茄蛋汤",
+            "category": "汤类",
+            "difficulty": 1,
+            "time": 15,
+            "exp": 10,
+            "unlockLevel": 1,
+            "ingredients": [
+                {"id": "tomato", "name": "番茄", "amount": 2},
+                {"id": "egg", "name": "鸡蛋", "amount": 2},
+                {"id": "green_onion", "name": "葱花", "amount": 1}
+            ],
+            "steps": [
+                "将番茄切块",
+                "打散鸡蛋",
+                "锅中加水烧开",
+                "加入番茄块煮至软化",
+                "慢慢倒入蛋液",
+                "撒上葱花即可"
+            ],
+            "description": "开胃暖心的经典汤品",
+            "successRate": 90,
+            "basePrice": 15
+        },
+        {
+            "id": "dish_01",
+            "name": "宫保鸡丁",
+            "category": "炒菜",
+            "difficulty": 3,
+            "time": 25,
+            "exp": 30,
+            "unlockLevel": 3,
+            "ingredients": [
+                {"id": "chicken", "name": "鸡肉", "amount": 300},
+                {"id": "peanut", "name": "花生", "amount": 100},
+                {"id": "cucumber", "name": "黄瓜", "amount": 1},
+                {"id": "sauce_set", "name": "调味料", "amount": 1}
+            ],
+            "steps": [
+                "鸡肉切丁腌制",
+                "花生炒熟",
+                "爆香配料",
+                "大火翻炒鸡丁",
+                "加入调味料",
+                "最后加入花生"
+            ],
+            "description": "经典川菜，香辣可口",
+            "successRate": 70,
+            "basePrice": 45
+        },
+        {
+            "id": "dessert_01",
+            "name": "草莓慕斯",
+            "category": "甜点",
+            "difficulty": 4,
+            "time": 40,
+            "exp": 50,
+            "unlockLevel": 5,
+            "ingredients": [
+                {"id": "strawberry", "name": "草莓", "amount": 250},
+                {"id": "cream", "name": "淡奶油", "amount": 200},
+                {"id": "gelatin", "name": "吉利丁", "amount": 1},
+                {"id": "sugar", "name": "糖", "amount": 50}
+            ],
+            "steps": [
+                "草莓打成果泥",
+                "吉利丁泡发",
+                "打发淡奶油",
+                "混合所有材料",
+                "倒入模具",
+                "冷藏定型"
+            ],
+            "description": "清爽美味的法式甜点",
+            "successRate": 60,
+            "basePrice": 35
+        }
+    ]
+}

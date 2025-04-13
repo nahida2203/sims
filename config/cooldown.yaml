@@ -1,0 +1,287 @@
+# 股票系统冷却时间配置（单位：秒）
+stock:
+  simulate: 300      # 模拟股票
+  view: 60          # 查看股票
+  buy: 180          # 买入股票
+  sell: 180         # 卖出股票
+  market: 120       # 查看市场指标
+  dividend: 3600    # 股票分红
+  trends: 300       # 股票行情
+  bubble: 600       # 股票泡沫
+  delisting: 3600   # 股票摘帽
+  good_news: 1800   # 利好消息
+  bad_news: 1800    # 利空消息
+  sector: 300       # 板块信息
+  pledge: 3600      # 股权质押
+  dragon_tiger: 600 # 龙虎榜
+  margin: 1800      # 融资融券
+  discount: 3600    # 贴权
+  ex_dividend: 3600 # 除息
+  fill: 3600        # 填权
+  ex_right: 3600    # 除权价
+  right: 3600       # 除权
+  allotment: 3600   # 配股
+  bonus: 3600       # 转增股
+  gift: 3600        # 送股
+  included: 600     # 含权
+  interest: 600     # 含息
+  unlock: 1800      # 解套
+  trapped: 1800     # 套牢
+  bull_trap: 1800   # 多头陷阱
+  rebound: 300      # 反弹
+  dive: 300         # 跳水
+
+# 基础功能冷却时间配置
+mnrs:
+  create: 3600      # 创建角色
+  rename: 1800      # 改名
+  set_sex: 1800     # 设置性别
+  daily_gift: 86400 # 每日签到
+  show_status: 60   # 查看状态
+
+# KTV系统冷却时间配置
+ktv:
+  enter: 300        # 进入KTV
+  sing: 180         # 唱歌
+  dance: 180        # 跳舞
+  drink: 300        # 喝酒
+  leave: 60         # 离开
+
+# 商店系统冷却时间配置
+shop:
+  view: 60          # 查看商店
+  buy: 180          # 购买物品
+  sell: 180         # 出售物品
+  manage: 300       # 管理商店
+  restock: 3600     # 补货
+
+# 工作系统冷却时间配置
+work:
+  start: 300        # 开始工作
+  quit: 1800        # 辞职
+  salary: 86400     # 领取工资
+  overtime: 3600    # 加班
+  promotion: 604800 # 升职
+
+# 社交系统冷却时间配置
+social:
+  chat: 60          # 聊天
+  date: 3600        # 约会
+  gift: 1800        # 送礼
+  relationship: 300  # 关系互动
+
+# 娱乐系统冷却时间配置
+entertainment:
+  game: 300         # 玩游戏
+  movie: 7200       # 看电影
+  sports: 1800      # 运动
+  read: 1800        # 阅读
+
+# 生活系统冷却时间配置
+life:
+  eat: 300          # 吃饭
+  sleep: 28800      # 睡觉
+  exercise: 1800    # 锻炼
+  study: 3600       # 学习
+  travel: 7200      # 旅行
+
+# 福利系统冷却时间配置
+welfare:
+  give_item: 300    # 赠送物品
+  send_red_packet: 600  # 发红包
+  grab_red_packet: 60   # 抢红包
+  send_benefits: 86400  # 发福利
+  deduct_item: 300      # 扣除物品
+
+# 战斗模块冷却时间配置
+battle:
+  start: 300        # 开始战斗
+  attack: 60        # 攻击
+  defend: 60        # 防御
+  use_skill: 120    # 使用技能
+  use_item: 180     # 使用物品
+  retreat: 300      # 撤退
+
+# 版本活动冷却时间配置
+activity:
+  join: 300         # 参加活动
+  claim_reward: 600 # 领取奖励
+  check: 60         # 查看活动
+
+# 报警系统冷却时间配置
+alarm:
+  set: 300          # 设置报警
+  cancel: 180       # 取消报警
+  check: 60         # 查看报警
+
+# 密码破译冷却时间配置
+password:
+  decrypt: 300      # 破译密码
+  hint: 180         # 获取提示
+  reset: 600        # 重置密码
+
+# 咖啡厅冷却时间配置
+cafe:
+  enter: 300        # 进入咖啡厅
+  order: 180        # 点单
+  chat: 120         # 聊天
+  leave: 60         # 离开
+
+# 疾病系统冷却时间配置
+disease:
+  check: 300        # 检查健康
+  treat: 1800       # 治疗疾病
+  prevent: 3600     # 预防疾病
+
+# 菜系统冷却时间配置
+food:
+  cook: 600         # 烹饪
+  eat: 300          # 吃饭
+  learn_recipe: 1800 # 学习菜谱
+
+# 钓鱼系统冷却时间配置
+fishing:
+  start: 300        # 开始钓鱼
+  catch: 180        # 捕获鱼
+  sell: 300         # 出售鱼
+  upgrade: 1800     # 升级装备
+
+# 程序员系统冷却时间配置
+programmer:
+  code: 600         # 编程
+  debug: 300        # 调试
+  project: 1800     # 项目开发
+  learn: 3600       # 学习技术
+
+# 房产销售冷却时间配置
+realestate:
+  view: 180         # 查看房产
+  buy: 3600         # 购买房产
+  sell: 3600        # 出售房产
+  rent: 1800        # 租赁房产
+
+# 宠物系统冷却时间配置
+pet:
+  adopt: 3600       # 领养宠物
+  feed: 300         # 喂养宠物
+  play: 600         # 与宠物玩耍
+  train: 1800       # 训练宠物
+
+# 电影院冷却时间配置
+cinema:
+  check: 180        # 查看电影
+  buy_ticket: 300   # 购买票
+  watch: 7200       # 观看电影
+
+# 剧情系统冷却时间配置
+story:
+  start: 300        # 开始剧情
+  choice: 60        # 做出选择
+  end: 300          # 结束剧情
+
+# 基础设施冷却时间配置
+infrastructure:
+  build: 1800       # 建造
+  upgrade: 3600     # 升级
+  repair: 600       # 修复
+
+# 婚姻系统冷却时间配置
+marriage:
+  propose: 3600     # 求婚
+  divorce: 86400    # 离婚
+  date: 1800        # 约会
+  gift: 600         # 送礼物
+
+# 厨师系统冷却时间配置
+chef:
+  cook: 600         # 烹饪
+  learn: 1800       # 学习菜谱
+  compete: 3600     # 参加比赛
+
+# 家居建材冷却时间配置
+furniture:
+  buy: 600          # 购买家具
+  arrange: 300      # 布置家居
+  upgrade: 1800     # 升级家居
+
+# 异世界体验模块冷却时间配置
+isekai:
+  enter: 3600       # 进入异世界
+  quest: 1800       # 接受任务
+  battle: 600       # 战斗
+  return: 1800      # 返回现实
+
+# 机械师冷却时间配置
+mechanic:
+  repair: 600       # 修理
+  build: 1800       # 建造
+  upgrade: 3600     # 升级
+
+# 服装店冷却时间配置
+clothing:
+  view: 180         # 查看服装
+  buy: 300          # 购买服装
+  design: 1800      # 设计服装
+
+# 酒馆冷却时间配置
+tavern:
+  enter: 300        # 进入酒馆
+  drink: 180        # 喝酒
+  gossip: 300       # 听八卦
+  leave: 60         # 离开
+
+# 太空冷却时间配置
+space:
+  travel: 3600      # 太空旅行
+  explore: 1800     # 探索
+  mine: 900         # 采矿
+  battle: 600       # 太空战斗
+
+# 健身房冷却时间配置
+gym:
+  workout: 1800     # 锻炼
+  train: 600        # 训练
+  compete: 3600     # 比赛
+
+# 科研模块冷却时间配置
+research:
+  start: 1800       # 开始研究
+  experiment: 900   # 实验
+  publish: 3600     # 发表成果
+
+# 文化艺术冷却时间配置
+art:
+  create: 1800      # 创作
+  appreciate: 600   # 欣赏
+  exhibit: 3600     # 展览
+
+# 杂项冷却时间配置
+misc:
+  random: 300       # 随机事件
+  daily: 86400      # 每日事件
+  weekly: 604800    # 每周事件
+
+# 玩具店冷却时间配置
+toys:
+  view: 180         # 查看玩具
+  buy: 300          # 购买玩具
+  play: 600         # 玩耍
+
+# 家冷却时间配置
+home:
+  rest: 1800        # 休息
+  clean: 900        # 清洁
+  decorate: 1800    # 装饰
+
+# 网吧冷却时间配置
+netcafe:
+  enter: 300        # 进入网吧
+  play: 1800        # 玩游戏
+  surf: 600         # 上网
+  leave: 60         # 离开
+
+# 背包冷却时间配置
+backpack:
+  view: 60          # 查看背包
+  use: 180          # 使用物品
+  sort: 300         # 整理背包

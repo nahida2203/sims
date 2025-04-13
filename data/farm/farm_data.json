@@ -1,0 +1,161 @@
+{
+  "3BE99A96C1F745C7E7EF628B810C5940": {
+    "name": "#模拟人生改名萌喵大王的农场",
+    "level": 1,
+    "experience": 18,
+    "createdAt": "2025-04-12T06:38:30.416Z",
+    "lastUpdate": "2025-04-12T17:00:00.094Z",
+    "land": {
+      "level": 1,
+      "name": "初级农田",
+      "size": 4,
+      "plots": [
+        {
+          "crop": "白菜种子",
+          "plantedAt": "2025-04-12T11:01:17.888Z",
+          "water": 55,
+          "fertility": 32,
+          "health": 100,
+          "growthStage": 0,
+          "harvestReady": false
+        },
+        {
+          "crop": null,
+          "plantedAt": null,
+          "water": 0,
+          "fertility": 20,
+          "health": 100,
+          "growthStage": 0,
+          "harvestReady": false
+        },
+        {
+          "crop": null,
+          "plantedAt": null,
+          "water": 0,
+          "fertility": 20,
+          "health": 100,
+          "growthStage": 0,
+          "harvestReady": false
+        },
+        {
+          "crop": "白菜种子",
+          "plantedAt": "2025-04-12T10:55:04.344Z",
+          "water": 80,
+          "fertility": 30,
+          "health": 99.60000000000002,
+          "growthStage": 0,
+          "harvestReady": false
+        }
+      ],
+      "waterRetention": 1,
+      "fertilityBonus": 1
+    },
+    "inventory": {
+      "seeds": [
+        {
+          "name": "白菜种子",
+          "count": 10,
+          "price": 10,
+          "season": [
+            "春季",
+            "秋季"
+          ]
+        }
+      ],
+      "crops": [],
+      "tools": [
+        {
+          "id": 1,
+          "name": "基础锄头",
+          "durability": 48,
+          "efficiency": 1
+        },
+        {
+          "id": 4,
+          "name": "小水壶",
+          "durability": 36,
+          "efficiency": 1
+        }
+      ]
+    },
+    "statistics": {
+      "totalHarvested": 0,
+      "totalIncome": 0,
+      "plantsGrown": 0,
+      "timeSpent": 0
+    },
+    "log": [
+      {
+        "date": "2025-04-12T06:38:30.416Z",
+        "action": "创建",
+        "description": "#模拟人生改名萌喵大王创建了农场"
+      },
+      {
+        "date": "2025-04-12T07:00:00.131Z",
+        "action": "事件发生",
+        "description": "土壤肥力提升，作物生长更好，产量增加"
+      },
+      {
+        "date": "2025-04-12T09:00:00.127Z",
+        "action": "事件发生",
+        "description": "持续的干旱使你的作物缺水，需要更多浇水"
+      },
+      {
+        "date": "2025-04-12T09:00:00.127Z",
+        "action": "事件结束",
+        "description": "肥沃土壤的影响已结束"
+      },
+      {
+        "date": "2025-04-12T10:00:00.131Z",
+        "action": "事件结束",
+        "description": "干旱的影响已结束"
+      },
+      {
+        "date": "2025-04-12T10:35:33.576Z",
+        "action": "购买种子",
+        "description": "购买了1个白菜种子种子，花费10金币"
+      },
+      {
+        "date": "2025-04-12T10:40:22.937Z",
+        "action": "购买种子",
+        "description": "购买了1个白菜种子种子，花费10金币"
+      },
+      {
+        "date": "2025-04-12T10:42:39.516Z",
+        "action": "购买种子",
+        "description": "购买了10个白菜种子种子，花费100金币"
+      },
+      {
+        "date": "2025-04-12T10:55:04.344Z",
+        "action": "种植",
+        "description": "在第4号地块种植了白菜种子 （当前是适合种植的季节）"
+      },
+      {
+        "date": "2025-04-12T11:01:17.888Z",
+        "action": "种植",
+        "description": "在第1号地块种植了白菜种子 （当前是适合种植的季节）"
+      },
+      {
+        "date": "2025-04-12T11:02:56.045Z",
+        "action": "浇水",
+        "description": "对第4号地块浇水，水分从45%提升到70%"
+      },
+      {
+        "date": "2025-04-12T11:04:30.529Z",
+        "action": "浇水",
+        "description": "对第4号地块浇水，水分从70%提升到95%"
+      },
+      {
+        "date": "2025-04-12T11:10:34.667Z",
+        "action": "浇水",
+        "description": "对第4号地块浇水，水分从95%提升到100%"
+      },
+      {
+        "date": "2025-04-12T11:23:00.022Z",
+        "action": "浇水",
+        "description": "对第1号地块浇水，水分从50%提升到75%"
+      }
+    ],
+    "activeEvents": []
+  }
+}

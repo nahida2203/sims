@@ -1,0 +1,65 @@
+{
+  "version": "2.0",
+  "players": {},
+  "netbars": {},
+  "devices": {
+    "templates": {
+      "basic": {
+        "name": "基础配置",
+        "price": 3000,
+        "performance": 5,
+        "maintenance": 10
+      },
+      "standard": {
+        "name": "标准配置",
+        "price": 5000,
+        "performance": 8,
+        "maintenance": 15
+      },
+      "premium": {
+        "name": "高端配置",
+        "price": 8000,
+        "performance": 12,
+        "maintenance": 20
+      }
+    }
+  },
+  "staff": {
+    "types": {
+      "cashier": {
+        "name": "收银员",
+        "base_salary": 3000,
+        "skill": 5
+      },
+      "technician": {
+        "name": "网管",
+        "base_salary": 4000,
+        "skill": 7
+      },
+      "cleaner": {
+        "name": "保洁",
+        "base_salary": 2500,
+        "skill": 3
+      }
+    }
+  },
+  "business": {
+    "hourly_rate": {
+      "basic": 5,
+      "standard": 8,
+      "premium": 12
+    },
+    "upgrade_cost": {
+      "level2": 10000,
+      "level3": 30000,
+      "level4": 60000
+    }
+  },
+  "last_updated": "2025-03-29T04:00:00.103Z",
+  "statistics": {
+    "total_income": 0,
+    "total_expenses": 0,
+    "customer_count": 0,
+    "average_rating": 0
+  }
+}

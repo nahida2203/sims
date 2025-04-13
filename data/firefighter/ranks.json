@@ -1,0 +1,96 @@
+{
+  "实习消防员": {
+    "id": "trainee",
+    "name": "实习消防员",
+    "description": "刚加入消防队，学习基础消防知识和技能",
+    "salary": 200,
+    "authority": 10,
+    "requirements": {
+      "missions": 0,
+      "training": 0,
+      "skills": []
+    },
+    "benefits": {
+      "equipmentDiscount": 0,
+      "trainingDiscount": 0
+    }
+  },
+  "消防员": {
+    "id": "firefighter",
+    "name": "消防员",
+    "description": "完成基础训练，能够参与一般灭火任务",
+    "salary": 500,
+    "authority": 20,
+    "requirements": {
+      "missions": 5,
+      "training": 3,
+      "skills": [
+        "基础灭火"
+      ]
+    },
+    "benefits": {
+      "equipmentDiscount": 5,
+      "trainingDiscount": 5
+    }
+  },
+  "消防班长": {
+    "id": "fire_sergeant",
+    "name": "消防班长",
+    "description": "有经验的消防员，能够带领小组进行灭火和救援",
+    "salary": 1000,
+    "authority": 40,
+    "requirements": {
+      "missions": 20,
+      "training": 10,
+      "skills": [
+        "基础灭火",
+        "火灾侦察",
+        "火场搜救"
+      ]
+    },
+    "benefits": {
+      "equipmentDiscount": 10,
+      "trainingDiscount": 10
+    }
+  },
+  "消防队长": {
+    "id": "fire_captain",
+    "name": "消防队长",
+    "description": "消防站的领导者，负责指挥和协调所有灭火救援工作",
+    "salary": 2000,
+    "authority": 60,
+    "requirements": {
+      "missions": 50,
+      "training": 25,
+      "skills": [
+        "火场搜救",
+        "化学火灾扑救",
+        "指挥协调"
+      ]
+    },
+    "benefits": {
+      "equipmentDiscount": 20,
+      "trainingDiscount": 20
+    }
+  },
+  "消防指挥员": {
+    "id": "fire_commander",
+    "name": "消防指挥员",
+    "description": "高级职称，负责大规模灾害的统筹和指挥",
+    "salary": 3500,
+    "authority": 80,
+    "requirements": {
+      "missions": 100,
+      "training": 50,
+      "skills": [
+        "指挥协调",
+        "高空救援",
+        "大型设备操作"
+      ]
+    },
+    "benefits": {
+      "equipmentDiscount": 30,
+      "trainingDiscount": 30
+    }
+  }
+}

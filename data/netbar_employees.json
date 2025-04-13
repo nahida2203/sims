@@ -1,0 +1,295 @@
+{
+  "positions": {
+    "cashier": {
+      "name": "收银员",
+      "base_salary": 3000,
+      "requirements": {
+        "min_level": 1,
+        "skills": ["customer_service"],
+        "education": "高中以上"
+      },
+      "responsibilities": [
+        "处理收银业务",
+        "会员服务",
+        "客户咨询"
+      ],
+      "career_path": {
+        "junior": {
+          "title": "初级收银员",
+          "salary": 3000,
+          "bonus": 200
+        },
+        "senior": {
+          "title": "高级收银员",
+          "salary": 4000,
+          "bonus": 400
+        },
+        "supervisor": {
+          "title": "收银主管",
+          "salary": 5000,
+          "bonus": 800
+        }
+      }
+    },
+    "technician": {
+      "name": "网管",
+      "base_salary": 4000,
+      "requirements": {
+        "min_level": 1,
+        "skills": ["computer_maintenance", "network_management"],
+        "education": "专科以上"
+      },
+      "responsibilities": [
+        "设备维护",
+        "网络管理",
+        "技术支持"
+      ],
+      "career_path": {
+        "junior": {
+          "title": "初级网管",
+          "salary": 4000,
+          "bonus": 300
+        },
+        "senior": {
+          "title": "高级网管",
+          "salary": 5500,
+          "bonus": 600
+        },
+        "supervisor": {
+          "title": "技术主管",
+          "salary": 7000,
+          "bonus": 1000
+        }
+      }
+    },
+    "cleaner": {
+      "name": "保洁",
+      "base_salary": 2500,
+      "requirements": {
+        "min_level": 1,
+        "skills": ["cleaning"],
+        "education": "不限"
+      },
+      "responsibilities": [
+        "环境清洁",
+        "设备清洁",
+        "垃圾处理"
+      ],
+      "career_path": {
+        "junior": {
+          "title": "初级保洁",
+          "salary": 2500,
+          "bonus": 150
+        },
+        "senior": {
+          "title": "高级保洁",
+          "salary": 3000,
+          "bonus": 300
+        },
+        "supervisor": {
+          "title": "保洁主管",
+          "salary": 3500,
+          "bonus": 500
+        }
+      }
+    },
+    "manager": {
+      "name": "经理",
+      "base_salary": 6000,
+      "requirements": {
+        "min_level": 3,
+        "skills": ["management", "customer_service", "business_operation"],
+        "education": "本科以上"
+      },
+      "responsibilities": [
+        "人员管理",
+        "运营决策",
+        "活动策划",
+        "业绩提升"
+      ],
+      "career_path": {
+        "assistant": {
+          "title": "助理经理",
+          "salary": 6000,
+          "bonus": 1000
+        },
+        "manager": {
+          "title": "店面经理",
+          "salary": 8000,
+          "bonus": 2000
+        },
+        "senior": {
+          "title": "高级经理",
+          "salary": 10000,
+          "bonus": 3000
+        }
+      }
+    }
+  },
+  "training": {
+    "basic_courses": {
+      "customer_service": {
+        "name": "客户服务基础",
+        "duration": 24,
+        "cost": 500,
+        "effects": {
+          "service_skill": 5,
+          "customer_satisfaction": 3
+        }
+      },
+      "computer_basics": {
+        "name": "电脑基础知识",
+        "duration": 48,
+        "cost": 800,
+        "effects": {
+          "tech_skill": 5,
+          "maintenance_efficiency": 3
+        }
+      },
+      "cleaning_standard": {
+        "name": "清洁标准培训",
+        "duration": 16,
+        "cost": 300,
+        "effects": {
+          "cleaning_skill": 5,
+          "work_efficiency": 3
+        }
+      }
+    },
+    "advanced_courses": {
+      "management": {
+        "name": "管理技能提升",
+        "duration": 72,
+        "cost": 2000,
+        "effects": {
+          "management_skill": 8,
+          "team_efficiency": 5
+        }
+      },
+      "network_admin": {
+        "name": "网络管理进阶",
+        "duration": 96,
+        "cost": 1500,
+        "effects": {
+          "tech_skill": 8,
+          "problem_solving": 5
+        }
+      },
+      "business_operation": {
+        "name": "商业运营实务",
+        "duration": 120,
+        "cost": 3000,
+        "effects": {
+          "business_skill": 10,
+          "profit_increase": 5
+        }
+      }
+    }
+  },
+  "shifts": {
+    "morning": {
+      "name": "早班",
+      "hours": "6:00-14:00",
+      "bonus": 1.0
+    },
+    "afternoon": {
+      "name": "中班",
+      "hours": "14:00-22:00",
+      "bonus": 1.0
+    },
+    "night": {
+      "name": "夜班",
+      "hours": "22:00-6:00",
+      "bonus": 1.5
+    }
+  },
+  "benefits": {
+    "insurance": {
+      "name": "五险一金",
+      "cost": "基本工资的35%",
+      "satisfaction": 10
+    },
+    "meals": {
+      "name": "工作餐补贴",
+      "cost": 300,
+      "satisfaction": 5
+    },
+    "transportation": {
+      "name": "交通补贴",
+      "cost": 200,
+      "satisfaction": 3
+    },
+    "performance": {
+      "name": "绩效奖金",
+      "cost": "基本工资的0-30%",
+      "satisfaction": 8
+    }
+  },
+  "evaluation": {
+    "criteria": {
+      "attendance": {
+        "weight": 20,
+        "description": "出勤率和准时性"
+      },
+      "performance": {
+        "weight": 40,
+        "description": "工作效率和质量"
+      },
+      "attitude": {
+        "weight": 20,
+        "description": "工作态度和积极性"
+      },
+      "teamwork": {
+        "weight": 20,
+        "description": "团队协作能力"
+      }
+    },
+    "rewards": {
+      "excellent": {
+        "bonus": "基本工资的20%",
+        "promotion_chance": true
+      },
+      "good": {
+        "bonus": "基本工资的10%",
+        "promotion_chance": false
+      },
+      "average": {
+        "bonus": 0,
+        "promotion_chance": false
+      },
+      "poor": {
+        "warning": true,
+        "training_required": true
+      }
+    }
+  },
+  "events": {
+    "team_building": {
+      "name": "团队建设活动",
+      "cost": 1000,
+      "effects": {
+        "team_spirit": 10,
+        "satisfaction": 8
+      },
+      "duration": 24
+    },
+    "skill_competition": {
+      "name": "技能竞赛",
+      "cost": 2000,
+      "effects": {
+        "skill_improvement": 5,
+        "motivation": 10
+      },
+      "duration": 48
+    },
+    "birthday_celebration": {
+      "name": "生日会",
+      "cost": 500,
+      "effects": {
+        "satisfaction": 15,
+        "loyalty": 5
+      },
+      "duration": 4
+    }
+  }
+}

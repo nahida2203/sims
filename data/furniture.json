@@ -1,0 +1,76 @@
+{
+    "items": [
+        {
+            "id": "sofa_01",
+            "name": "简约布艺沙发",
+            "type": "沙发",
+            "style": "简约",
+            "comfort": 10,
+            "price": 2000,
+            "description": "舒适的三人布艺沙发，适合简约风格"
+        },
+        {
+            "id": "bed_01",
+            "name": "温馨双人床",
+            "type": "床",
+            "style": "简约",
+            "comfort": 15,
+            "price": 3000,
+            "description": "柔软舒适的双人床，让你睡个好觉"
+        },
+        {
+            "id": "table_01",
+            "name": "实木餐桌",
+            "type": "桌子",
+            "style": "田园",
+            "comfort": 8,
+            "price": 1500,
+            "description": "原木制作的餐桌，自然环保"
+        },
+        {
+            "id": "cabinet_01",
+            "name": "现代展示柜",
+            "type": "柜子",
+            "style": "现代",
+            "comfort": 6,
+            "price": 1800,
+            "description": "时尚的展示柜，展示你的收藏"
+        },
+        {
+            "id": "lamp_01",
+            "name": "欧式落地灯",
+            "type": "灯具",
+            "style": "欧式",
+            "comfort": 5,
+            "price": 1200,
+            "description": "典雅的欧式落地灯，营造温馨氛围"
+        },
+        {
+            "id": "carpet_01",
+            "name": "奢华地毯",
+            "type": "地毯",
+            "style": "奢华",
+            "comfort": 7,
+            "price": 2500,
+            "description": "精美的手工地毯，提升房间格调"
+        }
+    ],
+    "sets": [
+        {
+            "id": "living_01",
+            "name": "现代客厅套装",
+            "style": "现代",
+            "items": ["sofa_01", "table_01", "lamp_01"],
+            "bonus_comfort": 5,
+            "price": 5000
+        },
+        {
+            "id": "bedroom_01",
+            "name": "温馨卧室套装",
+            "style": "简约",
+            "items": ["bed_01", "cabinet_01", "lamp_01"],
+            "bonus_comfort": 8,
+            "price": 6000
+        }
+    ]
+}

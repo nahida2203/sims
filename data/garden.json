@@ -1,0 +1,45 @@
+{
+    "seeds": [
+        {
+            "id": "flower_01",
+            "name": "玫瑰",
+            "type": "花卉",
+            "growthTime": 4,
+            "price": 100,
+            "reward": 300,
+            "description": "浪漫的红玫瑰，能提升家园气氛"
+        },
+        {
+            "id": "veg_01",
+            "name": "番茄",
+            "type": "蔬菜",
+            "growthTime": 3,
+            "price": 50,
+            "reward": 200,
+            "description": "新鲜可口的番茄，可以用于烹饪"
+        },
+        {
+            "id": "herb_01",
+            "name": "薄荷",
+            "type": "香草",
+            "growthTime": 2,
+            "price": 30,
+            "reward": 100,
+            "description": "清香的薄荷，可以用来泡茶"
+        },
+        {
+            "id": "flower_02",
+            "name": "向日葵",
+            "type": "花卉",
+            "growthTime": 5,
+            "price": 150,
+            "reward": 400,
+            "description": "阳光明媚的向日葵，让花园充满活力"
+        }
+    ],
+    "special_effects": {
+        "flower": "提升家园舒适度",
+        "vegetable": "可用于厨师系统",
+        "herb": "特殊效果加成"
+    }
+}

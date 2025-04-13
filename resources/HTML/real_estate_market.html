@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>模拟人生 - 房产市场</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .user-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .money {
+            font-size: 1.2em;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .property-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+        .property-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .property-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .property-info div {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .property-price {
+            font-size: 1.3em;
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .property-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-buy {
+            background: #2ecc71;
+            color: white;
+        }
+        .btn-buy:hover {
+            background: #27ae60;
+        }
+        .property-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .tag-location {
+            background: #3498db;
+            color: white;
+        }
+        .tag-type {
+            background: #9b59b6;
+            color: white;
+        }
+        .tag-size {
+            background: #f1c40f;
+            color: #2c3e50;
+        }
+        .market-status {
+            text-align: center;
+            padding: 10px;
+            background: #e8f4f8;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            color: #2980b9;
+        }
+        .empty-market {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 模拟人生房产市场</h1>
+        </div>
+        <div class="user-info">
+            <div class="money">💰 当前资金: {{userMoney}}元</div>
+        </div>
+        <div class="market-status">
+            ⏰ 市场每小时更新一次，价格会随市场波动
+        </div>
+        <div class="properties-grid">
+            {{#each marketData.properties}}
+            <div class="property-card">
+                <div class="property-name">{{name}}</div>
+                <div class="property-tags">
+                    <span class="property-tag tag-location">{{location}}</span>
+                    <span class="property-tag tag-type">{{type}}</span>
+                    <span class="property-tag tag-size">{{size}}㎡</span>
+                </div>
+                <div class="property-info">
+                    <div>位置: {{location}}</div>
+                    <div>类型: {{type}}</div>
+                    <div>面积: {{size}}㎡</div>
+                    <div>状态: {{condition}}%</div>
+                </div>
+                <div class="property-price">
+                    {{price}}元
+                </div>
+                <div class="property-actions">
+                    <button class="btn btn-buy" onclick="buyProperty('{{id}}')">购买</button>
+                </div>
+            </div>
+            {{/each}}
+            {{#unless marketData.properties.length}}
+            <div class="empty-market">
+                🏢 当前市场暂无可用房产
+            </div>
+            {{/unless}}
+        </div>
+    </div>
+</body>
+</html> 

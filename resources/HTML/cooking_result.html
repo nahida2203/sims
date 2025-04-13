@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: {{isSuccess ? '#4caf50' : '#f44336'}};
+            margin: 0;
+            font-size: 2em;
+        }
+        .result-icon {
+            font-size: 4em;
+            margin: 20px 0;
+        }
+        .dish-name {
+            font-size: 1.8em;
+            color: #ff9800;
+            margin: 15px 0;
+        }
+        .result-details {
+            margin: 20px 0;
+            padding: 15px;
+            background: {{isSuccess ? '#e8f5e9' : '#ffebee'}};
+            border-radius: 10px;
+        }
+        .exp-gain {
+            color: #2196f3;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .reputation-change {
+            color: #9c27b0;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .steps-review {
+            text-align: left;
+            margin: 20px 0;
+            padding: 15px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .step-item {
+            margin: 8px 0;
+            color: #666;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .cute-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{isSuccess ? '🎉 制作成功！' : '😅 制作失败'}}</h1>
+        </div>
+        <div class="result-icon">
+            {{isSuccess ? '🍳' : '💨'}}
+        </div>
+        <div class="dish-name">
+            {{recipe.name}}
+        </div>
+        <div class="result-details">
+            {{if isSuccess}}
+            <div class="exp-gain">
+                <span class="cute-icon">📈</span>获得经验：{{recipe.exp}}
+            </div>
+            <div class="reputation-change">
+                <span class="cute-icon">⭐</span>声望提升：+1
+            </div>
+            {{else}}
+            <div style="color: #f44336;">
+                <span class="cute-icon">📝</span>继续练习，相信下次一定能成功！
+            </div>
+            {{/if}}
+        </div>
+        <div class="steps-review">
+            <div style="font-weight: bold; margin-bottom: 10px;">制作步骤回顾：</div>
+            {{each recipe.steps step index}}
+            <div class="step-item">
+                {{index + 1}}. {{step}}
+            </div>
+            {{/each}}
+        </div>
+        <div class="footer">
+            <p>💫 当前厨师等级：{{chefData.level}} | 总成功率：{{Math.round((chefData.successDishes / chefData.totalDishes) * 100)}}% 💫</p>
+        </div>
+    </div>
+</body>
+</html>

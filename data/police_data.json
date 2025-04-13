@@ -1,0 +1,36 @@
+{
+  "cases": {
+    "pending": [],
+    "solved": [],
+    "archived": []
+  },
+  "equipments": [
+    {
+      "id": 1,
+      "name": "警棍",
+      "type": "weapon",
+      "power": 20,
+      "durability": 100,
+      "price": 500
+    },
+    {
+      "id": 2,
+      "name": "手铐",
+      "type": "tool", 
+      "success_rate": 80,
+      "durability": 100,
+      "price": 800
+    },
+    {
+      "id": 3,
+      "name": "对讲机",
+      "type": "communication",
+      "range": 5,
+      "battery": 100,
+      "price": 1200
+    }
+  ],
+  "officers": {},
+  "case_id_counter": 1000,
+  "equipment_id_counter": 100
+}

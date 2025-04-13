@@ -33,161 +33,327 @@ export const helpList = [{
     icon: 40,
     title: '游戏有反作弊功能',
     desc: '如果作弊会被封号哦'
-  }]
-}, {
-  group: '功能',
-  list: [{
-    icon: 33,
-    title: '#设置性别xx',
-    desc: '顾名思义，设置性别'
-
-  }, {
-    icon: 31,
-    title: '#改名xxx',
-    desc: '顾名思义'
   }, {
     icon: 22,
     title: '#模拟人生信息',
     desc: '查看个人游戏信息'
-  }]
-}, {
-  group: '职业【KTV】',
-  list: [{
-    icon: 57,
-    title: '#开KTV',
-    desc: '开KTV'
-  }, {
-    icon: 58,
-    title: '#唱歌',
-    desc: '就是唱歌'
-  }, {
-    icon: 59,
-    title: '#购买歌曲',
-    desc: '顾名思义'
-  }, {
-    icon: 21,
-    title: '#购买装饰',
-    desc: '购买装饰'
-  }, {
-    icon: 39,
-    title: '#提升音质',
-    desc: '没有介绍'
-  }, {
-    icon: 55,
-    title: '#提升舞台效果',
-    desc: '没有介绍'
-  }, {
-    icon: 52,
-    title: '#购买灯光设备',
-    desc: '没有介绍'
-  }, {
-    icon: 76,
-    title: '#购买舞台设备',
-    desc: '没有介绍'
-  }, {
-    icon: 78,
-    title: '#购买DJ设备',
-    desc: '没有介绍'
   }, {
     icon: 33,
-    title: '#购买调酒设备',
-    desc: '没有介绍'
+    title: '#设置性别xx',
+    desc: '设置角色性别'
   }, {
     icon: 31,
-    title: '#雇佣调酒师',
-    desc: '没有介绍'
-  }
-  , {
-    icon: 34,
-    title: '#雇佣厨师',
-    desc: '没有介绍'
-  }
-  , {
-    icon: 35,
-    title: '#雇佣歌手',
-    desc: '没有介绍'
-  }
-  , {
-    icon: 36,
-    title: '#雇佣舞蹈家',
-    desc: '没有介绍'
-  }
-  , {
-    icon: 37,
-    title: '#购买厨师设备',
-    desc: '没有介绍'
-  }
-  , {
-    icon: 38,
-    title: '#购买歌手服装',
-    desc: '没有介绍'
-  }
-  , {
-    icon: 39,
-    title: '#购买舞蹈家服装',
-    desc: '没有介绍'
-  }
-  , {
-    icon: 40,
-    title: '#提升KTV等级',
-    desc: '没有介绍'
-  }
-  , {
-    icon: 41,
-    title: '#KTV信息',
-    desc: '没有介绍'
-  }
-]
+    title: '#改名xxx',
+    desc: '修改角色名称'
+  }]
 }, {
-  group: '职业【家具店】',
+  group: '农场系统',
   list: [{
-    icon: 60,
-    title: '#应聘家具店店员',
-    desc: '没有介绍'
+    icon: 57,
+    title: '#创建农场',
+    desc: '开始你的农场之旅'
+  }, {
+    icon: 58,
+    title: '#我的农场',
+    desc: '查看农场状态'
+  }, {
+    icon: 59,
+    title: '#农场商店',
+    desc: '购买种子和工具'
   }, {
     icon: 21,
-    title: '#升级为家具店店主',
-    desc: '没有介绍'
+    title: '#种植[种子名][地块]',
+    desc: '在指定地块种植作物'
   }, {
-    icon: 38,
-    title: '#出售家具xxx',
-    desc: '没有介绍'
-  }, {
-    icon: 43,
-    title: '#家具进货',
-    desc: '没有介绍'
-  }, {
-    icon: 22,
-    title: '#查看家具库存',
-    desc: '没有介绍'
-  }, {
-    icon: 54,
-    title: '#家具销售榜',
-    desc: '没有介绍'
+    icon: 39,
+    title: '#浇水[地块]',
+    desc: '给作物浇水'
   }, {
     icon: 55,
-    title: '#查看销售记录',
-    desc: '没有介绍'
+    title: '#施肥[地块]',
+    desc: '给作物施肥'
   }, {
-    icon: 71,
-    title: '#家具店改名xxx',
-    desc: '没有介绍'
+    icon: 52,
+    title: '#收获[地块]',
+    desc: '收获成熟的作物'
   }, {
-    icon: 74,
-    title: '#升级店铺',
-    desc: '没有介绍'
+    icon: 76,
+    title: '#购买农田',
+    desc: '扩大农场规模'
   }, {
-    icon: 11,
-    title: '#制作家具xxx',
-    desc: '没有介绍'
+    icon: 78,
+    title: '#升级农田',
+    desc: '提升农田品质'
   }, {
-    icon: 80,
-    title: '#查看家具蓝图',
-    desc: '没有介绍'
+    icon: 33,
+    title: '#农场日志',
+    desc: '查看农场活动记录'
   }, {
-    icon: 70,
-    title: '#发工资',
-    desc: '仅店主可用'
+    icon: 31,
+    title: '#农场季节',
+    desc: '查看当前季节信息'
+  }, {
+    icon: 34,
+    title: '#农场攻略',
+    desc: '查看农场系统攻略'
+  }]
+}, {
+  group: '酒馆系统',
+  list: [{
+    icon: 60,
+    title: '#开酒馆',
+    desc: '创建你的酒馆'
+  }, {
+    icon: 21,
+    title: '#我的酒馆',
+    desc: '查看酒馆信息'
+  }, {
+    icon: 38,
+    title: '#酒馆商店',
+    desc: '购买酒馆物品和设备'
+  }, {
+    icon: 43,
+    title: '#酿造[酒名]',
+    desc: '酿造特色酒品'
+  }, {
+    icon: 22,
+    title: '#酒馆升级',
+    desc: '提升酒馆等级'
+  }]
+}, {
+  group: '医生模拟',
+  list: [{
+    icon: 57,
+    title: '#医生就职',
+    desc: '开始医生职业生涯'
+  }, {
+    icon: 58,
+    title: '#医生信息',
+    desc: '查看医生详细信息'
+  }, {
+    icon: 59,
+    title: '#医院信息',
+    desc: '查看医院详细信息'
+  }, {
+    icon: 21,
+    title: '#接诊患者',
+    desc: '接待新的患者'
+  }, {
+    icon: 39,
+    title: '#查看患者',
+    desc: '查看当前所有患者'
+  }, {
+    icon: 55,
+    title: '#诊断[患者ID][疾病ID]',
+    desc: '诊断患者的疾病'
+  }, {
+    icon: 52,
+    title: '#开药[患者ID][药品ID]',
+    desc: '为患者开具药物'
+  }, {
+    icon: 76,
+    title: '#进行手术[手术ID][患者ID]',
+    desc: '为患者进行手术'
+  }, {
+    icon: 78,
+    title: '#医生培训[技能]',
+    desc: '提升医生技能'
+  }, {
+    icon: 33,
+    title: '#医学研究 开始[领域]',
+    desc: '开始新的医学研究'
+  }, {
+    icon: 31,
+    title: '#医生帮助',
+    desc: '显示医生模拟系统帮助'
+  }]
+}, {
+  group: '消防员模拟',
+  list: [{
+    icon: 60,
+    title: '#消防员就职',
+    desc: '开始消防员职业生涯'
+  }, {
+    icon: 21,
+    title: '#消防员信息',
+    desc: '查看消防员信息'
+  }, {
+    icon: 38,
+    title: '#消防装备商店',
+    desc: '购买消防装备'
+  }, {
+    icon: 43,
+    title: '#消防技能培训[技能]',
+    desc: '提升消防技能'
+  }, {
+    icon: 22,
+    title: '#参与灭火',
+    desc: '执行消防任务'
+  }, {
+    icon: 54,
+    title: '#消防站升级',
+    desc: '提升消防站等级'
+  }]
+}, {
+  group: '警察模拟',
+  list: [{
+    icon: 57,
+    title: '#警察就职',
+    desc: '开始警察职业生涯'
+  }, {
+    icon: 58,
+    title: '#警察信息',
+    desc: '查看警察信息'
+  }, {
+    icon: 59,
+    title: '#警局信息',
+    desc: '查看警局信息'
+  }, {
+    icon: 21,
+    title: '#执行任务',
+    desc: '执行警察任务'
+  }, {
+    icon: 39,
+    title: '#警察装备商店',
+    desc: '购买警察装备'
+  }, {
+    icon: 55,
+    title: '#警察培训[技能]',
+    desc: '提升警察技能'
+  }]
+}, {
+  group: '电影院系统',
+  list: [{
+    icon: 60,
+    title: '#开影院',
+    desc: '创建你的电影院'
+  }, {
+    icon: 21,
+    title: '#影院信息',
+    desc: '查看影院信息'
+  }, {
+    icon: 38,
+    title: '#影院商店',
+    desc: '购买影院设备和物品'
+  }, {
+    icon: 43,
+    title: '#放映电影[电影ID]',
+    desc: '放映指定电影'
+  }, {
+    icon: 22,
+    title: '#影院升级',
+    desc: '提升电影院等级'
+  }]
+}, {
+  group: '网吧系统',
+  list: [{
+    icon: 57,
+    title: '#开网吧',
+    desc: '创建你的网吧'
+  }, {
+    icon: 58,
+    title: '#网吧信息',
+    desc: '查看网吧信息'
+  }, {
+    icon: 59,
+    title: '#网吧商店',
+    desc: '购买网吧设备和物品'
+  }, {
+    icon: 21,
+    title: '#网吧升级',
+    desc: '提升网吧等级'
+  }, {
+    icon: 39,
+    title: '#网吧VIP系统',
+    desc: '管理网吧会员'
+  }, {
+    icon: 55,
+    title: '#网吧餐饮',
+    desc: '管理网吧餐饮业务'
+  }]
+}, {
+  group: '钓鱼系统',
+  list: [{
+    icon: 60,
+    title: '#开始钓鱼',
+    desc: '开始钓鱼活动'
+  }, {
+    icon: 21,
+    title: '#钓鱼信息',
+    desc: '查看钓鱼数据'
+  }, {
+    icon: 38,
+    title: '#钓鱼装备商店',
+    desc: '购买钓鱼装备'
+  }, {
+    icon: 43,
+    title: '#钓鱼排行榜',
+    desc: '查看钓鱼排名'
+  }]
+}, {
+  group: '房地产系统',
+  list: [{
+    icon: 57,
+    title: '#购买房产',
+    desc: '购买房屋或地产'
+  }, {
+    icon: 58,
+    title: '#我的房产',
+    desc: '查看拥有的房产'
+  }, {
+    icon: 59,
+    title: '#房地产商店',
+    desc: '查看可购买的房产'
+  }, {
+    icon: 21,
+    title: '#房屋装修',
+    desc: '装修你的房产'
+  }, {
+    icon: 39,
+    title: '#出租房屋',
+    desc: '将房产出租获利'
+  }]
+}, {
+  group: '厨师模拟',
+  list: [{
+    icon: 60,
+    title: '#厨师就职',
+    desc: '开始厨师职业生涯'
+  }, {
+    icon: 21,
+    title: '#厨师信息',
+    desc: '查看厨师信息'
+  }, {
+    icon: 38,
+    title: '#厨具商店',
+    desc: '购买厨具'
+  }, {
+    icon: 43,
+    title: '#学习菜谱[菜名]',
+    desc: '学习新的菜谱'
+  }, {
+    icon: 22,
+    title: '#烹饪[菜名]',
+    desc: '烹饪指定的菜品'
+  }]
+}, {
+  group: '股票交易',
+  list: [{
+    icon: 57,
+    title: '#股票行情',
+    desc: '查看股票市场行情'
+  }, {
+    icon: 58,
+    title: '#我的股票',
+    desc: '查看持有的股票'
+  }, {
+    icon: 59,
+    title: '#买入股票[代码][数量]',
+    desc: '购买指定股票'
+  }, {
+    icon: 21,
+    title: '#卖出股票[代码][数量]',
+    desc: '出售持有的股票'
   }]
 }, {
   group: '管理命令，仅管理员可用',
@@ -198,5 +364,4 @@ export const helpList = [{
     desc: '更新模拟人生插件'
   }]
 }]
-
 export const isSys = true

@@ -1,0 +1,263 @@
+{
+  "random_events": {
+    "positive": {
+      "game_tournament": {
+        "title": "电竞赛事",
+        "description": "附近举办大型电竞赛事，带来大量游戏玩家",
+        "duration": 48,
+        "effects": {
+          "income": 1.5,
+          "reputation": 10,
+          "customers": 1.3
+        }
+      },
+      "internet_celebrity": {
+        "title": "网红打卡",
+        "description": "知名网红在你的网吧直播",
+        "duration": 24,
+        "effects": {
+          "income": 1.3,
+          "reputation": 15,
+          "customers": 1.5
+        }
+      },
+      "school_holiday": {
+        "title": "学校放假",
+        "description": "附近学校放假，学生流量增加",
+        "duration": 72,
+        "effects": {
+          "income": 1.2,
+          "customers": 1.4
+        }
+      },
+      "tech_expo": {
+        "title": "科技展会",
+        "description": "城市举办科技展会，吸引大量电脑发烧友",
+        "duration": 36,
+        "effects": {
+          "income": 1.4,
+          "reputation": 5,
+          "customers": 1.2
+        }
+      }
+    },
+    "negative": {
+      "power_outage": {
+        "title": "停电事故",
+        "description": "区域性停电，需要使用备用电源",
+        "duration": 6,
+        "effects": {
+          "income": 0.5,
+          "reputation": -5,
+          "customers": 0.3
+        },
+        "solutions": {
+          "use_generator": {
+            "cost": 1000,
+            "effect": "维持基本运营"
+          },
+          "temporary_close": {
+            "cost": 0,
+            "effect": "暂时停业"
+          }
+        }
+      },
+      "network_issue": {
+        "title": "网络故障",
+        "description": "网络服务出现问题，连接不稳定",
+        "duration": 4,
+        "effects": {
+          "income": 0.7,
+          "reputation": -3,
+          "customers": 0.6
+        },
+        "solutions": {
+          "emergency_repair": {
+            "cost": 500,
+            "effect": "立即修复"
+          },
+          "wait_for_isp": {
+            "cost": 0,
+            "effect": "等待运营商处理"
+          }
+        }
+      },
+      "virus_outbreak": {
+        "title": "病毒爆发",
+        "description": "电脑系统感染病毒，需要清理",
+        "duration": 8,
+        "effects": {
+          "income": 0.6,
+          "reputation": -8,
+          "customers": 0.5
+        },
+        "solutions": {
+          "professional_cleanup": {
+            "cost": 2000,
+            "effect": "专业清理"
+          },
+          "self_cleanup": {
+            "cost": 500,
+            "effect": "自行处理"
+          }
+        }
+      },
+      "competitor_promotion": {
+        "title": "竞争对手促销",
+        "description": "附近新开网吧大力促销",
+        "duration": 72,
+        "effects": {
+          "income": 0.8,
+          "customers": 0.7
+        },
+        "solutions": {
+          "match_price": {
+            "cost": "收入降低20%",
+            "effect": "保持竞争力"
+          },
+          "improve_service": {
+            "cost": 1000,
+            "effect": "提升服务质量"
+          }
+        }
+      }
+    }
+  },
+  "special_events": {
+    "tournaments": {
+      "local_competition": {
+        "title": "社区联赛",
+        "description": "举办小型游戏比赛",
+        "cost": 5000,
+        "duration": 24,
+        "requirements": {
+          "reputation": 50,
+          "computers": 20
+        },
+        "rewards": {
+          "money": 8000,
+          "reputation": 15,
+          "members": 10
+        }
+      },
+      "city_championship": {
+        "title": "城市锦标赛",
+        "description": "举办中型电竞赛事",
+        "cost": 15000,
+        "duration": 48,
+        "requirements": {
+          "reputation": 70,
+          "computers": 40
+        },
+        "rewards": {
+          "money": 25000,
+          "reputation": 30,
+          "members": 25
+        }
+      },
+      "pro_gaming": {
+        "title": "职业赛事",
+        "description": "承办职业电竞比赛",
+        "cost": 50000,
+        "duration": 72,
+        "requirements": {
+          "reputation": 90,
+          "computers": 60
+        },
+        "rewards": {
+          "money": 100000,
+          "reputation": 50,
+          "members": 50
+        }
+      }
+    },
+    "promotions": {
+      "happy_hour": {
+        "title": "欢乐时光",
+        "description": "特定时段价格优惠",
+        "cost": 1000,
+        "duration": 4,
+        "effects": {
+          "price": 0.7,
+          "customers": 1.5
+        }
+      },
+      "member_day": {
+        "title": "会员日",
+        "description": "会员专享优惠活动",
+        "cost": 2000,
+        "duration": 24,
+        "effects": {
+          "member_price": 0.5,
+          "new_members": 1.3
+        }
+      },
+      "game_festival": {
+        "title": "游戏节",
+        "description": "举办游戏主题活动",
+        "cost": 5000,
+        "duration": 48,
+        "effects": {
+          "income": 1.3,
+          "reputation": 20,
+          "customers": 1.4
+        }
+      }
+    },
+    "seasonal": {
+      "summer_vacation": {
+        "title": "暑期特惠",
+        "description": "暑假期间的优惠活动",
+        "duration": 720,
+        "effects": {
+          "student_price": 0.8,
+          "customers": 1.3
+        }
+      },
+      "winter_warmth": {
+        "title": "冬日温暖",
+        "description": "寒冷季节的特别活动",
+        "duration": 720,
+        "effects": {
+          "income": 1.2,
+          "customers": 1.1
+        }
+      },
+      "spring_festival": {
+        "title": "春节庆典",
+        "description": "农历新年特别活动",
+        "duration": 168,
+        "effects": {
+          "income": 1.5,
+          "reputation": 10
+        }
+      }
+    }
+  },
+  "daily_tasks": {
+    "equipment_check": {
+      "title": "设备检查",
+      "description": "检查所有电脑设备状态",
+      "reward": {
+        "maintenance": 5,
+        "reputation": 1
+      }
+    },
+    "clean_environment": {
+      "title": "环境清洁",
+      "description": "保持网吧环境整洁",
+      "reward": {
+        "cleanliness": 10,
+        "customer_satisfaction": 2
+      }
+    },
+    "member_service": {
+      "title": "会员服务",
+      "description": "为会员提供优质服务",
+      "reward": {
+        "member_satisfaction": 5,
+        "reputation": 2
+      }
+    }
+  }
+}

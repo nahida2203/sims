@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萌萌网吧模拟器</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #faf0ff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"%3E%3Cpath fill="%23d392fa" fill-opacity="0.1" d="M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63"%3E%3C/path%3E%3Cpath fill="%239c89ff" fill-opacity="0.1" d="M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764"%3E%3C/path%3E%3Cpath fill="%238bdfff" fill-opacity="0.1" d="M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880"%3E%3C/path%3E%3C/svg%3E');
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        .panel {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(150, 108, 255, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #e0c4ff;
+            position: relative;
+            overflow: hidden;
+        }
+        .panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #8c5cff, #ff6bc1, #5cddff);
+            z-index: 1;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #e0c4ff;
+            margin-bottom: 15px;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .title {
+            color: #6a39c7;
+            margin: 0;
+            font-size: 1.8em;
+            text-shadow: 1px 1px 2px rgba(106, 57, 199, 0.2);
+        }
+        .subtitle {
+            color: #9c75db;
+            margin: 0;
+            font-size: 1em;
+            font-weight: normal;
+        }
+        .level-badge {
+            background: linear-gradient(45deg, #8c5cff, #ff6bc1);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(140, 92, 255, 0.3);
+        }
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .stat-card {
+            flex: 1 1 120px;
+            background-color: #fbf7ff;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 3px 10px rgba(220, 200, 255, 0.3);
+            transition: transform 0.2s;
+            border: 1px solid #e9d9ff;
+            text-align: center;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(220, 200, 255, 0.5);
+        }
+        .stat-icon {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            color: #9c75db;
+        }
+        .stat-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #6a39c7;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 0.8em;
+            color: #9c75db;
+        }
+        .progress-bar {
+            background-color: #e9d9ff;
+            height: 12px;
+            border-radius: 6px;
+            margin-top: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+        .good {
+            background: linear-gradient(90deg, #65e49b, #5cddff);
+        }
+        .medium {
+            background: linear-gradient(90deg, #ffea7b, #ffad7b);
+        }
+        .poor {
+            background: linear-gradient(90deg, #ff6b6b, #ff6bc1);
+        }
+        .section-title {
+            color: #6a39c7;
+            border-bottom: 2px dashed #e0c4ff;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title .emoji {
+            font-size: 1.2em;
+        }
+        .computer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .computer-card {
+            flex: 1;
+            background-color: #fbf7ff;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 3px 10px rgba(220, 200, 255, 0.3);
+            border: 1px solid #e9d9ff;
+            text-align: center;
+        }
+        .computer-type {
+            font-weight: bold;
+            color: #6a39c7;
+            margin-bottom: 5px;
+        }
+        .computer-count {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #9c75db;
+            margin-bottom: 5px;
+        }
+        .computer-usage {
+            font-size: 0.9em;
+            color: #9c75db;
+        }
+        .staff-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .staff-card {
+            flex: 1 1 200px;
+            background-color: #fbf7ff;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 3px 10px rgba(220, 200, 255, 0.3);
+            border: 1px solid #e9d9ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .staff-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #d5c0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6a39c7;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .staff-info {
+            flex: 1;
+        }
+        .staff-name {
+            font-weight: bold;
+            color: #6a39c7;
+        }
+        .staff-position {
+            font-size: 0.8em;
+            color: #9c75db;
+            margin-bottom: 5px;
+        }
+        .tips-container {
+            background-color: #fffdff;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px dashed #ffb8e6;
+            margin-top: 20px;
+        }
+        .tips-title {
+            color: #ff6bc1;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .tips-list {
+            list-style-type: none;
+            padding-left: 20px;
+            margin: 0;
+        }
+        .tips-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #9c75db;
+            font-size: 0.9em;
+        }
+        .tips-list li::before {
+            content: "🌟";
+            position: absolute;
+            left: 0;
+        }
+        .glow-effect {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(140, 92, 255, 0.2) 0%, rgba(140, 92, 255, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .notification {
+            background: linear-gradient(45deg, #8c5cff, #ff6bc1);
+            color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(140, 92, 255, 0.3);
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 15px rgba(140, 92, 255, 0.3); }
+            50% { box-shadow: 0 5px 25px rgba(140, 92, 255, 0.6); }
+            100% { box-shadow: 0 5px 15px rgba(140, 92, 255, 0.3); }
+        }
+        .chart-container {
+            margin-top: 20px;
+            height: 150px;
+            background-color: #fbf7ff;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #e9d9ff;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 5px;
+        }
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, #8c5cff, #ff6bc1);
+            border-radius: 4px;
+            position: relative;
+            transition: height 0.5s;
+        }
+        .chart-label {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6a39c7;
+        }
+        .kawaii-icon {
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 通知区域 (仅当有特殊消息时显示) -->
+        {{#title}}
+        <div class="notification">
+            {{title}}
+        </div>
+        {{/title}}
+
+        <!-- 主面板 -->
+        <div class="panel">
+            <div class="header">
+                <div class="header-title">
+                    <div class="level-badge">{{level}}</div>
+                    <div>
+                        <h1 class="title">{{name}}</h1>
+                        <h2 class="subtitle">萌萌网吧经营中~</h2>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <div style="color: #6a39c7; font-weight: bold;">评分: {{rating}}⭐</div>
+                    <div style="color: #9c75db;">声誉: {{reputation}}</div>
+                </div>
+            </div>
+
+            <!-- 状态指标 -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-value">{{dailyIncome}}</div>
+                    <div class="stat-label">日收入(元)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value">{{currentCustomers}}</div>
+                    <div class="stat-label">当前客流</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎖️</div>
+                    <div class="stat-value">{{memberCount}}</div>
+                    <div class="stat-label">会员数量</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🧹</div>
+                    <div class="stat-value">{{cleanliness}}%</div>
+                    <div class="stat-label">清洁度</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{cleanliness}}%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 环境和维护 -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon">🏠</div>
+                    <div class="stat-value">{{environment}}%</div>
+                    <div class="stat-label">环境舒适度</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{environment}}%"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔧</div>
+                    <div class="stat-value">{{maintenance}}%</div>
+                    <div class="stat-label">设备维护</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{maintenance}}%"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">😊</div>
+                    <div class="stat-value">{{memberSatisfaction}}%</div>
+                    <div class="stat-label">会员满意度</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{memberSatisfaction}}%"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-value">{{serviceQuality}}%</div>
+                    <div class="stat-label">服务质量</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{serviceQuality}}%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 电脑配置 -->
+            <div class="section-title">
+                <span class="emoji">💻</span> 电脑配置
+            </div>
+            <div class="computer-grid">
+                <div class="computer-card">
+                    <div class="computer-type">基础配置</div>
+                    <div class="computer-count">{{computers.basic}} 台</div>
+                    <div class="computer-usage">使用率: {{computers.basicUsage}}%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{computers.basicUsage}}%"></div>
+                    </div>
+                </div>
+                <div class="computer-card">
+                    <div class="computer-type">标准配置</div>
+                    <div class="computer-count">{{computers.standard}} 台</div>
+                    <div class="computer-usage">使用率: {{computers.standardUsage}}%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{computers.standardUsage}}%"></div>
+                    </div>
+                </div>
+                <div class="computer-card">
+                    <div class="computer-type">高端配置</div>
+                    <div class="computer-count">{{computers.premium}} 台</div>
+                    <div class="computer-usage">使用率: {{computers.premiumUsage}}%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{computers.premiumUsage}}%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 员工管理 -->
+            <div class="section-title">
+                <span class="emoji">👨‍💼</span> 员工管理
+            </div>
+            <div class="staff-list">
+                {{#staff}}
+                <div class="staff-card">
+                    <div class="staff-avatar">★</div>
+                    <div class="staff-info">
+                        <div class="staff-name">{{name}}</div>
+                        <div class="staff-position">{{position}}</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-value="{{satisfaction}}" style="width: {{satisfaction}}%"></div>
+                        </div>
+                    </div>
+                </div>
+                {{/staff}}
+                <div style="width: 100%; text-align: center; padding: 20px; color: #9c75db;">
+                    还没有雇佣员工呢~ 使用 #雇佣员工 命令来招募吧！
+                </div>
+            </div>
+
+            <!-- 特殊内容区域 - 根据不同场景显示不同内容 -->
+            {{#equipmentType}}
+            <div class="section-title">
+                <span class="emoji">🛒</span> 设备购买成功
+            </div>
+            <div style="background-color: #f0f9ff; border-radius: 8px; padding: 15px; border: 1px dashed #8bdfff;">
+                <p style="margin: 0 0 10px 0; color: #6a39c7; font-weight: bold;">
+                    <span class="kawaii-icon">✨</span> 成功购买 {{quantity}} 台 {{equipmentType}} 设备！
+                </p>
+                <p style="margin: 0; color: #9c75db;">
+                    总花费: {{totalCost}} 元
+                </p>
+                {{#currentCount}}
+                <p style="margin: 5px 0 0 0; color: #9c75db;">
+                    当前拥有: {{currentCount}} 台
+                </p>
+                {{/currentCount}}
+            </div>
+            {{/equipmentType}}
+
+            {{#employeeId}}
+            <div class="section-title">
+                <span class="emoji">👋</span> 员工{{action}}
+            </div>
+            <div style="background-color: #fff8f0; border-radius: 8px; padding: 15px; border: 1px dashed #ffad7b;">
+                <p style="margin: 0 0 10px 0; color: #6a39c7; font-weight: bold;">
+                    <span class="kawaii-icon">{{icon}}</span> 
+                    {{message}}
+                </p>
+                <p style="margin: 0; color: #9c75db;">
+                    员工ID: {{employeeId}}
+                </p>
+                {{#salary}}
+                <p style="margin: 5px 0 0 0; color: #9c75db;">
+                    月薪: {{salary}} 元
+                </p>
+                {{/salary}}
+            </div>
+            {{/employeeId}}
+            
+            {{#item}}
+            <div class="section-title">
+                <span class="emoji">📦</span> 进货/装修/维护
+            </div>
+            <div style="background-color: #f7fff0; border-radius: 8px; padding: 15px; border: 1px dashed #65e49b;">
+                <p style="margin: 0 0 10px 0; color: #6a39c7; font-weight: bold;">
+                    <span class="kawaii-icon">✅</span> 成功处理 {{item}}！
+                </p>
+                <p style="margin: 0; color: #9c75db;">
+                    {{#quantity}}数量: {{quantity}}{{/quantity}}
+                    {{#maintenanceCost}}维护费用: {{maintenanceCost}} 元{{/maintenanceCost}}
+                </p>
+                {{#totalCost}}
+                <p style="margin: 5px 0 0 0; color: #9c75db;">
+                    总花费: {{totalCost}} 元
+                </p>
+                {{/totalCost}}
+                {{#status}}
+                <p style="margin: 5px 0 0 0; color: #9c75db;">
+                    状态: {{status}}
+                </p>
+                {{/status}}
+            </div>
+            {{/item}}
+
+            <!-- 操作提示 -->
+            {{#tips}}
+            <div class="tips-container">
+                <div class="tips-title"><span>💡</span> 萌萌经营小贴士</div>
+                <ul class="tips-list">
+                    {{#tips}}
+                    <li>{{tip}}</li>
+                    {{/tips}}
+                </ul>
+            </div>
+            {{/tips}}
+        </div>
+    </div>
+    
+    <script>
+        // 动态效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加发光效果
+            const createGlowEffect = (e) => {
+                const glow = document.createElement('div');
+                glow.classList.add('glow-effect');
+                document.body.appendChild(glow);
+                
+                const updateGlowPosition = (x, y) => {
+                    glow.style.left = `${x - 100}px`;
+                    glow.style.top = `${y - 100}px`;
+                };
+                
+                updateGlowPosition(e.pageX, e.pageY);
+                
+                document.addEventListener('mousemove', (e) => {
+                    updateGlowPosition(e.pageX, e.pageY);
+                });
+            };
+            
+            document.addEventListener('mousemove', createGlowEffect, { once: true });
+            
+            // 为进度条添加动画和样式
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                
+                // 设置颜色样式 (根据百分比值)
+                const value = parseInt(width);
+                if (value >= 80) {
+                    bar.classList.add('good');
+                } else if (value >= 60) {
+                    bar.classList.add('medium');
+                } else {
+                    bar.classList.add('poor');
+                }
+                
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+            
+            // 添加鼠标悬停效果
+            const cards = document.querySelectorAll('.stat-card, .computer-card, .staff-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const progressFill = card.querySelector('.progress-fill');
+                    if (progressFill) {
+                        progressFill.style.transform = 'scaleY(1.2)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const progressFill = card.querySelector('.progress-fill');
+                    if (progressFill) {
+                        progressFill.style.transform = 'scaleY(1)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

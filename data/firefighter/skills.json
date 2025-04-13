@@ -1,0 +1,106 @@
+{
+  "基础灭火": {
+    "id": "basic_firefighting",
+    "name": "基础灭火",
+    "description": "掌握基本的灭火技巧和方法",
+    "learnCost": 100,
+    "timeToLearn": 1,
+    "effectivenessBuff": 10,
+    "rank": "消防员",
+    "prerequisites": []
+  },
+  "火灾侦察": {
+    "id": "fire_reconnaissance",
+    "name": "火灾侦察",
+    "description": "评估火场情况和结构安全的能力",
+    "learnCost": 150,
+    "timeToLearn": 2,
+    "safetyBuff": 15,
+    "rank": "消防员",
+    "prerequisites": [
+      "基础灭火"
+    ]
+  },
+  "火场搜救": {
+    "id": "search_and_rescue",
+    "name": "火场搜救",
+    "description": "在火场中有效搜寻和救助受困人员的技能",
+    "learnCost": 300,
+    "timeToLearn": 3,
+    "rescueEfficiencyBuff": 20,
+    "survivorSaveBuff": 25,
+    "rank": "消防班长",
+    "prerequisites": [
+      "火灾侦察"
+    ]
+  },
+  "高温环境适应": {
+    "id": "heat_adaptation",
+    "name": "高温环境适应",
+    "description": "提高在高温环境中工作的能力和耐受力",
+    "learnCost": 400,
+    "timeToLearn": 5,
+    "heatResistanceBuff": 30,
+    "staminaInHeatBuff": 25,
+    "rank": "消防班长",
+    "prerequisites": [
+      "基础灭火"
+    ]
+  },
+  "化学火灾扑救": {
+    "id": "chemical_firefighting",
+    "name": "化学火灾扑救",
+    "description": "应对化学物质引起的特殊火灾的专业技能",
+    "learnCost": 500,
+    "timeToLearn": 7,
+    "chemicalFireEfficiencyBuff": 35,
+    "toxinResistanceBuff": 20,
+    "rank": "消防队长",
+    "prerequisites": [
+      "基础灭火",
+      "火灾侦察"
+    ]
+  },
+  "高空救援": {
+    "id": "high_altitude_rescue",
+    "name": "高空救援",
+    "description": "在高层建筑和高空环境进行救援的技能",
+    "learnCost": 600,
+    "timeToLearn": 10,
+    "heightFearReduction": 40,
+    "ropeTechniquesBuff": 30,
+    "verticalMovementSpeed": 25,
+    "rank": "消防队长",
+    "prerequisites": [
+      "火场搜救"
+    ]
+  },
+  "指挥协调": {
+    "id": "command_coordination",
+    "name": "指挥协调",
+    "description": "在火场指挥和协调多个救援小组的能力",
+    "learnCost": 800,
+    "timeToLearn": 14,
+    "teamEfficiencyBuff": 25,
+    "communicationBuff": 30,
+    "decisionSpeedBuff": 20,
+    "rank": "消防指挥员",
+    "prerequisites": [
+      "火灾侦察",
+      "火场搜救"
+    ]
+  },
+  "大型设备操作": {
+    "id": "heavy_equipment_operation",
+    "name": "大型设备操作",
+    "description": "操作大型消防设备和车辆的专业技能",
+    "learnCost": 700,
+    "timeToLearn": 12,
+    "equipmentEfficiencyBuff": 25,
+    "mechanicalKnowledgeBuff": 30,
+    "rank": "消防队长",
+    "prerequisites": [
+      "基础灭火"
+    ]
+  }
+}

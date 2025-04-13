@@ -1,0 +1,322 @@
+{
+  "equipment": {
+    "computers": {
+      "basic": {
+        "name": "基础电脑",
+        "price": 3000,
+        "description": "适合网页浏览和办公",
+        "specs": {
+          "cpu": "i3处理器",
+          "ram": "8GB",
+          "storage": "256GB SSD",
+          "gpu": "集成显卡"
+        },
+        "hourly_income": 5,
+        "maintenance_cost": 80,
+        "lifespan": 720
+      },
+      "standard": {
+        "name": "标准电脑",
+        "price": 5000,
+        "description": "满足主流游戏需求",
+        "specs": {
+          "cpu": "i5处理器",
+          "ram": "16GB",
+          "storage": "512GB SSD",
+          "gpu": "GTX1660"
+        },
+        "hourly_income": 8,
+        "maintenance_cost": 120,
+        "lifespan": 720
+      },
+      "premium": {
+        "name": "高端电脑",
+        "price":18000,
+        "description": "支持高端游戏和专业应用",
+        "specs": {
+          "cpu": "i7处理器",
+          "ram": "32GB",
+          "storage": "1TB SSD",
+          "gpu": "RTX4090"
+        },
+        "hourly_income": 12,
+        "maintenance_cost": 200,
+        "lifespan": 720
+      }
+    },
+    "peripherals": {
+      "basic_chair": {
+        "name": "普通椅子",
+        "price": 200,
+        "comfort": 3,
+        "durability": 360
+      },
+      "gaming_chair": {
+        "name": "电竞椅",
+        "price": 800,
+        "comfort": 8,
+        "durability": 540
+      },
+      "basic_desk": {
+        "name": "普通电脑桌",
+        "price": 300,
+        "comfort": 3,
+        "durability": 720
+      },
+      "gaming_desk": {
+        "name": "电竞桌",
+        "price": 1000,
+        "comfort": 8,
+        "durability": 900
+      }
+    },
+    "facilities": {
+      "air_conditioner": {
+        "name": "空调",
+        "price": 3000,
+        "effect": {
+          "comfort": 10,
+          "hourly_cost": 5
+        }
+      },
+      "water_dispenser": {
+        "name": "饮水机",
+        "price": 1000,
+        "effect": {
+          "service": 5,
+          "hourly_cost": 1
+        }
+      },
+      "security_camera": {
+        "name": "监控摄像头",
+        "price": 2000,
+        "effect": {
+          "security": 8,
+          "hourly_cost": 2
+        }
+      },
+      "router": {
+        "name": "高性能路由器",
+        "price": 1500,
+        "effect": {
+          "network": 10,
+          "hourly_cost": 3
+        }
+      }
+    }
+  },
+  "consumables": {
+    "drinks": {
+      "cold": {
+        "cola": {
+          "name": "可乐",
+          "price": 3,
+          "cost": 1,
+          "stock_unit": 24
+        },
+        "sprite": {
+          "name": "雪碧",
+          "price": 3,
+          "cost": 1,
+          "stock_unit": 24
+        },
+        "water": {
+          "name": "矿泉水",
+          "price": 2,
+          "cost": 0.5,
+          "stock_unit": 24
+        }
+      },
+      "hot": {
+        "coffee": {
+          "name": "咖啡",
+          "price": 8,
+          "cost": 2,
+          "stock_unit": 50
+        },
+        "milk_tea": {
+          "name": "奶茶",
+          "price": 6,
+          "cost": 1.5,
+          "stock_unit": 50
+        },
+        "tea": {
+          "name": "热茶",
+          "price": 5,
+          "cost": 1,
+          "stock_unit": 100
+        }
+      }
+    },
+    "snacks": {
+      "chips": {
+        "name": "薯片",
+        "price": 5,
+        "cost": 2,
+        "stock_unit": 30
+      },
+      "bread": {
+        "name": "面包",
+        "price": 4,
+        "cost": 1.5,
+        "stock_unit": 20
+      },
+      "cookies": {
+        "name": "饼干",
+        "price": 3,
+        "cost": 1,
+        "stock_unit": 40
+      }
+    },
+    "meals": {
+      "instant_noodles": {
+        "name": "泡面",
+        "price": 8,
+        "cost": 3,
+        "stock_unit": 30,
+        "preparation_time": 5
+      },
+      "lunch_box": {
+        "name": "盒饭",
+        "price": 15,
+        "cost": 8,
+        "stock_unit": 20,
+        "preparation_time": 0
+      },
+      "sandwich": {
+        "name": "三明治",
+        "price": 10,
+        "cost": 4,
+        "stock_unit": 15,
+        "preparation_time": 3
+      }
+    }
+  },
+  "vip_room_equipment": {
+    "basic_room": {
+      "name": "基础包间套装",
+      "price": 10000,
+      "includes": {
+        "computers": 4,
+        "chairs": 4,
+        "air_conditioner": 1,
+        "sofa": 1
+      },
+      "hourly_rate": 50
+    },
+    "deluxe_room": {
+      "name": "豪华包间套装",
+      "price": 20000,
+      "includes": {
+        "computers": 6,
+        "chairs": 6,
+        "air_conditioner": 1,
+        "sofa": 2,
+        "tv": 1
+      },
+      "hourly_rate": 80
+    },
+    "premium_room": {
+      "name": "至尊包间套装",
+      "price": 35000,
+      "includes": {
+        "computers": 8,
+        "chairs": 8,
+        "air_conditioner": 2,
+        "sofa": 3,
+        "tv": 2,
+        "karaoke": 1
+      },
+      "hourly_rate": 120
+    }
+  },
+  "decoration": {
+    "themes": {
+      "basic": {
+        "name": "基础装修",
+        "price": 20000,
+        "effects": {
+          "reputation": 5,
+          "customer_satisfaction": 5
+        },
+        "duration": 2880
+      },
+      "netcafe": {
+        "name": "网咖风格",
+        "price": 50000,
+        "effects": {
+          "reputation": 10,
+          "customer_satisfaction": 10
+        },
+        "duration": 4320
+      },
+      "esports": {
+        "name": "电竞主题",
+        "price": 100000,
+        "effects": {
+          "reputation": 20,
+          "customer_satisfaction": 15
+        },
+        "duration": 5760
+      },
+      "luxury": {
+        "name": "豪华装潢",
+        "price": 200000,
+        "effects": {
+          "reputation": 30,
+          "customer_satisfaction": 20
+        },
+        "duration": 7200
+      }
+    },
+    "items": {
+      "wallpaper": {
+        "name": "墙纸",
+        "price": 5000,
+        "effects": {
+          "appearance": 5
+        },
+        "duration": 2160
+      },
+      "lighting": {
+        "name": "照明系统",
+        "price": 8000,
+        "effects": {
+          "comfort": 8
+        },
+        "duration": 4320
+      },
+      "flooring": {
+        "name": "地板",
+        "price": 10000,
+        "effects": {
+          "appearance": 10
+        },
+        "duration": 5760
+      }
+    }
+  },
+  "maintenance_tools": {
+    "basic_toolkit": {
+      "name": "基础工具箱",
+      "price": 500,
+      "effect": {
+        "maintenance_efficiency": 5
+      }
+    },
+    "cleaning_supplies": {
+      "name": "清洁用品",
+      "price": 200,
+      "effect": {
+        "cleanliness": 10
+      }
+    },
+    "repair_parts": {
+      "name": "维修配件",
+      "price": 1000,
+      "effect": {
+        "repair_success": 10
+      }
+    }
+  }
+}
