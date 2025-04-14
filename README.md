@@ -96,8 +96,11 @@ pnpm i
 - 点开我的主页私信我
  & [点击跳转我的QQ](https://qm.qq.com/q/a55MXIlQFa)
  & [点击跳转我的QQ群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=MBjLULnf3r-PjDSr1j8lTLyhjAy1Xeur&authKey=aqzhQsD0XDgBeLy5pYY3ejnsjIELm9XYjRCQUhd95HmBjf18I7wu%2BrmZwas7z3Ex&noverify=0&group_code=939882404)
-- Gitee Issues：[提交问题](https://gitee.com/nahida22/sims-plugin/issues)
-参与贡献请Fock本仓库修改代码后发起[Pull Request](https://gitee.com/nahida22/sims-plugin/pulls)  
+- 点开我的主页私信我
+ & [点击跳转我的QQ](https://qm.qq.com/q/a55MXIlQFa)
+ & [点击跳转我的QQ群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=MBjLULnf3r-PjDSr1j8lTLyhjAy1Xeur&authKey=aqzhQsD0XDgBeLy5pYY3ejnsjIELm9XYjRCQUhd95HmBjf18I7wu%2BrmZwas7z3Ex&noverify=0&group_code=939882404)
+- gitcode Issues：[提交问题](https://gitcode.com/nahida22/sims-plugin/issues)
+参与贡献请Fock本仓库修改代码后发起[Pull Request](https://gitcode.com/nahida22/sims-plugin/pulls)  
 如果你对本仓库表示支持，请点点你手中的Star，开发者会超级感动的啦～
 
 ##  插件结构一览
