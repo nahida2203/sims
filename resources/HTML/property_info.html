@@ -83,6 +83,10 @@
             background: #2ecc71;
             color: white;
         }
+        .tag-feature {
+            background: #1abc9c;
+            color: white;
+        }
         .property-info {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -174,6 +178,95 @@
             background: linear-gradient(90deg, #2ecc71, #27ae60);
             transition: width 0.3s ease;
         }
+        .property-features {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        .stats-panel {
+            background: #e8f4f8;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .stats-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .stats-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stats-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+        .stats-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .stats-highlight {
+            color: #e74c3c;
+        }
+        .advice-panel {
+            background: #f0faf0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #2ecc71;
+        }
+        .advice-title {
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 8px;
+        }
+        .maintenance-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .maintenance-urgent {
+            background: #e74c3c;
+            color: white;
+        }
+        .maintenance-warning {
+            background: #f1c40f;
+            color: #2c3e50;
+        }
+        .maintenance-good {
+            background: #2ecc71;
+            color: white;
+        }
+        .maintenance-excellent {
+            background: #3498db;
+            color: white;
+        }
+        .projection-info {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            border-left: 4px solid #3498db;
+        }
     </style>
 </head>
 <body>
@@ -181,6 +274,31 @@
         <div class="header">
             <h1>🏠 我的房产信息</h1>
         </div>
+        
+        {{#if stats}}
+        <div class="stats-panel">
+            <div class="stats-title">房产资产概况</div>
+            <div class="stats-grid">
+                <div class="stats-item">
+                    <div class="stats-value">{{stats.totalProperties}}</div>
+                    <div class="stats-label">拥有房产数量</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value">{{stats.totalValue}}</div>
+                    <div class="stats-label">总资产价值(元)</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value">{{stats.totalRented}}/{{stats.totalProperties}}</div>
+                    <div class="stats-label">出租率</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value stats-highlight">{{stats.totalRentIncome}}</div>
+                    <div class="stats-label">每小时租金收入(元)</div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        
         <div class="properties-grid">
             {{#each properties}}
             <div class="property-card">
@@ -191,6 +309,15 @@
                     <span class="property-tag tag-size">{{size}}㎡</span>
                     <span class="property-tag tag-status">{{#if isRented}}已出租{{else}}空闲{{/if}}</span>
                 </div>
+                
+                {{#if features}}
+                <div class="property-features">
+                    {{#each features}}
+                    <span class="property-tag tag-feature">{{this}}</span>
+                    {{/each}}
+                </div>
+                {{/if}}
+                
                 <div class="property-info">
                     <div class="label">位置:</div>
                     <div>{{location}}</div>
@@ -206,7 +333,23 @@
                         <span class="level-star">★</span>
                         {{/times}}
                     </div>
+                    <div class="label">估价:</div>
+                    <div>{{price}}元</div>
                 </div>
+                
+                {{#if maintenanceAdvice}}
+                <div class="maintenance-tag {{maintenanceClass}}">
+                    {{maintenanceAdvice}}
+                </div>
+                {{/if}}
+                
+                {{#if incomeProjection}}
+                <div class="projection-info">
+                    <div class="label">预计月收益:</div>
+                    <div>{{incomeProjection}}元</div>
+                </div>
+                {{/if}}
+                
                 {{#if isRented}}
                 <div class="tenant-info">
                     <h3>租客信息</h3>
@@ -218,6 +361,7 @@
                     </div>
                 </div>
                 {{/if}}
+                
                 <div class="property-actions">
                     {{#unless isRented}}
                     <button class="btn btn-sell" onclick="sellProperty('{{id}}')">出售</button>

@@ -25,7 +25,7 @@ export class RealEstateSystem extends plugin {
             event: 'message',
             priority: 600,
             rule: [
-                { reg: '^#房产市场$', fnc: 'showRealEstateMarket' },
+                { reg: '^#房产市场.*$', fnc: 'showRealEstateMarket' },
                 { reg: '^#购买房产.*$', fnc: 'buyProperty' },
                 { reg: '^#出售房产.*$', fnc: 'sellProperty' },
                 { reg: '^#房产信息$', fnc: 'showPropertyInfo' },
@@ -60,29 +60,93 @@ export class RealEstateSystem extends plugin {
             await this.banPlayer(userId, e);
             return;
         }
-
+        const typeFilter = e.msg.replace('#房产市场', '').trim();
+        
         // 读取房产市场数据
         const marketData = await this.loadRealEstateMarket();
         
-        let cssFile = `${_path}/plugins/sims-plugin/resources/HTML/`
+        // 如果有筛选条件，进行筛选
+        let filteredProperties = marketData.properties;
+        let filterMessage = '';
+        
+        const propertyTypes = ['公寓', '别墅', '商铺', '写字楼', '住宅'];
+        const locations = ['市中心', '郊区', '商业区', '住宅区', '学区'];
+        
+        if (typeFilter && (propertyTypes.includes(typeFilter) || locations.includes(typeFilter))) {
+            if (propertyTypes.includes(typeFilter)) {
+                filteredProperties = marketData.properties.filter(p => p.type === typeFilter);
+                filterMessage = `已为您筛选${typeFilter}类型的房产`;
+            } else if (locations.includes(typeFilter)) {
+                filteredProperties = marketData.properties.filter(p => p.location === typeFilter);
+                filterMessage = `已为您筛选${typeFilter}区域的房产`;
+            }
+        }
+        
+        // 按价格从低到高排序
+        filteredProperties.sort((a, b) => a.price - b.price);
+        
+        // 市场分析数据
+        const marketAnalysis = {
+            totalProperties: marketData.properties.length,
+            averagePrice: Math.floor(marketData.properties.reduce((sum, p) => sum + p.price, 0) / marketData.properties.length),
+            priceRange: {
+                min: Math.min(...marketData.properties.map(p => p.price)),
+                max: Math.max(...marketData.properties.map(p => p.price))
+            },
+            typeDistribution: propertyTypes.map(type => {
+                return {
+                    type,
+                    count: marketData.properties.filter(p => p.type === type).length
+                };
+            }),
+            locationDistribution: locations.map(location => {
+                return {
+                    location,
+                    count: marketData.properties.filter(p => p.location === location).length,
+                    avgPrice: Math.floor(
+                        marketData.properties
+                            .filter(p => p.location === location)
+                            .reduce((sum, p) => sum + p.price, 0) / 
+                            (marketData.properties.filter(p => p.location === location).length || 1)
+                    )
+                };
+            })
+        };
+        
+        let cssFile = `${_path}/plugins/sims-plugin/resources/HTML/`;
         await image(e, 'real_estate_market', {
             cssFile,
             marketData,
-            userMoney: userData.money
+            properties: filteredProperties,
+            hasProperties: filteredProperties && filteredProperties.length > 0,
+            userMoney: userData.money,
+            marketAnalysis,
+            filterMessage
         });
+        
         setCooldown(e.user_id, 'real_estate', 'market');
-        e.reply(`【房产市场攻略】
-1. 房产市场每小时更新一次，价格会随市场波动
-2. 不同区域的房产有不同的升值空间和租金收益
-3. 购买房产前请仔细考虑：
-   - 房产位置和升值潜力
-   - 装修和维护成本
-   - 租金收益预期
-4. 建议：
-   - 新手建议先购买小户型房产
-   - 关注市场趋势，选择合适时机买卖
-   - 合理规划装修，提升房产价值
-   - 注意维护房产状态，避免贬值`);
+        
+        if (filterMessage) {
+            e.reply(filterMessage);
+        } else {
+            const locationRecommendation = marketAnalysis.locationDistribution
+                .sort((a, b) => a.avgPrice - b.avgPrice)[0];
+            
+            e.reply(`【房产市场信息】
+当前市场共有${marketAnalysis.totalProperties}处房产
+平均价格: ${marketAnalysis.averagePrice}元
+价格区间: ${marketAnalysis.priceRange.min}-${marketAnalysis.priceRange.max}元
+
+【市场分析】
+1. ${locationRecommendation.location}区域均价最低，约${locationRecommendation.avgPrice}元，性价比较高
+2. 市场热门房产类型: ${marketAnalysis.typeDistribution.sort((a, b) => b.count - a.count)[0].type}
+3. 您当前资金: ${userData.money}元
+
+【使用提示】
+- 输入 #房产市场+类型 可筛选特定类型(如:#房产市场公寓)
+- 输入 #房产市场+区域 可筛选特定区域(如:#房产市场市中心)
+- 使用 #购买房产+ID 购买您心仪的房产`);
+        }
     }
 
     async buyProperty(e) {
@@ -256,26 +320,152 @@ export class RealEstateSystem extends plugin {
             e.reply("你还没有任何房产！");
             return;
         }
+        
+        // 对房产进行排序和分析
+        userData.properties.sort((a, b) => {
+            // 优先按照是否出租排序
+            if (a.isRented !== b.isRented) {
+                return a.isRented ? -1 : 1;
+            }
+            // 然后按照价值排序
+            return b.price - a.price;
+        });
+        
+        // 计算房产统计信息
+        const stats = {
+            totalProperties: userData.properties.length,
+            totalValue: userData.properties.reduce((sum, p) => sum + p.price, 0),
+            totalRented: userData.properties.filter(p => p.isRented).length,
+            totalRentIncome: userData.properties.filter(p => p.isRented)
+                .reduce((sum, p) => sum + (p.rentPrice || 0), 0),
+            averageCondition: Math.floor(
+                userData.properties.reduce((sum, p) => sum + p.condition, 0) / userData.properties.length
+            ),
+            bestProperty: userData.properties.reduce((best, p) => 
+                p.price > (best ? best.price : 0) ? p : best, null),
+            worstCondition: userData.properties.reduce((worst, p) => 
+                p.condition < (worst ? worst.condition : 101) ? p : worst, null)
+        };
+        
+        // 添加房产功能和特性信息
+        userData.properties.forEach(property => {
+            if (!property.features) {
+                property.features = [];
+            }
+            
+            // 生成收益预测
+            property.incomeProjection = this.calculateIncomeProjection(property);
+            
+            // 生成维护建议
+            property.maintenanceAdvice = this.generateMaintenanceAdvice(property);
+        });
+        
         let cssFile = `${_path}/plugins/sims-plugin/resources/HTML/`
         await image(e, 'property_info', {
             cssFile,
-            properties: userData.properties
+            properties: userData.properties,
+            stats
         });
         setCooldown(e.user_id, 'real_estate', 'info');
-        e.reply(`【房产信息查看攻略】
-1. 信息查看要点：
-   - 房产位置和类型
-   - 当前状态和条件
-   - 装修等级
-   - 租金收益
-2. 管理建议：
-   - 定期检查房产状态
-   - 及时进行维护
-   - 合理规划装修
-3. 注意事项：
-   - 关注房产贬值情况
-   - 注意租客反馈
-   - 合理设置租金`);
+        
+        // 生成房产投资分析
+        const recommendedAction = this.analyzePortfolio(userData.properties);
+        
+        e.reply(`【房产资产概况】
+您共拥有${stats.totalProperties}处房产，总价值${stats.totalValue}元
+已出租: ${stats.totalRented}处，每小时租金收入: ${stats.totalRentIncome}元
+平均房产状况: ${stats.averageCondition}%
+
+【最有价值房产】
+${stats.bestProperty.name} (价值${stats.bestProperty.price}元)
+
+【投资建议】
+${recommendedAction}
+
+【使用提示】
+- 输入 #出售房产+ID 可出售房产
+- 输入 #装修房产+ID+等级 可提升房产价值
+- 输入 #出租房产+ID+租金 可出租获得收益`);
+    }
+
+    calculateIncomeProjection(property) {
+        // 计算预期月收入
+        if (property.isRented) {
+            return property.rentPrice * 24 * 30; // 月租金收入
+        }
+        
+        // 计算潜在租金收入
+        const baseRent = property.price * 0.008; // 基础月租金约为房价的0.8%
+        const renovationBonus = property.renovationLevel * 0.2;
+        const conditionBonus = (property.condition / 100) * 0.1;
+        return Math.floor(baseRent * (1 + renovationBonus + conditionBonus));
+    }
+    
+    generateMaintenanceAdvice(property) {
+        if (property.condition < 50) {
+            return "紧急：房产状况不佳，需要立即维护";
+        } else if (property.condition < 70) {
+            return "注意：房产需要维护，建议尽快装修";
+        } else if (property.condition < 90) {
+            return "提醒：房产状况良好，定期检查维护";
+        } else {
+            return "优秀：房产状况极佳，继续保持";
+        }
+    }
+    
+    analyzePortfolio(properties) {
+        if (properties.length <= 1) {
+            return "建议继续购入不同类型房产，分散投资风险";
+        }
+        
+        // 计算各类型房产数量
+        const typeCount = {};
+        properties.forEach(p => {
+            typeCount[p.type] = (typeCount[p.type] || 0) + 1;
+        });
+        
+        // 计算各区域房产数量
+        const locationCount = {};
+        properties.forEach(p => {
+            locationCount[p.location] = (locationCount[p.location] || 0) + 1;
+        });
+        
+        // 检查是否有装修等级较低的房产
+        const lowRenovation = properties.some(p => p.renovationLevel < 2);
+        
+        // 检查是否有未出租的房产
+        const unrented = properties.some(p => !p.isRented);
+        
+        // 生成建议
+        let advice = [];
+        
+        // 检查房产类型分布
+        const types = Object.keys(typeCount);
+        if (types.length < 3 && properties.length >= 3) {
+            advice.push("建议购买多种类型房产分散风险");
+        }
+        
+        // 检查区域分布
+        const locations = Object.keys(locationCount);
+        if (locations.length < 3 && properties.length >= 3) {
+            advice.push("建议在不同区域购买房产，降低市场风险");
+        }
+        
+        // 建议装修
+        if (lowRenovation) {
+            advice.push("部分房产装修等级较低，升级装修可提高收益");
+        }
+        
+        // 建议出租
+        if (unrented) {
+            advice.push("有未出租房产，建议出租以获取持续收益");
+        }
+        
+        if (advice.length === 0) {
+            advice.push("您的房产组合已经非常均衡，继续保持良好的维护和管理");
+        }
+        
+        return advice.join("；");
     }
 
     async renovateProperty(e) {
@@ -454,27 +644,81 @@ export class RealEstateSystem extends plugin {
     async updateRealEstateMarket() {
         const marketData = await this.loadRealEstateMarket();
         
+        // 生成当前市场趋势
+        const marketTrend = Math.random();
+        let trendFactor = 0;
+        
+        if (marketTrend < 0.2) {
+            // 市场低迷 (20%概率)
+            trendFactor = -0.08;
+        } else if (marketTrend < 0.7) {
+            // 市场平稳 (50%概率)
+            trendFactor = 0;
+        } else if (marketTrend < 0.95) {
+            // 市场繁荣 (25%概率)
+            trendFactor = 0.08;
+        } else {
+            // 市场火爆 (5%概率)
+            trendFactor = 0.15;
+        }
+        
+        // 各类型房产的特殊调整因子
+        const typeFactors = {
+            '公寓': Math.random() * 0.06 - 0.03,  // -3% ~ +3%
+            '别墅': Math.random() * 0.08 - 0.04,  // -4% ~ +4%
+            '商铺': Math.random() * 0.10 - 0.05,  // -5% ~ +5%
+            '写字楼': Math.random() * 0.09 - 0.045, // -4.5% ~ +4.5%
+            '住宅': Math.random() * 0.07 - 0.035  // -3.5% ~ +3.5%
+        };
+        
+        // 各区域的特殊调整因子
+        const locationFactors = {
+            '市中心': Math.random() * 0.08 - 0.02,  // -2% ~ +6%
+            '商业区': Math.random() * 0.07 - 0.025, // -2.5% ~ +4.5%
+            '学区': Math.random() * 0.06 - 0.02,   // -2% ~ +4%
+            '住宅区': Math.random() * 0.05 - 0.025, // -2.5% ~ +2.5%
+            '郊区': Math.random() * 0.04 - 0.03    // -3% ~ +1%
+        };
+        
         // 更新房产价格
         marketData.properties.forEach(property => {
-            const priceChange = (Math.random() - 0.5) * 0.1; // -5% 到 +5% 的价格变化
+            // 基础趋势变化
+            let priceChange = trendFactor;
+            
+            // 添加类型和区域特殊因子
+            priceChange += typeFactors[property.type] || 0;
+            priceChange += locationFactors[property.location] || 0;
+            
+            // 随机波动 (-2% ~ +2%)
+            priceChange += (Math.random() * 0.04 - 0.02);
+            
+            // 更新价格
             property.price = Math.floor(property.price * (1 + priceChange));
+            
+            // 确保价格不会太低
+            property.price = Math.max(property.price, 10000);
         });
 
         // 添加新房产
-        if (Math.random() < 0.3) { // 30% 的概率添加新房产
-            const newProperty = this.generateNewProperty();
-            marketData.properties.push(newProperty);
+        const newPropertyChance = Math.random();
+        if (newPropertyChance < 0.5) { // 50% 的概率添加新房产
+            const newPropertyCount = Math.floor(Math.random() * 3) + 1; // 添加1-3个新房产
+            for (let i = 0; i < newPropertyCount; i++) {
+                const newProperty = this.generateNewProperty();
+                marketData.properties.push(newProperty);
+            }
         }
 
         // 移除部分房产
-        if (marketData.properties.length > 50) {
-            const removeCount = Math.floor(Math.random() * 3); // 随机移除0-2个房产
+        if (marketData.properties.length > 30) {
+            const removeCount = Math.floor(Math.random() * 3) + 1; // 随机移除1-3个房产
             for (let i = 0; i < removeCount; i++) {
                 const index = Math.floor(Math.random() * marketData.properties.length);
                 marketData.properties.splice(index, 1);
             }
         }
 
+        // 保存市场数据
         await this.saveRealEstateMarket(marketData);
     }
 
@@ -514,31 +758,95 @@ export class RealEstateSystem extends plugin {
         const location = locations[Math.floor(Math.random() * locations.length)];
         const type = types[Math.floor(Math.random() * types.length)];
         
+        // 扩展房产名称
+        const locationAdjectives = {
+            '市中心': ['繁华', '中央', '核心', '高端', '豪华'],
+            '郊区': ['宁静', '远景', '自然', '清新', '田园'],
+            '商业区': ['商贸', '商务', '经济', '贸易', '金融'],
+            '住宅区': ['温馨', '舒适', '宜居', '家庭', '生活'],
+            '学区': ['学府', '书香', '教育', '人文', '知识']
+        };
+        
+        const typeAdjectives = {
+            '公寓': ['现代', '精致', '简约', '便捷', '时尚'],
+            '别墅': ['豪华', '尊贵', '奢华', '高雅', '幽静'],
+            '商铺': ['繁忙', '旺铺', '黄金', '旗舰', '热门'],
+            '写字楼': ['办公', '企业', '高效', '商务', '专业'],
+            '住宅': ['家园', '温馨', '舒适', '理想', '幸福']
+        };
+        
+        const locationAdj = locationAdjectives[location][Math.floor(Math.random() * locationAdjectives[location].length)];
+        const typeAdj = typeAdjectives[type][Math.floor(Math.random() * typeAdjectives[type].length)];
+        const nameFormat = Math.floor(Math.random() * 3);
+        
+        let propertyName;
+        if (nameFormat === 0) {
+            propertyName = `${locationAdj}${location}${type}`;
+        } else if (nameFormat === 1) {
+            propertyName = `${location}${typeAdj}${type}`;
+        } else {
+            propertyName = `${locationAdj}${typeAdj}${type}`;
+        }
+        
         // 根据位置和类型生成基础价格
         let basePrice = 100000;
         switch(location) {
-            case '市中心': basePrice *= 2; break;
-            case '商业区': basePrice *= 1.5; break;
-            case '学区': basePrice *= 1.3; break;
-            case '住宅区': basePrice *= 1.2; break;
+            case '市中心': basePrice *= 2.2; break;
+            case '商业区': basePrice *= 1.7; break;
+            case '学区': basePrice *= 1.5; break;
+            case '住宅区': basePrice *= 1.3; break;
+            case '郊区': basePrice *= 0.8; break;
         }
         
         switch(type) {
-            case '别墅': basePrice *= 2; break;
-            case '商铺': basePrice *= 1.8; break;
-            case '写字楼': basePrice *= 1.5; break;
-            case '公寓': basePrice *= 1.2; break;
+            case '别墅': basePrice *= 2.5; break;
+            case '商铺': basePrice *= 2.0; break;
+            case '写字楼': basePrice *= 1.8; break;
+            case '公寓': basePrice *= 1.3; break;
+            case '住宅': basePrice *= 1.0; break;
         }
+        
+        // 根据面积调整价格
+        let size = Math.floor(50 + Math.random() * 200); // 50-250平米
+        const sizeAdjustment = size / 100; // 面积越大，单价稍微降低
+        
+        // 随机生成房产特性
+        const features = [];
+        const possibleFeatures = [
+            '靠近地铁', '临近公园', '河景房', '临街', '南北通透',
+            '步行街', '商圈中心', '学校附近', '医院附近', '安静社区',
+            '精装修', '拎包入住', '新小区', '成熟社区', '低密度',
+            '高楼层', '电梯房', '花园洋房', '复式结构', '地暖'
+        ];
+        
+        // 随机选择2-4个特性
+        const featureCount = 2 + Math.floor(Math.random() * 3);
+        const shuffledFeatures = [...possibleFeatures].sort(() => 0.5 - Math.random());
+        for (let i = 0; i < featureCount; i++) {
+            features.push(shuffledFeatures[i]);
+        }
+        
+        // 房产特性给价格带来的额外调整
+        let featureBonus = 1.0;
+        features.forEach(feature => {
+            if (['靠近地铁', '临近公园', '河景房', '南北通透', '商圈中心'].includes(feature)) {
+                featureBonus += 0.05; // 每个优质特性增加5%价格
+            }
+        });
+        
+        // 最终价格计算
+        const finalPrice = Math.floor(basePrice * sizeAdjustment * featureBonus * (0.85 + Math.random() * 0.3));
 
         return {
             id: Math.random().toString(36).substr(2, 9),
-            name: `${location}${type}`,
+            name: propertyName,
             location,
             type,
-            price: Math.floor(basePrice * (0.8 + Math.random() * 0.4)), // 基础价格的80%-120%
-            size: Math.floor(50 + Math.random() * 150), // 50-200平米
+            price: finalPrice,
+            size,
             condition: 100,
-            renovationLevel: 0
+            renovationLevel: 0,
+            features
         };
     }
 
