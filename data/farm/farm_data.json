@@ -2,19 +2,38 @@
   "3BE99A96C1F745C7E7EF628B810C5940": {
     "name": "#模拟人生改名萌喵大王的农场",
     "level": 1,
-    "experience": 18,
+    "experience": 68,
     "createdAt": "2025-04-12T06:38:30.416Z",
-    "lastUpdate": "2025-04-12T17:00:00.094Z",
+    "lastUpdate": "2025-04-15T12:00:00.114Z",
     "land": {
       "level": 1,
       "name": "初级农田",
       "size": 4,
       "plots": [
         {
-          "crop": "白菜种子",
-          "plantedAt": "2025-04-12T11:01:17.888Z",
-          "water": 55,
-          "fertility": 32,
+          "crop": null,
+          "plantedAt": null,
+          "water": 0,
+          "fertility": 0,
+          "health": 100,
+          "growthStage": 0,
+          "harvestReady": false,
+          "yieldModifier": -80
+        },
+        {
+          "crop": null,
+          "plantedAt": null,
+          "water": 0,
+          "fertility": 40,
+          "health": 100,
+          "growthStage": 0,
+          "harvestReady": false
+        },
+        {
+          "crop": null,
+          "plantedAt": null,
+          "water": 0,
+          "fertility": 40,
           "health": 100,
           "growthStage": 0,
           "harvestReady": false
@@ -26,25 +45,8 @@
           "fertility": 20,
           "health": 100,
           "growthStage": 0,
-          "harvestReady": false
-        },
-        {
-          "crop": null,
-          "plantedAt": null,
-          "water": 0,
-          "fertility": 20,
-          "health": 100,
-          "growthStage": 0,
-          "harvestReady": false
-        },
-        {
-          "crop": "白菜种子",
-          "plantedAt": "2025-04-12T10:55:04.344Z",
-          "water": 80,
-          "fertility": 30,
-          "health": 99.60000000000002,
-          "growthStage": 0,
-          "harvestReady": false
+          "harvestReady": false,
+          "yieldModifier": -80
         }
       ],
       "waterRetention": 1,
@@ -154,8 +156,199 @@
         "date": "2025-04-12T11:23:00.022Z",
         "action": "浇水",
         "description": "对第1号地块浇水，水分从50%提升到75%"
+      },
+      {
+        "date": "2025-04-12T15:00:00.199Z",
+        "action": "事件发生",
+        "description": "持续的干旱使你的作物缺水，需要更多浇水"
+      },
+      {
+        "date": "2025-04-12T16:00:00.140Z",
+        "action": "事件发生",
+        "description": "专家到访指导，获得宝贵经验"
+      },
+      {
+        "date": "2025-04-12T16:00:00.131Z",
+        "action": "事件结束",
+        "description": "干旱的影响已结束"
+      },
+      {
+        "date": "2025-04-12T16:00:00.131Z",
+        "action": "事件结束",
+        "description": "农业专家指导的影响已结束"
+      },
+      {
+        "date": "2025-04-12T19:00:00.154Z",
+        "action": "事件发生",
+        "description": "台风袭击，农作物严重受损"
+      },
+      {
+        "date": "2025-04-12T19:00:00.153Z",
+        "action": "事件结束",
+        "description": "台风的影响已结束"
+      },
+      {
+        "date": "2025-04-13T05:00:00.098Z",
+        "action": "事件发生",
+        "description": "持续的干旱使你的作物缺水，需要更多浇水"
+      },
+      {
+        "date": "2025-04-13T06:00:00.153Z",
+        "action": "事件发生",
+        "description": "暴雨冲刷了你的农田，所有作物水分充足，但生长受到轻微影响"
+      },
+      {
+        "date": "2025-04-13T06:00:00.152Z",
+        "action": "事件结束",
+        "description": "干旱的影响已结束"
+      },
+      {
+        "date": "2025-04-13T06:00:00.152Z",
+        "action": "事件结束",
+        "description": "暴雨的影响已结束"
+      },
+      {
+        "date": "2025-04-13T07:00:00.102Z",
+        "action": "事件发生",
+        "description": "阳光充足，作物生长加速，健康度提升"
+      },
+      {
+        "date": "2025-04-13T07:00:00.101Z",
+        "action": "事件结束",
+        "description": "阳光普照的影响已结束"
+      },
+      {
+        "date": "2025-04-13T13:00:00.223Z",
+        "action": "事件发生",
+        "description": "暴雨冲刷了你的农田，所有作物水分充足，但生长受到轻微影响"
+      },
+      {
+        "date": "2025-04-13T13:00:00.222Z",
+        "action": "事件结束",
+        "description": "暴雨的影响已结束"
+      },
+      {
+        "date": "2025-04-13T19:00:00.119Z",
+        "action": "事件发生",
+        "description": "土壤肥力提升，作物生长更好，产量增加"
+      },
+      {
+        "date": "2025-04-13T21:00:00.081Z",
+        "action": "事件结束",
+        "description": "肥沃土壤的影响已结束"
+      },
+      {
+        "date": "2025-04-14T03:00:00.162Z",
+        "action": "事件发生",
+        "description": "土壤养分不足，需要施肥改善"
+      },
+      {
+        "date": "2025-04-14T04:00:00.181Z",
+        "action": "事件发生",
+        "description": "台风袭击，农作物严重受损"
+      },
+      {
+        "date": "2025-04-14T04:00:00.179Z",
+        "action": "事件结束",
+        "description": "土壤贫瘠的影响已结束"
+      },
+      {
+        "date": "2025-04-14T04:00:00.179Z",
+        "action": "事件结束",
+        "description": "台风的影响已结束"
+      },
+      {
+        "date": "2025-04-14T06:00:00.147Z",
+        "action": "作物死亡",
+        "description": "第4号地块的白菜种子因缺乏照顾而死亡"
+      },
+      {
+        "date": "2025-04-14T09:00:00.113Z",
+        "action": "事件发生",
+        "description": "杂草与作物争夺养分，影响生长"
+      },
+      {
+        "date": "2025-04-14T10:00:00.154Z",
+        "action": "事件结束",
+        "description": "杂草丛生的影响已结束"
+      },
+      {
+        "date": "2025-04-14T13:00:00.174Z",
+        "action": "事件发生",
+        "description": "神秘的丰收预兆，本季作物产量大增"
+      },
+      {
+        "date": "2025-04-14T14:00:00.148Z",
+        "action": "事件结束",
+        "description": "丰收预兆的影响已结束"
+      },
+      {
+        "date": "2025-04-14T15:00:00.161Z",
+        "action": "事件发生",
+        "description": "阳光充足，作物生长加速，健康度提升"
+      },
+      {
+        "date": "2025-04-14T15:00:00.160Z",
+        "action": "事件结束",
+        "description": "阳光普照的影响已结束"
+      },
+      {
+        "date": "2025-04-14T18:00:00.102Z",
+        "action": "事件发生",
+        "description": "土壤肥力提升，作物生长更好，产量增加"
+      },
+      {
+        "date": "2025-04-14T20:00:00.136Z",
+        "action": "事件发生",
+        "description": "暴雨冲刷了你的农田，所有作物水分充足，但生长受到轻微影响"
+      },
+      {
+        "date": "2025-04-14T20:00:00.135Z",
+        "action": "事件结束",
+        "description": "肥沃土壤的影响已结束"
+      },
+      {
+        "date": "2025-04-14T20:00:00.135Z",
+        "action": "事件结束",
+        "description": "暴雨的影响已结束"
+      },
+      {
+        "date": "2025-04-14T22:00:00.107Z",
+        "action": "作物死亡",
+        "description": "第1号地块的白菜种子因缺乏照顾而死亡"
+      },
+      {
+        "date": "2025-04-15T02:00:00.128Z",
+        "action": "事件发生",
+        "description": "阳光充足，作物生长加速，健康度提升"
+      },
+      {
+        "date": "2025-04-15T02:00:00.127Z",
+        "action": "事件结束",
+        "description": "阳光普照的影响已结束"
+      },
+      {
+        "date": "2025-04-15T06:00:00.173Z",
+        "action": "事件发生",
+        "description": "害虫侵袭了你的农田，作物产量和健康度降低"
+      },
+      {
+        "date": "2025-04-15T07:00:00.166Z",
+        "action": "事件结束",
+        "description": "虫灾的影响已结束"
+      },
+      {
+        "date": "2025-04-15T08:00:00.196Z",
+        "action": "事件发生",
+        "description": "阳光充足，作物生长加速，健康度提升"
+      },
+      {
+        "date": "2025-04-15T08:00:00.195Z",
+        "action": "事件结束",
+        "description": "阳光普照的影响已结束"
       }
     ],
-    "activeEvents": []
+    "activeEvents": [],
+    "qualityModifier": 50
   }
 }

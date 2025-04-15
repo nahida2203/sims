@@ -5,7 +5,7 @@
       "name": "商业区公寓",
       "location": "商业区",
       "type": "公寓",
-      "price": 380627,
+      "price": 736852,
       "size": 160,
       "condition": 100,
       "renovationLevel": 0
@@ -15,7 +15,7 @@
       "name": "商业区公寓",
       "location": "商业区",
       "type": "公寓",
-      "price": 48823,
+      "price": 102585,
       "size": 67,
       "condition": 100,
       "renovationLevel": 0
@@ -25,28 +25,8 @@
       "name": "学区商铺",
       "location": "学区",
       "type": "商铺",
-      "price": 58137,
+      "price": 199491,
       "size": 50,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "nox7kiuny",
-      "name": "市中心商铺",
-      "location": "市中心",
-      "type": "商铺",
-      "price": 147236,
-      "size": 136,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "p5wnfyvza",
-      "name": "商业区商铺",
-      "location": "商业区",
-      "type": "商铺",
-      "price": 255396,
-      "size": 65,
       "condition": 100,
       "renovationLevel": 0
     },
@@ -55,48 +35,8 @@
       "name": "学区公寓",
       "location": "学区",
       "type": "公寓",
-      "price": 292767,
+      "price": 735809,
       "size": 55,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "ew8rm4eih",
-      "name": "学区别墅",
-      "location": "学区",
-      "type": "别墅",
-      "price": 238508,
-      "size": 158,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "kahs0e6ht",
-      "name": "学区别墅",
-      "location": "学区",
-      "type": "别墅",
-      "price": 464626,
-      "size": 113,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "18acvnovi",
-      "name": "商业区公寓",
-      "location": "商业区",
-      "type": "公寓",
-      "price": 182002,
-      "size": 99,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "7l9wxy224",
-      "name": "学区商铺",
-      "location": "学区",
-      "type": "商铺",
-      "price": 85474,
-      "size": 84,
       "condition": 100,
       "renovationLevel": 0
     },
@@ -105,58 +45,8 @@
       "name": "市中心商铺",
       "location": "市中心",
       "type": "商铺",
-      "price": 294972,
+      "price": 827020,
       "size": 171,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "i410kidz9",
-      "name": "学区公寓",
-      "location": "学区",
-      "type": "公寓",
-      "price": 107054,
-      "size": 186,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "v0a9qbhb7",
-      "name": "住宅区商铺",
-      "location": "住宅区",
-      "type": "商铺",
-      "price": 319735,
-      "size": 178,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "fxi4fh6wr",
-      "name": "学区公寓",
-      "location": "学区",
-      "type": "公寓",
-      "price": 149024,
-      "size": 104,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "flblg6y8l",
-      "name": "商业区写字楼",
-      "location": "商业区",
-      "type": "写字楼",
-      "price": 273330,
-      "size": 143,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "7e0k05492",
-      "name": "市中心住宅",
-      "location": "市中心",
-      "type": "住宅",
-      "price": 162876,
-      "size": 127,
       "condition": 100,
       "renovationLevel": 0
     },
@@ -165,198 +55,8 @@
       "name": "住宅区别墅",
       "location": "住宅区",
       "type": "别墅",
-      "price": 88513,
+      "price": 125399,
       "size": 105,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "o6aam9cdy",
-      "name": "住宅区商铺",
-      "location": "住宅区",
-      "type": "商铺",
-      "price": 415427,
-      "size": 80,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "m28fglurv",
-      "name": "学区住宅",
-      "location": "学区",
-      "type": "住宅",
-      "price": 117873,
-      "size": 156,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "2s9kb4g6j",
-      "name": "郊区写字楼",
-      "location": "郊区",
-      "type": "写字楼",
-      "price": 141447,
-      "size": 86,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "g8r3qxxzw",
-      "name": "学区商铺",
-      "location": "学区",
-      "type": "商铺",
-      "price": 245151,
-      "size": 60,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "hgypq7wo9",
-      "name": "商业区公寓",
-      "location": "商业区",
-      "type": "公寓",
-      "price": 115598,
-      "size": 57,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "9bl58k9it",
-      "name": "住宅区商铺",
-      "location": "住宅区",
-      "type": "商铺",
-      "price": 137930,
-      "size": 102,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "0mw8wv5ya",
-      "name": "住宅区住宅",
-      "location": "住宅区",
-      "type": "住宅",
-      "price": 187259,
-      "size": 71,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "1i5uioeo5",
-      "name": "郊区商铺",
-      "location": "郊区",
-      "type": "商铺",
-      "price": 190070,
-      "size": 94,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "9ej32twxy",
-      "name": "市中心住宅",
-      "location": "市中心",
-      "type": "住宅",
-      "price": 217615,
-      "size": 131,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "vi6rl6c1z",
-      "name": "住宅区住宅",
-      "location": "住宅区",
-      "type": "住宅",
-      "price": 96065,
-      "size": 174,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "j2alu3sn2",
-      "name": "住宅区商铺",
-      "location": "住宅区",
-      "type": "商铺",
-      "price": 312820,
-      "size": 77,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "9zzwnf5fx",
-      "name": "住宅区住宅",
-      "location": "住宅区",
-      "type": "住宅",
-      "price": 122926,
-      "size": 151,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "pi1h2e60u",
-      "name": "学区住宅",
-      "location": "学区",
-      "type": "住宅",
-      "price": 144450,
-      "size": 89,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "jta4gc3ik",
-      "name": "市中心商铺",
-      "location": "市中心",
-      "type": "商铺",
-      "price": 404016,
-      "size": 161,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "zf092u17s",
-      "name": "郊区商铺",
-      "location": "郊区",
-      "type": "商铺",
-      "price": 121424,
-      "size": 85,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "d7aogicz2",
-      "name": "住宅区公寓",
-      "location": "住宅区",
-      "type": "公寓",
-      "price": 174957,
-      "size": 141,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "ttc8e12i7",
-      "name": "郊区写字楼",
-      "location": "郊区",
-      "type": "写字楼",
-      "price": 172850,
-      "size": 122,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "lcg3ehcjr",
-      "name": "学区住宅",
-      "location": "学区",
-      "type": "住宅",
-      "price": 130880,
-      "size": 152,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "sdw8wb8fp",
-      "name": "郊区别墅",
-      "location": "郊区",
-      "type": "别墅",
-      "price": 204843,
-      "size": 155,
       "condition": 100,
       "renovationLevel": 0
     },
@@ -365,38 +65,8 @@
       "name": "市中心公寓",
       "location": "市中心",
       "type": "公寓",
-      "price": 231396,
+      "price": 539998,
       "size": 104,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "pbqwjp7mm",
-      "name": "学区别墅",
-      "location": "学区",
-      "type": "别墅",
-      "price": 286220,
-      "size": 82,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "rml9al0g3",
-      "name": "商业区公寓",
-      "location": "商业区",
-      "type": "公寓",
-      "price": 168266,
-      "size": 127,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "hj616h6j9",
-      "name": "住宅区公寓",
-      "location": "住宅区",
-      "type": "公寓",
-      "price": 144451,
-      "size": 199,
       "condition": 100,
       "renovationLevel": 0
     },
@@ -405,38 +75,8 @@
       "name": "住宅区公寓",
       "location": "住宅区",
       "type": "公寓",
-      "price": 118340,
+      "price": 175237,
       "size": 154,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "jn2cdiinf",
-      "name": "学区别墅",
-      "location": "学区",
-      "type": "别墅",
-      "price": 328158,
-      "size": 103,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "wbm0zfx2a",
-      "name": "住宅区别墅",
-      "location": "住宅区",
-      "type": "别墅",
-      "price": 224554,
-      "size": 196,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "240onmvvh",
-      "name": "郊区住宅",
-      "location": "郊区",
-      "type": "住宅",
-      "price": 117584,
-      "size": 73,
       "condition": 100,
       "renovationLevel": 0
     },
@@ -445,38 +85,8 @@
       "name": "住宅区写字楼",
       "location": "住宅区",
       "type": "写字楼",
-      "price": 178932,
+      "price": 234180,
       "size": 105,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "egouslva1",
-      "name": "住宅区住宅",
-      "location": "住宅区",
-      "type": "住宅",
-      "price": 97559,
-      "size": 172,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "ado4fhahz",
-      "name": "郊区别墅",
-      "location": "郊区",
-      "type": "别墅",
-      "price": 204837,
-      "size": 155,
-      "condition": 100,
-      "renovationLevel": 0
-    },
-    {
-      "id": "w0nw1gekk",
-      "name": "郊区商铺",
-      "location": "郊区",
-      "type": "商铺",
-      "price": 221668,
-      "size": 178,
       "condition": 100,
       "renovationLevel": 0
     },
@@ -485,20 +95,324 @@
       "name": "郊区写字楼",
       "location": "郊区",
       "type": "写字楼",
-      "price": 136444,
+      "price": 125731,
       "size": 173,
       "condition": 100,
       "renovationLevel": 0
     },
     {
-      "id": "nn89p49de",
-      "name": "郊区写字楼",
-      "location": "郊区",
+      "id": "ogk0xvq7z",
+      "name": "商务商务写字楼",
+      "location": "商业区",
       "type": "写字楼",
-      "price": 122790,
-      "size": 90,
+      "price": 552928,
+      "size": 78,
       "condition": 100,
-      "renovationLevel": 0
+      "renovationLevel": 0,
+      "features": [
+        "安静社区",
+        "学校附近",
+        "低密度"
+      ]
+    },
+    {
+      "id": "05mhkuzlc",
+      "name": "知识企业写字楼",
+      "location": "学区",
+      "type": "写字楼",
+      "price": 301143,
+      "size": 71,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "低密度",
+        "商圈中心",
+        "安静社区",
+        "临街"
+      ]
+    },
+    {
+      "id": "19q0ru3jn",
+      "name": "住宅区专业写字楼",
+      "location": "住宅区",
+      "type": "写字楼",
+      "price": 329040,
+      "size": 114,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "临街",
+        "步行街",
+        "低密度",
+        "精装修"
+      ]
+    },
+    {
+      "id": "nyemgze6t",
+      "name": "温馨温馨住宅",
+      "location": "住宅区",
+      "type": "住宅",
+      "price": 172191,
+      "size": 129,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "新小区",
+        "医院附近"
+      ]
+    },
+    {
+      "id": "lmaru0a6t",
+      "name": "经济商业区写字楼",
+      "location": "商业区",
+      "type": "写字楼",
+      "price": 403210,
+      "size": 77,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "复式结构",
+        "河景房",
+        "商圈中心"
+      ]
+    },
+    {
+      "id": "f0y2gu94l",
+      "name": "生活现代公寓",
+      "location": "住宅区",
+      "type": "公寓",
+      "price": 319282,
+      "size": 153,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "花园洋房",
+        "临街"
+      ]
+    },
+    {
+      "id": "dltnl5z1u",
+      "name": "宁静郊区住宅",
+      "location": "郊区",
+      "type": "住宅",
+      "price": 206882,
+      "size": 211,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "靠近地铁",
+        "复式结构"
+      ]
+    },
+    {
+      "id": "3pokg1ddr",
+      "name": "核心市中心写字楼",
+      "location": "市中心",
+      "type": "写字楼",
+      "price": 898352,
+      "size": 124,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "精装修",
+        "临近公园",
+        "靠近地铁",
+        "安静社区"
+      ]
+    },
+    {
+      "id": "1kq8iyfy9",
+      "name": "市中心热门商铺",
+      "location": "市中心",
+      "type": "商铺",
+      "price": 2443378,
+      "size": 220,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "拎包入住",
+        "精装修"
+      ]
+    },
+    {
+      "id": "4rvtu1xxt",
+      "name": "学府学区别墅",
+      "location": "学区",
+      "type": "别墅",
+      "price": 1159287,
+      "size": 196,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "低密度",
+        "精装修"
+      ]
+    },
+    {
+      "id": "8i8w51s9i",
+      "name": "书香学区住宅",
+      "location": "学区",
+      "type": "住宅",
+      "price": 532263,
+      "size": 219,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "复式结构",
+        "临街",
+        "靠近地铁",
+        "南北通透"
+      ]
+    },
+    {
+      "id": "if5f6g79o",
+      "name": "学区幸福住宅",
+      "location": "学区",
+      "type": "住宅",
+      "price": 413261,
+      "size": 206,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "地暖",
+        "安静社区",
+        "拎包入住"
+      ]
+    },
+    {
+      "id": "8sudt2psi",
+      "name": "住宅区舒适住宅",
+      "location": "住宅区",
+      "type": "住宅",
+      "price": 277719,
+      "size": 105,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "靠近地铁",
+        "学校附近",
+        "商圈中心",
+        "地暖"
+      ]
+    },
+    {
+      "id": "846yt6b82",
+      "name": "中央专业写字楼",
+      "location": "市中心",
+      "type": "写字楼",
+      "price": 456152,
+      "size": 52,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "南北通透",
+        "学校附近",
+        "医院附近"
+      ]
+    },
+    {
+      "id": "fwnhhk90p",
+      "name": "商业区高效写字楼",
+      "location": "商业区",
+      "type": "写字楼",
+      "price": 507977,
+      "size": 126,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "拎包入住",
+        "靠近地铁",
+        "临近公园",
+        "复式结构"
+      ]
+    },
+    {
+      "id": "i17wyi55e",
+      "name": "市中心办公写字楼",
+      "location": "市中心",
+      "type": "写字楼",
+      "price": 913786,
+      "size": 133,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "临近公园",
+        "拎包入住",
+        "医院附近"
+      ]
+    },
+    {
+      "id": "cvpp09hyk",
+      "name": "豪华市中心写字楼",
+      "location": "市中心",
+      "type": "写字楼",
+      "price": 1139728,
+      "size": 165,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "成熟社区",
+        "商圈中心",
+        "医院附近"
+      ]
+    },
+    {
+      "id": "9rwdbk20a",
+      "name": "田园郊区住宅",
+      "location": "郊区",
+      "type": "住宅",
+      "price": 84842,
+      "size": 85,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "拎包入住",
+        "临街"
+      ]
+    },
+    {
+      "id": "qdkhp1ex7",
+      "name": "住宅区精致公寓",
+      "location": "住宅区",
+      "type": "公寓",
+      "price": 571201,
+      "size": 214,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "靠近地铁",
+        "花园洋房",
+        "成熟社区"
+      ]
+    },
+    {
+      "id": "gv01w03jc",
+      "name": "贸易商业区商铺",
+      "location": "商业区",
+      "type": "商铺",
+      "price": 823032,
+      "size": 237,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "步行街",
+        "安静社区",
+        "商圈中心"
+      ]
+    },
+    {
+      "id": "ucrtpjabm",
+      "name": "田园黄金商铺",
+      "location": "郊区",
+      "type": "商铺",
+      "price": 161820,
+      "size": 101,
+      "condition": 100,
+      "renovationLevel": 0,
+      "features": [
+        "临近公园",
+        "医院附近"
+      ]
     }
   ]
 }

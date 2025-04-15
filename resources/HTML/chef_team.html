@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>料理结果</title>
+    <title>厨师团队</title>
     <style>
         :root {
             --primary-color: #ff9ecd;
             --secondary-color: #7b88ff;
-            --success-color: #4cd964;
-            --fail-color: #ff3b30;
+            --accent-color: #ffd6e7;
             --bg-color: #fef6f9;
             --card-bg: rgba(255, 255, 255, 0.85);
             --border-color: rgba(255, 158, 205, 0.3);
@@ -38,7 +37,7 @@
             margin: 0 auto;
         }
 
-        .result-card {
+        .team-card {
             background: var(--card-bg);
             border-radius: 20px;
             padding: 2rem;
@@ -50,48 +49,26 @@
             overflow: hidden;
         }
 
-        .result-header {
+        .team-header {
             text-align: center;
             margin-bottom: 2rem;
             position: relative;
         }
 
-        .result-title {
+        .team-title {
             font-size: 2rem;
             color: var(--secondary-color);
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px var(--shadow-color);
         }
 
-        .recipe-name {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+        .team-id {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
         }
 
-        .result-status {
-            display: inline-block;
-            padding: 0.5rem 2rem;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            animation: pulse 2s infinite;
-        }
-
-        .success {
-            background: rgba(76, 217, 100, 0.1);
-            color: var(--success-color);
-            border: 2px solid var(--success-color);
-        }
-
-        .fail {
-            background: rgba(255, 59, 48, 0.1);
-            color: var(--fail-color);
-            border: 2px solid var(--fail-color);
-        }
-
-        .stats-grid {
+        .team-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
@@ -100,14 +77,16 @@
 
         .stat-item {
             background: rgba(255, 255, 255, 0.5);
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .stat-item:hover {
-            transform: translateY(-5px);
+        .stat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
@@ -118,47 +97,71 @@
 
         .stat-value {
             font-size: 1.2rem;
-            font-weight: bold;
             color: var(--primary-color);
+            font-weight: bold;
         }
 
-        .bonus-section {
-            margin-top: 2rem;
-            padding: 1rem;
+        .progress-bar {
+            width: 100%;
+            height: 8px;
             background: rgba(123, 136, 255, 0.1);
-            border-radius: 15px;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            overflow: hidden;
         }
 
-        .bonus-title {
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .members-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
             color: var(--secondary-color);
             font-size: 1.2rem;
             margin-bottom: 1rem;
-            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
         }
 
-        .bonus-grid {
+        .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
         }
 
-        .bonus-item {
-            background: var(--card-bg);
-            padding: 0.8rem;
-            border-radius: 12px;
+        .member-card {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            padding: 1rem;
             text-align: center;
-            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+            position: relative;
         }
 
-        .bonus-label {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.3rem;
+        .member-card:hover {
+            transform: translateY(-5px);
         }
 
-        .bonus-value {
+        .member-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-name {
             color: var(--secondary-color);
             font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-stats {
+            font-size: 0.9rem;
+            color: #666;
         }
 
         .decoration {
@@ -192,12 +195,6 @@
             50% { transform: translateY(-20px); }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
         .sparkles {
             position: absolute;
             width: 100%;
@@ -229,16 +226,12 @@
         }
 
         @media (max-width: 768px) {
-            .stats-grid {
+            .team-stats {
                 grid-template-columns: 1fr;
             }
 
-            .bonus-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .result-title {
-                font-size: 1.8rem;
+            .members-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
         }
     </style>
@@ -247,7 +240,7 @@
     <div class="decoration decoration-1"></div>
     <div class="decoration decoration-2"></div>
     <div class="container">
-        <div class="result-card">
+        <div class="team-card">
             <div class="sparkles">
                 <div class="sparkle"></div>
                 <div class="sparkle"></div>
@@ -255,54 +248,47 @@
                 <div class="sparkle"></div>
                 <div class="sparkle"></div>
             </div>
-            <div class="result-header">
-                <h1 class="result-title">✨ 料理结果 ✨</h1>
-                <div class="recipe-name">{{recipe.name}}</div>
-                <div class="result-status {{isSuccess ? 'success' : 'fail'}}">
-                    {{isSuccess ? '制作成功！' : '制作失败...'}}
+            <div class="team-header">
+                <h1 class="team-title">✨ {{team.name}} ✨</h1>
+                <div class="team-id">团队ID: {{team.id}}</div>
+            </div>
+
+            <div class="team-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">👑</div>
+                    <div class="stat-label">团队等级</div>
+                    <div class="stat-value">Lv.{{team.level}}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{expPercentage}}%"></div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-label">团队声望</div>
+                    <div class="stat-value">{{totalReputation}}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">👨‍🍳</div>
+                    <div class="stat-label">成员数量</div>
+                    <div class="stat-value">{{memberInfo.length}}/5</div>
                 </div>
             </div>
 
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-label">厨师等级</div>
-                    <div class="stat-value">Lv.{{chefData.level}}</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-label">成功率</div>
-                    <div class="stat-value">{{(chefData.successDishes / chefData.totalDishes * 100).toFixed(1)}}%</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-label">声望</div>
-                    <div class="stat-value">{{chefData.reputation}}</div>
+            <div class="members-section">
+                <h2 class="section-title">团队成员</h2>
+                <div class="members-grid">
+                    {{each memberInfo member}}
+                    <div class="member-card">
+                        <div class="member-icon">{{member.icon}}</div>
+                        <div class="member-name">{{member.name}}</div>
+                        <div class="member-stats">
+                            等级: Lv.{{member.level}}<br>
+                            声望: {{member.reputation}}
+                        </div>
+                    </div>
+                    {{/each}}
                 </div>
             </div>
-
-            {{if kitchenwareBonus}}
-            <div class="bonus-section">
-                <h2 class="bonus-title">🎯 厨具加成</h2>
-                <div class="bonus-grid">
-                    {{if kitchenwareBonus.successRate}}
-                    <div class="bonus-item">
-                        <div class="bonus-label">成功率提升</div>
-                        <div class="bonus-value">+{{kitchenwareBonus.successRate}}%</div>
-                    </div>
-                    {{/if}}
-                    {{if kitchenwareBonus.timeReduction}}
-                    <div class="bonus-item">
-                        <div class="bonus-label">时间减少</div>
-                        <div class="bonus-value">{{kitchenwareBonus.timeReduction}}秒</div>
-                    </div>
-                    {{/if}}
-                    {{if kitchenwareBonus.qualityBonus}}
-                    <div class="bonus-item">
-                        <div class="bonus-label">品质提升</div>
-                        <div class="bonus-value">+{{kitchenwareBonus.qualityBonus}}</div>
-                    </div>
-                    {{/if}}
-                </div>
-            </div>
-            {{/if}}
         </div>
     </div>
 </body>

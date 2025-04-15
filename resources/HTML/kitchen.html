@@ -1,187 +1,325 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的厨房</title>
     <style>
+        :root {
+            --primary-color: #ff9ecd;
+            --secondary-color: #7b88ff;
+            --accent-color: #ffd6e7;
+            --bg-color: #fef6f9;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --border-color: rgba(255, 158, 205, 0.3);
+            --shadow-color: rgba(123, 136, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-            color: #333;
+            background: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 158, 205, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(123, 136, 255, 0.15) 0%, transparent 50%);
+            min-height: 100vh;
+            padding: 2rem;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
+
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+            position: relative;
         }
-        .header h1 {
-            color: #2e7d32;
-            margin: 0;
-            font-size: 2em;
+
+        .title {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px var(--shadow-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
         }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+
+        .chef-info {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
         .chef-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
         }
-        .stat-card {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
+
+        .stat-item {
             text-align: center;
-            border: 2px solid #a5d6a7;
-        }
-        .stat-value {
-            font-size: 1.5em;
-            color: #2e7d32;
-            margin: 5px 0;
-        }
-        .ingredients-section {
-            margin: 30px 0;
-        }
-        .ingredients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .ingredient-card {
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            border: 1px solid #c8e6c9;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
             transition: transform 0.3s ease;
         }
-        .ingredient-card:hover {
+
+        .stat-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
         }
-        .ingredient-name {
-            font-size: 1.2em;
-            color: #2e7d32;
-            margin-bottom: 5px;
+
+        .stat-label {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
-        .ingredient-amount {
-            color: #1b5e20;
-            font-size: 1.1em;
-            margin: 5px 0;
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
         }
-        .ingredient-info {
-            color: #666;
-            font-size: 0.9em;
+
+        .kitchen-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        .recipes-section {
-            margin: 30px 0;
-        }
-        .recipe-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .recipe-tag {
-            background: #e8f5e9;
-            padding: 5px 15px;
+
+        .section {
+            background: var(--card-bg);
             border-radius: 20px;
-            color: #2e7d32;
-            font-size: 0.9em;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
         }
-        .footer {
+
+        .section-title {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .item-card {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            padding: 1rem;
             text-align: center;
-            margin-top: 20px;
-            color: #666;
-            font-size: 0.9em;
-        }
-        .cute-icon {
-            font-size: 1.2em;
-            margin-right: 5px;
-        }
-        .exp-bar {
-            width: 100%;
-            height: 10px;
-            background: #e8f5e9;
-            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            margin-top: 5px;
         }
-        .exp-fill {
+
+        .item-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .item-card:hover::before {
+            opacity: 1;
+        }
+
+        .item-name {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-amount {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .kitchenware-effects {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .effect-tag {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: rgba(123, 136, 255, 0.1);
+            color: var(--secondary-color);
+            border-radius: 12px;
+            margin: 0.2rem;
+            font-size: 0.8rem;
+        }
+
+        .decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .decoration-1 {
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .decoration-2 {
+            bottom: 20px;
+            left: 20px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--secondary-color) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(123, 136, 255, 0.1);
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
             height: 100%;
-            background: #4caf50;
-            border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
             transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .kitchen-content {
+                grid-template-columns: 1fr;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
     <div class="container">
-        <div class="header">
-            <h1>🏠 我的厨房 🍳</h1>
-        </div>
-        <div class="chef-stats">
-            <div class="stat-card">
-                <div class="cute-icon">👨‍🍳</div>
-                <div>厨师等级</div>
-                <div class="stat-value">{{chef.level}}</div>
-                <div class="exp-bar">
-                    <div class="exp-fill" style="width: {{(chef.exp / (chef.level * 100)) * 100}}%"></div>
+        <header class="header">
+            <h1 class="title">✨ 我的厨房 ✨</h1>
+        </header>
+
+        <div class="chef-info">
+            <div class="chef-stats">
+                <div class="stat-item">
+                    <div class="stat-label">厨师等级</div>
+                    <div class="stat-value">Lv.{{chef.level}}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{(chef.exp / (chef.level * 100)) * 100}}%"></div>
+                    </div>
                 </div>
-                <div style="font-size: 0.8em; color: #666;">
-                    经验: {{chef.exp}}/{{chef.level * 100}}
+                <div class="stat-item">
+                    <div class="stat-label">成功率</div>
+                    <div class="stat-value">{{(chef.successDishes / chef.totalDishes * 100).toFixed(1)}}%</div>
                 </div>
-            </div>
-            <div class="stat-card">
-                <div class="cute-icon">⭐</div>
-                <div>声望</div>
-                <div class="stat-value">{{chef.reputation}}</div>
-            </div>
-            <div class="stat-card">
-                <div class="cute-icon">📈</div>
-                <div>成功率</div>
-                <div class="stat-value">{{Math.round((chef.successDishes / chef.totalDishes) * 100) || 0}}%</div>
+                <div class="stat-item">
+                    <div class="stat-label">声望</div>
+                    <div class="stat-value">{{chef.reputation}}</div>
+                </div>
             </div>
         </div>
 
-        <div class="ingredients-section">
-            <h2>📦 食材库存</h2>
-            <div class="ingredients-grid">
-                {{each ingredients ing}}
-                {{if chef.ingredients[ing.id]}}
-                <div class="ingredient-card">
-                    <div class="ingredient-name">
-                        <span class="cute-icon">🥘</span>{{ing.name}}
+        <div class="kitchen-content">
+            <section class="section">
+                <h2 class="section-title">🥘 我的食材</h2>
+                <div class="item-grid">
+                    {{each ingredients item}}
+                    {{if userIngredients[item.id]}}
+                    <div class="item-card">
+                        <div class="item-name">{{item.name}}</div>
+                        <div class="item-amount">x{{userIngredients[item.id]}}</div>
                     </div>
-                    <div class="ingredient-amount">
-                        库存: {{chef.ingredients[ing.id]}} {{ing.unit}}
-                    </div>
-                    <div class="ingredient-info">
-                        单价: {{ing.price}} 金币/{{ing.unit}}
-                    </div>
+                    {{/if}}
+                    {{/each}}
                 </div>
-                {{/if}}
-                {{/each}}
-            </div>
-        </div>
+            </section>
 
-        <div class="recipes-section">
-            <h2>📚 已掌握的食谱</h2>
-            <div class="recipe-list">
-                {{each chef.recipes recipeId}}
-                <div class="recipe-tag">
-                    <span class="cute-icon">📖</span>{{getRecipeName(recipeId)}}
+            <section class="section">
+                <h2 class="section-title">🍳 我的厨具</h2>
+                <div class="item-grid">
+                    {{each userKitchenware item}}
+                    <div class="item-card">
+                        <div class="item-name">{{item.name}}</div>
+                        <div class="kitchenware-effects">
+                            {{if item.effects.successRate}}
+                            <span class="effect-tag">成功率+{{item.effects.successRate}}%</span>
+                            {{/if}}
+                            {{if item.effects.timeReduction}}
+                            <span class="effect-tag">时间-{{item.effects.timeReduction}}s</span>
+                            {{/if}}
+                            {{if item.effects.qualityBonus}}
+                            <span class="effect-tag">品质+{{item.effects.qualityBonus}}</span>
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{/each}}
                 </div>
-                {{/each}}
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>💫 使用 #购买食材 补充库存 | #制作料理 开始烹饪 | #学习食谱 解锁新菜品 💫</p>
+            </section>
         </div>
     </div>
 </body>
