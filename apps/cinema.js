@@ -65,7 +65,7 @@ export class CinemaSystem extends plugin {
         }
 
         // 检查金钱是否足够
-        const cinemaCost = 1000000; // 基础电影院价格
+        const cinemaCost = 100000; // 基础电影院价格
         if (userData.money < cinemaCost) {
             e.reply(`你的金钱不足，购买电影院需要${cinemaCost}元。`);
             return;
