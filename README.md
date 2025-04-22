@@ -69,7 +69,7 @@
 在Yunzai根目录运行命令
 ```
 #两种下载方式任选其一即可
-git clone https://github.com/nahida2203/sims-plugin.git ./plugins/sims-plugin/
+git clone https://github.com/nahida2203/sims.git ./plugins/sims-plugin/
 pnpm i
 #网络不好可以使用gitcode进行克隆
 git clone https://gitcode.com/nahida22/sims-plugin.git ./plugins/sims-plugin/
