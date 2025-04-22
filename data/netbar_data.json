@@ -1,6 +1,31 @@
 {
   "version": "2.0",
   "players": {},
+  "vip_rooms": {
+    "types": {
+      "basic": {
+        "name": "基础包间",
+        "price": 10000,
+        "capacity": 4,
+        "hourly_rate": 50,
+        "features": ["基础电脑", "空调", "基础设施"]
+      },
+      "deluxe": {
+        "name": "豪华包间",
+        "price": 20000,
+        "capacity": 6,
+        "hourly_rate": 80,
+        "features": ["高配电脑", "休息区", "专属服务", "零食饮料"]
+      },
+      "premium": {
+        "name": "至尊包间",
+        "price": 35000,
+        "capacity": 8,
+        "hourly_rate": 120,
+        "features": ["顶配电脑", "休息区", "KTV设备", "餐饮服务", "专属服务员"]
+      }
+    }
+  },
   "netbars": {},
   "devices": {
     "templates": {

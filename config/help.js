@@ -253,24 +253,44 @@ export const helpList = [{
   group: '电影院系统',
   list: [{
     icon: 60,
-    title: '#开影院',
-    desc: '创建你的电影院'
+    title: '#购买电影院',
+    desc: '购买你的电影院'
   }, {
     icon: 21,
-    title: '#影院信息',
+    title: '#电影院信息',
     desc: '查看影院信息'
   }, {
     icon: 38,
-    title: '#影院商店',
-    desc: '购买影院设备和物品'
+    title: '#购买影厅',
+    desc: '购买影厅'
   }, {
     icon: 43,
-    title: '#放映电影[电影ID]',
-    desc: '放映指定电影'
+    title: '#升级影厅',
+    desc: '提升影厅等级'
   }, {
     icon: 22,
-    title: '#影院升级',
-    desc: '提升电影院等级'
+    title: '#购买电影',
+    desc: '购买电影'
+  }, {
+    icon: 22,
+    title: '#排片',
+    desc: '排片'
+  }, {
+    icon: 22,
+    title: '#购买设施',
+    desc: '购买电影院设施'
+  }, {
+    icon: 22,
+    title: '#雇佣员工',
+    desc: '雇佣员工'
+  }, {
+    icon: 22,
+    title: '#培训员工',
+    desc: '培训'
+  }, {
+    icon: 22,
+    title: '#电影院排行榜',
+    desc: '查看影院排行榜'
   }]
 }, {
   group: '网吧系统',
