@@ -164,31 +164,269 @@ export function supportGuoba () {
         },
         {
           label: '模拟人生警察系统',
-          component: 'SOFT_GROUP_BEGIN'
+          component: 'Divider'
         },
         {
-          field: 'police.ranks',
+          field: 'police.exp_rewards.case_solved',
+          label: '破案经验奖励',
+          bottomHelpMessage: '成功破案获得的经验值',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 1000,
+            placeholder: '请输入经验值'
+          }
+        },
+        {
+          field: 'police.exp_rewards.case_complex',
+          label: '复杂案件经验奖励',
+          bottomHelpMessage: '处理复杂案件获得的额外经验值',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 1000,
+            placeholder: '请输入经验值'
+          }
+        },
+        {
+          field: 'police.exp_rewards.promotion',
+          label: '晋升经验奖励',
+          bottomHelpMessage: '警察晋升获得的经验值',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 1000,
+            placeholder: '请输入经验值'
+          }
+        },
+        {
           label: '警察等级配置',
-          helpMessage: '配置警察系统的等级信息',
-          component: 'JsonEditor',
+          component: 'Divider'
         },
         {
-          field: 'police.departments',
-          label: '警察部门配置',
-          helpMessage: '配置警察系统的部门信息',
-          component: 'JsonEditor',
+          field: 'police.rank1.name',
+          label: '等级1名称',
+          bottomHelpMessage: '第一级警察等级名称',
+          component: 'Input',
+          componentProps: {
+            placeholder: '请输入等级名称'
+          }
         },
         {
-          field: 'police.case_types',
-          label: '案件类型配置',
-          helpMessage: '配置警察系统的案件类型信息',
-          component: 'JsonEditor',
+          field: 'police.rank1.exp_required',
+          label: '等级1所需经验',
+          bottomHelpMessage: '升至该等级所需经验值',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入所需经验'
+          }
         },
         {
-          field: 'police.equipment_prices',
-          label: '装备价格配置',
-          helpMessage: '配置警察系统的装备价格信息',
-          component: 'JsonEditor',
+          field: 'police.rank1.salary',
+          label: '等级1薪资',
+          bottomHelpMessage: '该等级的基础薪资',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入薪资'
+          }
+        },
+        {
+          field: 'police.rank2.name',
+          label: '等级2名称',
+          bottomHelpMessage: '第二级警察等级名称',
+          component: 'Input',
+          componentProps: {
+            placeholder: '请输入等级名称'
+          }
+        },
+        {
+          field: 'police.rank2.exp_required',
+          label: '等级2所需经验',
+          bottomHelpMessage: '升至该等级所需经验值',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入所需经验'
+          }
+        },
+        {
+          field: 'police.rank2.salary',
+          label: '等级2薪资',
+          bottomHelpMessage: '该等级的基础薪资',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入薪资'
+          }
+        },
+        {
+          field: 'police.rank3.name',
+          label: '等级3名称',
+          bottomHelpMessage: '第三级警察等级名称',
+          component: 'Input',
+          componentProps: {
+            placeholder: '请输入等级名称'
+          }
+        },
+        {
+          field: 'police.rank3.exp_required',
+          label: '等级3所需经验',
+          bottomHelpMessage: '升至该等级所需经验值',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入所需经验'
+          }
+        },
+        {
+          field: 'police.rank3.salary',
+          label: '等级3薪资',
+          bottomHelpMessage: '该等级的基础薪资',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入薪资'
+          }
+        },
+        {
+          field: 'police.rank4.name',
+          label: '等级4名称',
+          bottomHelpMessage: '第四级警察等级名称',
+          component: 'Input',
+          componentProps: {
+            placeholder: '请输入等级名称'
+          }
+        },
+        {
+          field: 'police.rank4.exp_required',
+          label: '等级4所需经验',
+          bottomHelpMessage: '升至该等级所需经验值',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入所需经验'
+          }
+        },
+        {
+          field: 'police.rank4.salary',
+          label: '等级4薪资',
+          bottomHelpMessage: '该等级的基础薪资',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入薪资'
+          }
+        },
+        {
+          field: 'police.rank5.name',
+          label: '等级5名称',
+          bottomHelpMessage: '第五级警察等级名称',
+          component: 'Input',
+          componentProps: {
+            placeholder: '请输入等级名称'
+          }
+        },
+        {
+          field: 'police.rank5.exp_required',
+          label: '等级5所需经验',
+          bottomHelpMessage: '升至该等级所需经验值',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入所需经验'
+          }
+        },
+        {
+          field: 'police.rank5.salary',
+          label: '等级5薪资',
+          bottomHelpMessage: '该等级的基础薪资',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入薪资'
+          }
+        },
+        {
+          label: '警察装备配置',
+          component: 'Divider'
+        },
+        {
+          field: 'police.equipment.baton',
+          label: '警棍价格',
+          bottomHelpMessage: '警棍的购买价格',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入价格'
+          }
+        },
+        {
+          field: 'police.equipment.handcuffs',
+          label: '手铐价格',
+          bottomHelpMessage: '手铐的购买价格',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入价格'
+          }
+        },
+        {
+          field: 'police.equipment.radio',
+          label: '对讲机价格',
+          bottomHelpMessage: '对讲机的购买价格',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入价格'
+          }
+        },
+        {
+          field: 'police.equipment.vest',
+          label: '防弹衣价格',
+          bottomHelpMessage: '防弹衣的购买价格',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入价格'
+          }
+        },
+        {
+          field: 'police.equipment.gun',
+          label: '手枪价格',
+          bottomHelpMessage: '手枪的购买价格',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入价格'
+          }
+        },
+        {
+          field: 'police.equipment.computer',
+          label: '警用电脑价格',
+          bottomHelpMessage: '警用电脑的购买价格',
+          component: 'InputNumber',
+          componentProps: {
+            min: 0,
+            max: 10000,
+            placeholder: '请输入价格'
+          }
         }
       ],
       // 获取配置数据方法（用于前端填充显示数据）
@@ -219,6 +457,31 @@ export function supportGuoba () {
           const policeYamlPath = path.join(process.cwd(), 'plugins/sims-plugin/config/police.yaml')
           if (fs.existsSync(policeYamlPath)) {
             const policeConfig = yaml.parse(fs.readFileSync(policeYamlPath, 'utf8'))
+            
+            // 将警察等级信息转换为rank1, rank2等格式
+            if (policeConfig.ranks && Array.isArray(policeConfig.ranks)) {
+              for (let i = 0; i < policeConfig.ranks.length; i++) {
+                const rankNum = i + 1
+                policeConfig[`rank${rankNum}`] = {
+                  name: policeConfig.ranks[i].name || '',
+                  exp_required: policeConfig.ranks[i].exp_required || 0,
+                  salary: policeConfig.ranks[i].salary || 0
+                }
+              }
+            }
+            
+            // 将装备价格信息转换为equipment.baton等格式
+            if (policeConfig.equipment_prices) {
+              policeConfig.equipment = {
+                baton: policeConfig.equipment_prices['警棍'] || 0,
+                handcuffs: policeConfig.equipment_prices['手铐'] || 0,
+                radio: policeConfig.equipment_prices['对讲机'] || 0,
+                vest: policeConfig.equipment_prices['防弹衣'] || 0,
+                gun: policeConfig.equipment_prices['手枪'] || 0,
+                computer: policeConfig.equipment_prices['警用电脑'] || 0
+              }
+            }
+            
             config.police = policeConfig
           }
         } catch (err) {
@@ -240,25 +503,119 @@ export function supportGuoba () {
             }
           }
           
-          // 处理模拟人生配置
-          if (keyPath.startsWith('netbar.')) {
-            const netbarYamlPath = path.join(process.cwd(), 'plugins/sims-plugin/config/config.yaml')
+          // 处理警察系统配置
+          if (keyPath.startsWith('police.')) {
+            const policeYamlPath = path.join(process.cwd(), 'plugins/sims-plugin/config/police.yaml')
             try {
-              let netbarConfig = {}
-              if (fs.existsSync(netbarYamlPath)) {
-                netbarConfig = yaml.parse(fs.readFileSync(netbarYamlPath, 'utf8'))
+              let policeConfig = {}
+              if (fs.existsSync(policeYamlPath)) {
+                policeConfig = yaml.parse(fs.readFileSync(policeYamlPath, 'utf8'))
               }
               
-              // 将keyPath中的netbar.移除，并设置到netbarConfig中
-              const subPath = keyPath.replace('netbar.', '')
-              lodash.set(netbarConfig, subPath, value)
+              // 处理警察等级配置
+              if (keyPath.startsWith('police.rank')) {
+                // 例如：police.rank1.name
+                const rankMatch = keyPath.match(/police\.rank(\d+)\.(\w+)/)
+                if (rankMatch) {
+                  const rankIndex = parseInt(rankMatch[1]) - 1
+                  const property = rankMatch[2]
+                  
+                  // 确保ranks数组存在
+                  if (!policeConfig.ranks) {
+                    policeConfig.ranks = []
+                  }
+                  
+                  // 确保该索引的等级存在
+                  while (policeConfig.ranks.length <= rankIndex) {
+                    policeConfig.ranks.push({
+                      name: '',
+                      exp_required: 0,
+                      salary: 0
+                    })
+                  }
+                  
+                  // 设置属性值
+                  policeConfig.ranks[rankIndex][property] = value
+                  
+                  // 保存到police.yaml
+                  fs.writeFileSync(policeYamlPath, yaml.stringify(policeConfig), 'utf8')
+                  continue
+                }
+              }
               
-              // 保存到config.yaml
-              fs.writeFileSync(netbarYamlPath, yaml.stringify(netbarConfig), 'utf8')
-              continue
+              // 处理装备价格配置
+              if (keyPath.startsWith('police.equipment.')) {
+                // 例如：police.equipment.baton
+                const equipMatch = keyPath.match(/police\.equipment\.(\w+)/)
+                if (equipMatch) {
+                  const equipType = equipMatch[1]
+                  
+                  // 确保equipment_prices对象存在
+                  if (!policeConfig.equipment_prices) {
+                    policeConfig.equipment_prices = {}
+                  }
+                  
+                  // 根据字段名映射到中文名称
+                  let chineseName = ''
+                  switch (equipType) {
+                    case 'baton':
+                      chineseName = '警棍'
+                      break
+                    case 'handcuffs':
+                      chineseName = '手铐'
+                      break
+                    case 'radio':
+                      chineseName = '对讲机'
+                      break
+                    case 'vest':
+                      chineseName = '防弹衣'
+                      break
+                    case 'gun':
+                      chineseName = '手枪'
+                      break
+                    case 'computer':
+                      chineseName = '警用电脑'
+                      break
+                  }
+                  
+                  if (chineseName) {
+                    // 设置装备价格
+                    policeConfig.equipment_prices[chineseName] = value
+                    
+                    // 保存到police.yaml
+                    fs.writeFileSync(policeYamlPath, yaml.stringify(policeConfig), 'utf8')
+                    continue
+                  }
+                }
+              }
+              
+              // 处理经验奖励配置
+              if (keyPath.startsWith('police.exp_rewards.')) {
+                const expField = keyPath.replace('police.exp_rewards.', '')
+                
+                // 确保exp_rewards存在
+                if (!policeConfig.exp_rewards) {
+                  policeConfig.exp_rewards = {}
+                }
+                
+                // 设置值
+                policeConfig.exp_rewards[expField] = value
+                
+                // 保存到police.yaml
+                fs.writeFileSync(policeYamlPath, yaml.stringify(policeConfig), 'utf8')
+                continue
+              }
+              
+              // 处理其他警察系统配置
+              const subPath = keyPath.replace('police.', '')
+              if (subPath && !subPath.includes('.')) {
+                policeConfig[subPath] = value
+                fs.writeFileSync(policeYamlPath, yaml.stringify(policeConfig), 'utf8')
+                continue
+              }
             } catch (err) {
-              console.error('保存网吧配置出错:', err)
-              return Result.err('保存网吧配置出错')
+              console.error('保存警察系统配置出错:', err)
+              return Result.err('保存警察系统配置出错')
             }
           }
           
@@ -284,25 +641,25 @@ export function supportGuoba () {
             }
           }
           
-          // 处理警察系统配置
-          if (keyPath.startsWith('police.')) {
-            const policeYamlPath = path.join(process.cwd(), 'plugins/sims-plugin/config/police.yaml')
+          // 处理网吧配置
+          if (keyPath.startsWith('netbar.')) {
+            const netbarYamlPath = path.join(process.cwd(), 'plugins/sims-plugin/config/config.yaml')
             try {
-              let policeConfig = {}
-              if (fs.existsSync(policeYamlPath)) {
-                policeConfig = yaml.parse(fs.readFileSync(policeYamlPath, 'utf8'))
+              let netbarConfig = {}
+              if (fs.existsSync(netbarYamlPath)) {
+                netbarConfig = yaml.parse(fs.readFileSync(netbarYamlPath, 'utf8'))
               }
               
-              // 将keyPath中的police.移除，并设置到policeConfig中
-              const subPath = keyPath.replace('police.', '')
-              lodash.set(policeConfig, subPath, value)
+              // 将keyPath中的netbar.移除，并设置到netbarConfig中
+              const subPath = keyPath.replace('netbar.', '')
+              lodash.set(netbarConfig, subPath, value)
               
-              // 保存到police.yaml
-              fs.writeFileSync(policeYamlPath, yaml.stringify(policeConfig), 'utf8')
+              // 保存到config.yaml
+              fs.writeFileSync(netbarYamlPath, yaml.stringify(netbarConfig), 'utf8')
               continue
             } catch (err) {
-              console.error('保存警察系统配置出错:', err)
-              return Result.err('保存警察系统配置出错')
+              console.error('保存网吧配置出错:', err)
+              return Result.err('保存网吧配置出错')
             }
           }
           
@@ -310,10 +667,26 @@ export function supportGuoba () {
         }
         
         // 保存锅巴自身配置
-        config = lodash.merge({}, cfg.merged, config)
-        cfg.config.reader.setData(config)
-        return Result.ok({}, '保存成功~')
-      }
+        try {
+          config = lodash.merge({}, cfg.merged || {}, config)
+          
+          // 添加安全检查
+          if (cfg && cfg.config && cfg.config.reader && typeof cfg.config.reader.setData === 'function') {
+            cfg.config.reader.setData(config)
+          } else {
+            // 备选保存方案：直接写入配置文件
+            const configPath = path.join(process.cwd(), 'plugins/sims-plugin/config')
+            if (!fs.existsSync(configPath)) {
+              fs.mkdirSync(configPath, { recursive: true })
+            }
+          }
+          
+          return Result.ok({}, '保存成功~')
+        } catch (e) {
+          console.error('保存配置出错:', e)
+          return Result.err('保存配置出错: ' + e.message)
+        }
+      },
     }
   }
 }
