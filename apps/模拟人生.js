@@ -395,7 +395,7 @@ export class UserStart extends plugin {
             const banUntil = await redis.get(`ban:${userId}`);
             if (banUntil && Date.now() < parseInt(banUntil)) continue;
             if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-                await this.banPlayer(userId, e);
+                await this.banPlayer(userId);
                 console.log(`数据不一致，用户 ${userId} 的账号已被封禁。`);
                 continue;
             }
@@ -433,10 +433,14 @@ export class UserStart extends plugin {
         const banData = { userId, banUntil };
         try {
             await saveBanData(banData);
-            e.reply(`用户${userId}因为游戏作弊已被封禁${banDays}天，封禁到${new Date(banUntil).toLocaleString()}，如属误封请联系机器人管理员或者等待自动解除。`);
+            if (e) {
+                e.reply(`用户${userId}因为游戏作弊已被封禁${banDays}天，封禁到${new Date(banUntil).toLocaleString()}，如属误封请联系机器人管理员或者等待自动解除。`);
+            }
         } catch (error) {
             console.error("保存封禁信息时出错:", error);
-            e.reply("封禁用户时发生错误，请管理员手动封禁该用户。");
+            if (e) {
+                e.reply("封禁用户时发生错误，请管理员手动封禁该用户。");
+            }
         }
     }
 
