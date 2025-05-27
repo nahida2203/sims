@@ -1386,26 +1386,30 @@ export class TavernSystem extends plugin {
             if (!marketData) {
                 marketData = this.generateInitialMarket();
             } else {
-                // 更新市场物资价格
-                marketData.supplies = marketData.supplies.map(supply => {
-                    // 随机波动价格 ±15%
-                    const priceChange = 0.85 + Math.random() * 0.3;
-                    supply.price = Math.floor(supply.basePrice * priceChange);
-                    // 随机更新库存
-                    supply.stock = Math.floor(50 + Math.random() * 100);
-                    return supply;
-                });
+              
+                if (Array.isArray(marketData.supplies)) {
+                    marketData.supplies = marketData.supplies.map(supply => {
+                        // 随机波动价格 ±15%
+                        const priceChange = 0.85 + Math.random() * 0.3;
+                        supply.price = Math.floor(supply.basePrice * priceChange);
+                        // 随机更新库存
+                        supply.stock = Math.floor(50 + Math.random() * 100);
+                        return supply;
+                    });
 
-                // 有小概率添加特殊物资
-                if (Math.random() < 0.2) {
-                    const specialSupply = this.generateSpecialSupply();
-                    // 检查是否已经存在该特殊物资
-                    const existingIndex = marketData.supplies.findIndex(s => s.id === specialSupply.id);
-                    if (existingIndex !== -1) {
-                        marketData.supplies[existingIndex] = specialSupply;
-                    } else {
-                        marketData.supplies.push(specialSupply);
+                    // 有小概率添加特殊物资
+                    if (Math.random() < 0.2) {
+                        const specialSupply = this.generateSpecialSupply();
+                        // 检查是否已经存在该特殊物资
+                        const existingIndex = marketData.supplies.findIndex(s => s.id === specialSupply.id);
+                        if (existingIndex !== -1) {
+                            marketData.supplies[existingIndex] = specialSupply;
+                        } else {
+                            marketData.supplies.push(specialSupply);
+                        }
                     }
+                } else {
+                    marketData.supplies = this.generateInitialMarket().supplies;
                 }
             }
             this.saveTavernMarket(marketData);
