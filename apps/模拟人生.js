@@ -484,6 +484,7 @@ export class UserStart extends plugin {
             
             // 数据不一致检查
             if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
+<<<<<<< HEAD
                 // 仅在反作弊系统启用时进行封禁
                 if (isAntiCheatEnabled) {
                     await this.banPlayer(userId);
@@ -501,6 +502,11 @@ export class UserStart extends plugin {
                         await redis.set(`user:${userId}`, JSON.stringify(userData));
                     }
                 }
+=======
+                await this.banPlayer(userId);
+                console.log(`数据不一致，用户 ${userId} 的账号已被封禁。`);
+                continue;
+>>>>>>> 214cf2027c2b758aed83b643696e854c2fc09aa4
             }
             
             if (userData.passwordData) {
