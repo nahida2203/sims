@@ -40,6 +40,49 @@ export class RealEstateSystem extends plugin {
         };
     }
 
+    // 添加辅助函数处理数据不一致
+    async handleDataInconsistency(userId, userData, redisUserData, e) {
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        
+        // 仅在反作弊系统启用时进行封禁
+        if (isAntiCheatEnabled) {
+            await this.banPlayer(userId, e);
+            return { shouldContinue: false, userData: null };
+        } else {
+            // 反作弊系统关闭时，使用本地数据继续执行功能
+            logger.info(`[反作弊系统] 反作弊系统已关闭，检测到数据不一致但继续执行功能 userId: ${userId}`);
+            
+            let finalUserData = null;
+            
+            // 如果本地数据不存在，使用Redis数据
+            if (!userData && redisUserData) {
+                finalUserData = redisUserData;
+                // 同步数据到本地
+                await saveUserData(userId, finalUserData);
+            } 
+            // 如果Redis数据不存在，使用本地数据
+            else if (userData && !redisUserData) {
+                finalUserData = userData;
+                await redis.set(`user:${userId}`, JSON.stringify(finalUserData));
+            }
+            // 如果两者都存在但不一致，优先使用本地数据
+            else if (userData && redisUserData) {
+                finalUserData = userData;
+                await redis.set(`user:${userId}`, JSON.stringify(finalUserData));
+            }
+            // 如果两者都不存在，无法继续
+            else {
+                if (e) {
+                    e.reply("未找到您的游戏数据，请使用 #开始模拟人生 创建角色");
+                }
+                return { shouldContinue: false, userData: null };
+            }
+            
+            return { shouldContinue: true, userData: finalUserData };
+        }
+    }
+
     async showRealEstateMarket(e) {
         const remainingTime = checkCooldown(e.user_id, 'real_estate', 'market');
         if (remainingTime > 0) {
@@ -56,10 +99,17 @@ export class RealEstateSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
+        
         const typeFilter = e.msg.replace('#房产市场', '').trim();
         
         // 读取房产市场数据
@@ -165,9 +215,15 @@ export class RealEstateSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const propertyId = e.msg.replace('#购买房产', '').trim();
@@ -233,9 +289,15 @@ export class RealEstateSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const propertyId = e.msg.replace('#出售房产', '').trim();
@@ -305,22 +367,17 @@ export class RealEstateSystem extends plugin {
         const userId = e.user_id;
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
-        const banUntil = await redis.get(`ban:${userId}`);
         
-        if (banUntil && Date.now() < parseInt(banUntil)) {
-            e.reply("你已被封禁，无法进行操作。");
-            return;
-        }
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
-        if (!userData.properties || !userData.properties.length) {
-            e.reply("你还没有任何房产！");
-            return;
-        }
-        
         // 对房产进行排序和分析
         userData.properties.sort((a, b) => {
             // 优先按照是否出租排序
@@ -484,9 +541,15 @@ ${recommendedAction}
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const [propertyId, level] = e.msg.replace('#装修房产', '').trim().split(' ');
@@ -570,9 +633,15 @@ ${recommendedAction}
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const [propertyId, rentPrice] = e.msg.replace('#出租房产', '').trim().split(' ');
@@ -853,6 +922,13 @@ ${recommendedAction}
     async banPlayer(userId, e) {
         const userData = await checkUserData(userId);
         if (!userData) {return false;}
+
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        if (!isAntiCheatEnabled) {
+            logger.info(`[反作弊系统] 反作弊系统已关闭，不进行封禁 userId: ${userId}`);
+            return false;
+        }
 
         const banDays = Math.floor(Math.random() * (180 - 7 + 1)) + 7;
         const banUntil = Date.now() + banDays * 24 * 60 * 60 * 1000;

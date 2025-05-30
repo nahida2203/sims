@@ -140,13 +140,21 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId , e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const newName = e.msg.replace('#模拟人生改名', '').trim();
@@ -181,13 +189,21 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId,e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const gender = e.msg.replace('#设置性别', '').trim();
@@ -217,13 +233,45 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId,e);
-            return;
+            // 仅在反作弊系统启用时进行封禁
+            if (isAntiCheatEnabled) {
+                await this.banPlayer(userId, e);
+                return;
+            } else {
+                // 反作弊系统关闭时，使用本地数据继续执行功能
+                logger.info(`[反作弊系统] 反作弊系统已关闭，检测到数据不一致但继续执行功能 userId: ${userId}`);
+                // 如果本地数据不存在，使用Redis数据
+                if (!userData && redisUserData) {
+                    userData = redisUserData;
+                    // 同步数据到本地
+                    await saveUserData(userId, userData);
+                } 
+                // 如果Redis数据不存在，使用本地数据
+                else if (userData && !redisUserData) {
+                    await redis.set(`user:${userId}`, JSON.stringify(userData));
+                }
+                // 如果两者都存在但不一致，优先使用本地数据
+                else if (userData && redisUserData) {
+                    await redis.set(`user:${userId}`, JSON.stringify(userData));
+                }
+                // 如果两者都不存在，无法继续
+                else {
+                    e.reply("未找到您的游戏数据，请使用 #开始模拟人生 创建角色");
+                    return;
+                }
+            }
         }
 
         const today = new Date().toISOString().split("T")[0];
@@ -302,14 +350,47 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId,e);
-            return;
+            // 仅在反作弊系统启用时进行封禁
+            if (isAntiCheatEnabled) {
+                await this.banPlayer(userId, e);
+                return;
+            } else {
+                // 反作弊系统关闭时，使用本地数据继续执行功能
+                logger.info(`[反作弊系统] 反作弊系统已关闭，检测到数据不一致但继续执行功能 userId: ${userId}`);
+                // 如果本地数据不存在，使用Redis数据
+                if (!userData && redisUserData) {
+                    userData = redisUserData;
+                    // 同步数据到本地
+                    await saveUserData(userId, userData);
+                } 
+                // 如果Redis数据不存在，使用本地数据
+                else if (userData && !redisUserData) {
+                    await redis.set(`user:${userId}`, JSON.stringify(userData));
+                }
+                // 如果两者都存在但不一致，优先使用本地数据
+                else if (userData && redisUserData) {
+                    await redis.set(`user:${userId}`, JSON.stringify(userData));
+                }
+                // 如果两者都不存在，无法继续
+                else {
+                    e.reply("未找到您的游戏数据，请使用 #开始模拟人生 创建角色");
+                    return;
+                }
+            }
         }
+        
         let cssFile = `${_path}/plugins/sims-plugin/resources/HTML/`
         let un = userData.name
         let um = userData.money
@@ -389,16 +470,39 @@ export class UserStart extends plugin {
         const allUsers = await loadAllUsers();
         const weatherOptions = ["晴天", "阴天", "小雨", "大雨", "暴风雨"];
         const config = await readConfiguration();
+        
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        
         for (const userId in allUsers) {
             const userData = allUsers[userId];
             const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
             const banUntil = await redis.get(`ban:${userId}`);
+            
+            // 如果用户被封禁，跳过更新
             if (banUntil && Date.now() < parseInt(banUntil)) continue;
+            
+            // 数据不一致检查
             if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-                await this.banPlayer(userId);
-                console.log(`数据不一致，用户 ${userId} 的账号已被封禁。`);
-                continue;
+                // 仅在反作弊系统启用时进行封禁
+                if (isAntiCheatEnabled) {
+                    await this.banPlayer(userId);
+                    console.log(`数据不一致，用户 ${userId} 的账号已被封禁。`);
+                    continue;
+                } else {
+                    // 反作弊系统关闭时，使用本地数据继续执行功能
+                    logger.info(`[反作弊系统] 反作弊系统已关闭，检测到数据不一致但继续更新数据 userId: ${userId}`);
+                    // 如果Redis数据不存在，使用本地数据
+                    if (!redisUserData) {
+                        await redis.set(`user:${userId}`, JSON.stringify(userData));
+                    } 
+                    // 如果两者都存在但不一致，优先使用本地数据
+                    else {
+                        await redis.set(`user:${userId}`, JSON.stringify(userData));
+                    }
+                }
             }
+            
             if (userData.passwordData) {
                 userData.passwordData.attempts = 0; // 每小时尝试次数归零
                 userData.passwordData.progress = 0; // 每小时进度归零
@@ -428,6 +532,13 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         if (!userData) {return false;}
 
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        if (!isAntiCheatEnabled) {
+            logger.info(`[反作弊系统] 反作弊系统已关闭，不进行封禁 userId: ${userId}`);
+            return false;
+        }
+
         const banDays = Math.floor(Math.random() * (180 - 7 + 1)) + 7;
         const banUntil = Date.now() + banDays * 24 * 60 * 60 * 1000;
         const banData = { userId, banUntil };
@@ -456,13 +567,45 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            // 仅在反作弊系统启用时进行封禁
+            if (isAntiCheatEnabled) {
+                await this.banPlayer(userId, e);
+                return;
+            } else {
+                // 反作弊系统关闭时，使用本地数据继续执行功能
+                logger.info(`[反作弊系统] 反作弊系统已关闭，检测到数据不一致但继续执行功能 userId: ${userId}`);
+                // 如果本地数据不存在，使用Redis数据
+                if (!userData && redisUserData) {
+                    userData = redisUserData;
+                    // 同步数据到本地
+                    await saveUserData(userId, userData);
+                } 
+                // 如果Redis数据不存在，使用本地数据
+                else if (userData && !redisUserData) {
+                    await redis.set(`user:${userId}`, JSON.stringify(userData));
+                }
+                // 如果两者都存在但不一致，优先使用本地数据
+                else if (userData && redisUserData) {
+                    await redis.set(`user:${userId}`, JSON.stringify(userData));
+                }
+                // 如果两者都不存在，无法继续
+                else {
+                    e.reply("未找到您的游戏数据，请使用 #开始模拟人生 创建角色");
+                    return;
+                }
+            }
         }
 
         // 读取头像文件夹
@@ -498,6 +641,49 @@ export class UserStart extends plugin {
         });
     }
 
+    // 添加辅助函数处理数据不一致
+    async handleDataInconsistency(userId, userData, redisUserData, e) {
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        
+        // 仅在反作弊系统启用时进行封禁
+        if (isAntiCheatEnabled) {
+            await this.banPlayer(userId, e);
+            return { shouldContinue: false, userData: null };
+        } else {
+            // 反作弊系统关闭时，使用本地数据继续执行功能
+            logger.info(`[反作弊系统] 反作弊系统已关闭，检测到数据不一致但继续执行功能 userId: ${userId}`);
+            
+            let finalUserData = null;
+            
+            // 如果本地数据不存在，使用Redis数据
+            if (!userData && redisUserData) {
+                finalUserData = redisUserData;
+                // 同步数据到本地
+                await saveUserData(userId, finalUserData);
+            } 
+            // 如果Redis数据不存在，使用本地数据
+            else if (userData && !redisUserData) {
+                finalUserData = userData;
+                await redis.set(`user:${userId}`, JSON.stringify(finalUserData));
+            }
+            // 如果两者都存在但不一致，优先使用本地数据
+            else if (userData && redisUserData) {
+                finalUserData = userData;
+                await redis.set(`user:${userId}`, JSON.stringify(finalUserData));
+            }
+            // 如果两者都不存在，无法继续
+            else {
+                if (e) {
+                    e.reply("未找到您的游戏数据，请使用 #开始模拟人生 创建角色");
+                }
+                return { shouldContinue: false, userData: null };
+            }
+            
+            return { shouldContinue: true, userData: finalUserData };
+        }
+    }
+
     async Set_avatar(e) {
         // 检查冷却
         const remainingTime = checkCooldown(e.user_id, 'mnrs', 'avatar');
@@ -510,13 +696,21 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 获取用户选择的头像
@@ -556,13 +750,21 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const newSignature = e.msg.replace('#模拟人生修改签名', '').trim();
@@ -622,13 +824,21 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 设置冷却
@@ -660,13 +870,21 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const potionName = e.msg.replace('#购买体力药水', '').trim();
@@ -713,13 +931,21 @@ export class UserStart extends plugin {
         const userData = await checkUserData(userId);
         const redisUserData = JSON.parse(await redis.get(`user:${userId}`));
         const banUntil = await redis.get(`ban:${userId}`);
+        
+        // 检查是否被封禁
         if (banUntil && Date.now() < parseInt(banUntil)) {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const potionName = e.msg.replace('#食用体力药水', '').trim();
@@ -741,6 +967,7 @@ export class UserStart extends plugin {
         const potion = userData.backpack[potionIndex];
         const oldStamina = userData.stamina;
         userData.stamina = Math.min(100, userData.stamina + potion.recovery);
+        const actualRecovery = userData.stamina - oldStamina;
         userData.backpack.splice(potionIndex, 1);
         await redis.set(`user:${userId}`, JSON.stringify(userData));
         await saveUserData(userId, userData);

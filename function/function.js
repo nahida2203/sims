@@ -7,6 +7,9 @@ const BAN_LIST_FILE_PATH = path.join(PLUGIN_PATH, 'data', 'ban_list.json');
 export const CHEF_COOP_PATH = './plugins/sims-plugin/data/chef_coop.json'
 export const CHEF_CONTEST_PATH = './plugins/sims-plugin/data/chef_contest.json'
 export const CHEF_MARKET_PATH = './plugins/sims-plugin/data/chef_market.json'
+// 存储反作弊系统状态的Redis键
+const ANTI_CHEAT_STATUS_KEY = 'sims:anti_cheat_status';
+
 const FILE_PATH = {
     config: path.join(PLUGIN_PATH, 'config','config.yaml'),
     player: path.join(PLUGIN_PATH, 'data','game'),
@@ -55,30 +58,46 @@ export function storageConfigrData(DATA) {
     fs.writeFileSync(FILE_PATH['config'], Yaml.stringify(DATA), 'utf8')
 }
 
-export async function saveBanData(banData) {
-        const banList = await loadBanList();
-        banList[banData.userId] = banData.banUntil; 
-        await saveBanList(banList); 
-        await redis.set(`ban:${banData.userId}`, banData.banUntil); 
-    }
-    export async function loadBanList() {
-        if (fs.existsSync(BAN_LIST_FILE_PATH)) {
-            const data = fs.readFileSync(BAN_LIST_FILE_PATH, 'utf-8');
-            return JSON.parse(data); // 解析为对象
-        }
-        return {}; // 如果文件不存在，返回空对象
-    }
-    export async function saveBanList(banList) {
-        fs.writeFileSync(BAN_LIST_FILE_PATH, JSON.stringify(banList)); // 写入文件
-    }
+// 检查反作弊系统是否启用
+export async function isAntiCheatEnabled() {
+    const status = await redis.get(ANTI_CHEAT_STATUS_KEY);
+    return status === 'enabled';
+}
 
-    export  function scheduleUnban(userId, banUntil) {
-        const timeout = banUntil - Date.now();
-        setTimeout(() => {
-            UnbanUser(userId); 
-        }, timeout);
+export async function saveBanData(banData) {
+    // 检查反作弊系统是否启用
+    const antiCheatEnabled = await isAntiCheatEnabled();
+    if (!antiCheatEnabled) {
+        logger.info(`[反作弊系统] 反作弊系统已关闭，不保存封禁数据 userId: ${banData.userId}`);
+        return false;
     }
-    //剧情读取
+    
+    const banList = await loadBanList();
+    banList[banData.userId] = banData.banUntil; 
+    await saveBanList(banList); 
+    await redis.set(`ban:${banData.userId}`, banData.banUntil);
+    return true;
+}
+
+export async function loadBanList() {
+    if (fs.existsSync(BAN_LIST_FILE_PATH)) {
+        const data = fs.readFileSync(BAN_LIST_FILE_PATH, 'utf-8');
+        return JSON.parse(data); // 解析为对象
+    }
+    return {}; // 如果文件不存在，返回空对象
+}
+
+export async function saveBanList(banList) {
+    fs.writeFileSync(BAN_LIST_FILE_PATH, JSON.stringify(banList)); // 写入文件
+}
+
+export  function scheduleUnban(userId, banUntil) {
+    const timeout = banUntil - Date.now();
+    setTimeout(() => {
+        UnbanUser(userId); 
+    }, timeout);
+}
+//剧情读取
 export async function loadStoryData(storyId) {
     const storyPath = path.join(FILE_PATH['story'], `${storyId}.json`);
     if (fs.existsSync(storyPath)) {
@@ -645,5 +664,22 @@ export function completeCoopDish(coopDishId, resultDish) {
     saveCoopData(coopData)
     
     return { success: true, coopDish }
+}
+
+// 检查用户是否被封禁，同时尊重反作弊系统的开关状态
+export async function checkUserBanned(userId) {
+    // 检查反作弊系统是否启用
+    const antiCheatEnabled = await isAntiCheatEnabled();
+    if (!antiCheatEnabled) {
+        return false; // 如果反作弊系统关闭，直接返回未封禁
+    }
+    
+    // 检查用户是否被封禁
+    const banUntil = await redis.get(`ban:${userId}`);
+    if (banUntil && Date.now() < parseInt(banUntil)) {
+        return true; // 用户被封禁且封禁时间未到
+    }
+    
+    return false; // 用户未被封禁或封禁已过期
 }
 

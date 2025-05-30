@@ -722,8 +722,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         if (!userData.firefighter || !userData.firefighter.isFirefighter) {
@@ -804,8 +808,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         if (!userData.firefighter || !userData.firefighter.isFirefighter) {
@@ -860,8 +868,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         
@@ -995,8 +1007,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否是消防员
@@ -1106,8 +1122,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否是消防员
@@ -1408,8 +1428,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         if (!userData.firefighter || !userData.firefighter.isFirefighter) {
@@ -1560,8 +1584,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         if (!userData.firefighter || !userData.firefighter.isFirefighter) {
@@ -1749,8 +1777,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否是消防员
@@ -1890,8 +1922,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         if (!userData.firefighter || !userData.firefighter.isFirefighter) {
@@ -1997,8 +2033,12 @@ export class 消防员模拟 extends plugin {
             return;
         }
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         if (!userData.firefighter || !userData.firefighter.isFirefighter) {
@@ -2287,15 +2327,69 @@ export class 消防员模拟 extends plugin {
         const userData = await checkUserData(userId);
         if (!userData) {return false;}
 
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        if (!isAntiCheatEnabled) {
+            logger.info(`[反作弊系统] 反作弊系统已关闭，不进行封禁 userId: ${userId}`);
+            return false;
+        }
+
         const banDays = Math.floor(Math.random() * (180 - 7 + 1)) + 7;
         const banUntil = Date.now() + banDays * 24 * 60 * 60 * 1000;
         const banData = { userId, banUntil };
         try {
             await saveBanData(banData);
-            e.reply(`用户${userId}因为游戏作弊已被封禁${banDays}天，封禁到${new Date(banUntil).toLocaleString()}，如属误封请联系机器人管理员或者等待自动解除。`);
+            if (e) {
+                e.reply(`用户${userId}因为游戏作弊已被封禁${banDays}天，封禁到${new Date(banUntil).toLocaleString()}，如属误封请联系机器人管理员或者等待自动解除。`);
+            }
         } catch (error) {
             console.error("保存封禁信息时出错:", error);
-            e.reply("封禁用户时发生错误，请管理员手动封禁该用户。");
+            if (e) {
+                e.reply("封禁用户时发生错误，请管理员手动封禁该用户。");
+            }
+        }
+    }
+
+    // 添加辅助函数处理数据不一致
+    async handleDataInconsistency(userId, userData, redisUserData, e) {
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        
+        // 仅在反作弊系统启用时进行封禁
+        if (isAntiCheatEnabled) {
+            await this.banPlayer(userId, e);
+            return { shouldContinue: false, userData: null };
+        } else {
+            // 反作弊系统关闭时，使用本地数据继续执行功能
+            logger.info(`[反作弊系统] 反作弊系统已关闭，检测到数据不一致但继续执行功能 userId: ${userId}`);
+            
+            let finalUserData = null;
+            
+            // 如果本地数据不存在，使用Redis数据
+            if (!userData && redisUserData) {
+                finalUserData = redisUserData;
+                // 同步数据到本地
+                await saveUserData(userId, finalUserData);
+            } 
+            // 如果Redis数据不存在，使用本地数据
+            else if (userData && !redisUserData) {
+                finalUserData = userData;
+                await redis.set(`user:${userId}`, JSON.stringify(finalUserData));
+            }
+            // 如果两者都存在但不一致，优先使用本地数据
+            else if (userData && redisUserData) {
+                finalUserData = userData;
+                await redis.set(`user:${userId}`, JSON.stringify(finalUserData));
+            }
+            // 如果两者都不存在，无法继续
+            else {
+                if (e) {
+                    e.reply("未找到您的游戏数据，请使用 #开始模拟人生 创建角色");
+                }
+                return { shouldContinue: false, userData: null };
+            }
+            
+            return { shouldContinue: true, userData: finalUserData };
         }
     }
 }

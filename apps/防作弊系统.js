@@ -8,6 +8,7 @@ import {
     saveBanList
 } from '../function/function.js';
 import Redis from 'ioredis';
+import { isAntiCheatEnabled } from './反作弊开关.js';
 
 const redis = new Redis();
 const PLUGIN_PATH = path.join(path.resolve(), 'plugins', 'sims-plugin');
@@ -34,6 +35,12 @@ export class UserStart extends plugin {
        
     }
     async BanUser(e) {
+        // 检查反作弊系统是否启用
+        const antiCheatEnabled = await isAntiCheatEnabled();
+        if (!antiCheatEnabled) {
+            return await e.reply('反作弊系统当前已关闭，无法执行封禁操作。');
+        }
+
         const userId = e.msg.match(/#封禁用户\s+([A-Fa-f0-9]+)/)[1];
         const banDays = Math.floor(Math.random() * (180 - 7 + 1)) + 7; 
         const banUntil = Date.now() + banDays * 24 * 60 * 60 * 1000; 

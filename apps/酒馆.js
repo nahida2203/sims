@@ -56,7 +56,49 @@ export class TavernSystem extends plugin {
         };
     }
 
-   
+    // 添加辅助函数处理数据不一致
+    async handleDataInconsistency(userId, userData, redisUserData, e) {
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        
+        // 仅在反作弊系统启用时进行封禁
+        if (isAntiCheatEnabled) {
+            await this.banPlayer(userId, e);
+            return { shouldContinue: false, userData: null };
+        } else {
+            // 反作弊系统关闭时，使用本地数据继续执行功能
+            logger.info(`[反作弊系统] 反作弊系统已关闭，检测到数据不一致但继续执行功能 userId: ${userId}`);
+            
+            let finalUserData = null;
+            
+            // 如果本地数据不存在，使用Redis数据
+            if (!userData && redisUserData) {
+                finalUserData = redisUserData;
+                // 同步数据到本地
+                await saveUserData(userId, finalUserData);
+            } 
+            // 如果Redis数据不存在，使用本地数据
+            else if (userData && !redisUserData) {
+                finalUserData = userData;
+                await redis.set(`user:${userId}`, JSON.stringify(finalUserData));
+            }
+            // 如果两者都存在但不一致，优先使用本地数据
+            else if (userData && redisUserData) {
+                finalUserData = userData;
+                await redis.set(`user:${userId}`, JSON.stringify(finalUserData));
+            }
+            // 如果两者都不存在，无法继续
+            else {
+                if (e) {
+                    e.reply("未找到您的游戏数据，请使用 #开始模拟人生 创建角色");
+                }
+                return { shouldContinue: false, userData: null };
+            }
+            
+            return { shouldContinue: true, userData: finalUserData };
+        }
+    }
+
     async showTavernInfo(e) {
         const remainingTime = checkCooldown(e.user_id, 'tavern', 'info');
         if (remainingTime > 0) {
@@ -121,9 +163,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否已有酒馆
@@ -216,9 +264,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -274,9 +328,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -332,9 +392,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -387,9 +453,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -488,9 +560,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -598,9 +676,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -678,9 +762,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -931,9 +1021,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -1017,9 +1113,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -1079,9 +1181,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -1196,9 +1304,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 检查用户是否有酒馆
@@ -1626,6 +1740,13 @@ export class TavernSystem extends plugin {
     }
 
     async banPlayer(userId, e) {
+        // 检查反作弊系统是否启用
+        const isAntiCheatEnabled = await redis.get('sims:anti_cheat_status') === 'enabled';
+        if (!isAntiCheatEnabled) {
+            logger.info(`[反作弊系统] 反作弊系统已关闭，不进行封禁 userId: ${userId}`);
+            return false;
+        }
+        
         const banTime = 24 * 60 * 60 * 1000; // 24小时
         const banUntil = Date.now() + banTime;
         await redis.set(`ban:${userId}`, banUntil);
@@ -1655,9 +1776,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         // 获取所有玩家数据
@@ -1747,9 +1874,15 @@ export class TavernSystem extends plugin {
             e.reply("你已被封禁，无法进行操作。");
             return;
         }
+        
+        // 数据不一致检查
         if (!userData || !redisUserData || JSON.stringify(userData) !== JSON.stringify(redisUserData)) {
-            await this.banPlayer(userId, e);
-            return;
+            const result = await this.handleDataInconsistency(userId, userData, redisUserData, e);
+            if (!result.shouldContinue) {
+                return;
+            }
+            // 使用处理后的数据
+            userData = result.userData;
         }
 
         const targetUserId = e.msg.replace('#参观酒馆', '').trim();

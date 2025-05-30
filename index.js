@@ -1,4 +1,6 @@
 import fs from 'node:fs'
+import Redis from 'ioredis'
+
 if (!global.segment) {
   global.segment = (await import("oicq")).segment
 }
@@ -7,6 +9,19 @@ if (!global.core) {
   try {
     global.core = (await import("oicq")).core
   } catch (err) {}
+}
+
+// 初始化Redis连接
+const redis = new Redis();
+
+// 初始化反作弊系统状态，如果不存在则默认为开启
+const ANTI_CHEAT_STATUS_KEY = 'sims:anti_cheat_status';
+const status = await redis.get(ANTI_CHEAT_STATUS_KEY);
+if (status === null) {
+  await redis.set(ANTI_CHEAT_STATUS_KEY, 'enabled');
+  logger.info('[反作弊系统] 初始化反作弊系统状态为：已开启');
+} else {
+  logger.info(`[反作弊系统] 当前反作弊系统状态为：${status === 'enabled' ? '已开启' : '已关闭'}`);
 }
 
 let ret = []
