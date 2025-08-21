@@ -717,29 +717,40 @@ export class UserStart extends plugin {
         }
 
         // 获取用户选择的头像
-        const avatarName = e.msg.replace('#设置模拟人生头像', '').trim();
-        if (!avatarName) {
-            e.reply("请指定要设置的头像名称，例如：#设置模拟人生头像 default.jpg");
-            return;
-        }
+                const input = e.msg.replace(/^#设置模拟人生头像\s*/, '').trim();
+                if (!input) {
+                    e.reply("请指定头像编号或名称，例如：#设置模拟人生头像 1 或 #设置模拟人生头像 default");
+                    return;
+                }
+        
+                // 允许输入纯数字编号、default 或完整文件名，如果未带扩展名默认按jpg
+                let avatarFile = input;
+                if (/^\d+$/.test(input)) {
+                    avatarFile = `${input}.jpg`;
+                } else if (/^[A-Za-z]+$/.test(input) && input.toLowerCase() === 'default') {
+                    avatarFile = 'default.jpg';
+                } else if (!/\.(jpg|jpeg|png|webp)$/i.test(input)) {
+                    avatarFile = `${input}.jpg`;
+                }
+        
+                // 检查头像文件是否存在
+                const avatarPath = `${_path}/plugins/sims-plugin/resources/HTML/tx/${avatarFile}`;
+                if (!fs.existsSync(avatarPath)) {
+                    e.reply(`头像 ${input} 不存在，请使用 #模拟人生查看头像馆 查看可用的头像。`);
+                    return;
+                }
+        
+                // 更新用户头像
+                userData.avatar = avatarFile;
+         await redis.set(`user:${userId}`, JSON.stringify(userData));
+         await saveUserData(userId, userData);
 
-        // 检查头像文件是否存在
-        const avatarPath = `${_path}/plugins/sims-plugin/resources/HTML/tx/${avatarName}`;
-        if (!fs.existsSync(avatarPath)) {
-            e.reply(`头像 ${avatarName} 不存在，请使用 #模拟人生查看头像馆 查看可用的头像。`);
-            return;
-        }
+         // 设置冷却
+         setCooldown(e.user_id, 'mnrs', 'avatar');
 
-        // 更新用户头像
-        userData.avatar = avatarName;
-        await redis.set(`user:${userId}`, JSON.stringify(userData));
-        await saveUserData(userId, userData);
 
-        // 设置冷却
-        setCooldown(e.user_id, 'mnrs', 'avatar');
-
-        e.reply(`你的头像已更新为：${avatarName}`);
-    }
+        e.reply(`你的头像已更新为：${avatarFile}`);
+     }
 
     async Change_signature(e) {
         // 检查冷却

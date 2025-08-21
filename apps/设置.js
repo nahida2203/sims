@@ -75,8 +75,9 @@ export class SimsSettings extends plugin {
         time: new Date().toLocaleString()
       }
       
-      const html = await puppeteer.render('plugins/sims-plugin/resources/html/settings.html', data)
-      e.reply(segment.image(html))
+    image(e, 'settings', { 
+           data
+        });
     } catch (err) {
       logger.error(err)
       e.reply(`渲染设置界面出错: ${err.message}`)
@@ -256,4 +257,16 @@ export class SimsSettings extends plugin {
 
     e.reply(helpText)
   }
-} 
+}
+async function image(e, flie, obj) {
+    let data = {
+      quality: 100,
+      tplFile: `./plugins/sims-plugin/resources/HTML/${flie}.html`,
+      ...obj,
+    }
+    let img = await puppeteer.screenshot('sims-plugin', {
+      ...data,
+    })
+   
+    e.reply([img])
+  }
